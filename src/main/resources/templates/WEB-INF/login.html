@@ -5,6 +5,21 @@
     <title>Title</title>
 </head>
 <body>
-
+<div class="container">
+    <h1>Login</h1>
+    <form th:action="@{/login}"
+          th:object="${loginform}" method="POST">
+        <p>Email:
+            <input type="text" th:field="*{email}" />
+        </p>
+        <p>Password:
+            <input type="text" th:field="*{password}" />
+        </p>
+        <input class ="button-main-page" type="submit" value="Login" />
+    </form>
+</div>
+<!--<div th:if="${errorMessage}" th:utext="${errorMessage}"-->
+<!--     style="color:red;font-style:italic;">-->
+</div>
 </body>
 </html>
