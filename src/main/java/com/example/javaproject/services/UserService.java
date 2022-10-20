@@ -6,6 +6,8 @@ import com.example.javaproject.services.interfaces.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService implements IUserService {
 
@@ -19,6 +21,15 @@ public class UserService implements IUserService {
 
     @Override
     public User findByEmailAndPassword(String email, String password) {
-        return userRepository.findByEmailAndPassword(email, password);
+        User user = findByEmail(email);
+        if (user.getPassword() == password) {
+            return user;
+        }
+        return null;
+    }
+
+    @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 }

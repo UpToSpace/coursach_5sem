@@ -1,25 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <script type="text/javascript"  src="../static/js/login.js" th:src="@{../js/login.js}"> </script>
+    <title>Document</title>
 </head>
 <body>
+<h1>login</h1>
 <div class="container">
-    <h1>Login</h1>
-    <form th:action="@{/login}"
-          th:object="${loginform}" method="POST">
-        <p>Email:
-            <input type="text" th:field="*{email}" />
+    <form>
+        <p>email:
+            <input type="text" id="email" />
         </p>
-        <p>Password:
-            <input type="text" th:field="*{password}" />
+        <p> password:
+            <input type="text" id="password" />
         </p>
-        <input class ="button-main-page" type="submit" value="Login" />
+        <button onclick="login()"></button>
     </form>
-</div>
-<!--<div th:if="${errorMessage}" th:utext="${errorMessage}"-->
-<!--     style="color:red;font-style:italic;">-->
 </div>
 </body>
 </html>

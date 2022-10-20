@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,7 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-<h1> main page </h1>
-<a href="/login">login</a>
+<h1>users</h1>
+<div th:each="user : ${users}">
+    <a th:href="@{/users/{email}{email=${user.getEmail()}}}" th:text="${user.getEmail()}">user</a>
+</div>
 </body>
 </html>
