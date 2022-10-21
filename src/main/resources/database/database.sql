@@ -9,7 +9,7 @@ drop table collection_pictures;
 
 ----------create tables---------------
 
-create table roles (
+create table userroles (
     id number(10) GENERATED AS IDENTITY
         (START WITH 1 INCREMENT BY 1),
     name varchar2(50),
@@ -22,7 +22,7 @@ create table users (
     password varchar2(255) not null,
     role_id number(10),
     CONSTRAINT users_pk PRIMARY KEY (email),
-    constraint role_fk foreign key (role_id) references roles(id)
+    constraint role_fk foreign key (role_id) references userroles(id)
 );
 
 -------------------------
@@ -77,12 +77,12 @@ create table collection_pictures (
 
 ----------insert values---------------
 ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
-insert into roles(name) values ('admin');
-insert into roles(name) values ('user');
+insert into userroles(name) values ('admin');
+insert into userroles(name) values ('user');
 
 insert into users(email, username, password, role_id) values ('Valerie143@mail.ru', 'admin1', '1111', 1);
 
 SELECT * FROM user_tables where TABLE_NAME = 'USERS';
 
 SELECT * FROM users where email='Valerie143@mail.ru' and password = '1111';
-
+select * from userroles;

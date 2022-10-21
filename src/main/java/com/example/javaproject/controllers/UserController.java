@@ -3,6 +3,7 @@ package com.example.javaproject.controllers;
 
 import com.example.javaproject.forms.LoginForm;
 import com.example.javaproject.forms.RegistrationForm;
+import com.example.javaproject.models.Role;
 import com.example.javaproject.models.Student;
 import com.example.javaproject.models.User;
 import com.example.javaproject.services.UserService;
@@ -45,16 +46,16 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/users")
-    public String usersPage(Model model) {
-        model.addAttribute("users", userService.findAll());
-        return "/users";
-    }
+//    @GetMapping("/users")
+//    public String usersPage(Model model) {
+//        model.addAttribute("users", userService.findAll());
+//        return "/users";
+//    }
 
     @GetMapping("/login")
     public ModelAndView loginPage(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("login");
+       modelAndView.setViewName("login");
 //        String name = request.getParameter("name");
 //        String surname = request.getParameter("surname");
 //        System.out.println("name " + name + " surname " + surname);
@@ -62,14 +63,15 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ModelAndView loginUser () {
+    public ModelAndView loginUser (LoginForm loginForm) {
         ModelAndView modelAndView = new ModelAndView();
-//        String email = loginForm.getEmail();@RequestBody LoginForm loginForm
+//        String email = loginForm.getEmail();
 //        String password = loginForm.getPassword();
-//        User user = userService.findByEmailAndPassword(email, password);
+//        User user = userService.findByEmailAndPassword(email, password);@RequestBody
 
         User user = userService.findByEmailAndPassword("Valerie143@mail.ru", "1111");
-        System.out.println(user.toString());
+        //System.out.println(userService.findAll().stream().findFirst());
+        //User user = new User("email", "test", "test", new Role());
         if (user != null) {
             //authorized
             modelAndView.setViewName("/index");
@@ -78,29 +80,30 @@ public class UserController {
         }
             //logger.error("User " + email + " not exists");
             //wrong email/password
+        System.out.println("user not exists");
         return modelAndView;
     }
 
-    @GetMapping(value = {"/registration"})
-    ModelAndView registrationPage() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("registration");
-        return modelAndView;
-    }
-
-    @PostMapping(value = {"/registration"})
-    ModelAndView registerUser (RegistrationForm registrationForm) {
-        ModelAndView modelAndView = new ModelAndView();
-        String email = registrationForm.getEmail();
-        String password = registrationForm.getPassword();
-        String username = registrationForm.getUsername();
-        User user = userService.findByEmail(email);
-        if (user == null) {
-            //sending email
-            logger.info("User registered:\n " + user.toString());
-        } else {
-            //error
-        }
-        return modelAndView;
-    }
+//    @GetMapping(value = {"/registration"})
+//    ModelAndView registrationPage() {
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("registration");
+//        return modelAndView;
+//    }
+//
+//    @PostMapping(value = {"/registration"})
+//    ModelAndView registerUser (RegistrationForm registrationForm) {
+//        ModelAndView modelAndView = new ModelAndView();
+//        String email = registrationForm.getEmail();
+//        String password = registrationForm.getPassword();
+//        String username = registrationForm.getUsername();
+//        User user = userService.findByEmail(email);
+//        if (user == null) {
+//            //sending email
+//            logger.info("User registered:\n " + user.toString());
+//        } else {
+//            //error
+//        }
+//        return modelAndView;
+//    }
 }

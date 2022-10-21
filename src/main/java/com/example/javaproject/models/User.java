@@ -1,6 +1,8 @@
 package com.example.javaproject.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
@@ -10,6 +12,8 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "users")
 public class User {
 
@@ -38,8 +42,8 @@ public class User {
     public String toString() {
         return "--User-- \nUsername: "
                 + this.username
-                + "\nEmail:" + this.email
-                + "\nPassword" + this.password
-                + "\nRole" + this.role;
+                + "\nEmail: " + this.email
+                + "\nPassword: " + this.password
+                + "\nRole: " + this.role;
     }
 }

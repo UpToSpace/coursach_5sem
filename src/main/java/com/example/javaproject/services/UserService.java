@@ -22,7 +22,7 @@ public class UserService implements IUserService {
     @Override
     public User findByEmailAndPassword(String email, String password) {
         User user = findByEmail(email);
-        if (user.getPassword() == password) {
+        if (user.getPassword().equals(password)) {
             return user;
         }
         return null;
