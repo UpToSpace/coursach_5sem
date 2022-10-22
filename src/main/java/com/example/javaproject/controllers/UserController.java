@@ -46,11 +46,10 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-//    @GetMapping("/users")
-//    public String usersPage(Model model) {
-//        model.addAttribute("users", userService.findAll());
-//        return "/users";
-//    }
+    @GetMapping("/users")
+    public List<User> usersPage(Model model) {
+        return userService.findAll();
+    }
 
     @GetMapping("/login")
     public ModelAndView loginPage(HttpServletRequest request) {
@@ -63,24 +62,23 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ModelAndView loginUser (LoginForm loginForm) {
+    public ModelAndView loginUser (@RequestBody LoginForm loginForm) {
         ModelAndView modelAndView = new ModelAndView();
-//        String email = loginForm.getEmail();
-//        String password = loginForm.getPassword();
-//        User user = userService.findByEmailAndPassword(email, password);@RequestBody
+        String email = loginForm.getEmail();
+        String password = loginForm.getPassword();
+        User user = userService.findByEmailAndPassword(email, password);
 
-        User user = userService.findByEmailAndPassword("Valerie143@mail.ru", "1111");
+        //User user = userService.findByEmailAndPassword("Valerie143@mail.ru", "1111");
         //System.out.println(userService.findAll().stream().findFirst());
-        //User user = new User("email", "test", "test", new Role());
         if (user != null) {
             //authorized
             modelAndView.setViewName("/index");
             logger.info("User logged in:\n " + user.toString());
             return modelAndView;
         }
-            //logger.error("User " + email + " not exists");
+            logger.error("User " + email + " not exists");
             //wrong email/password
-        System.out.println("user not exists");
+        logger.info("user not exists");
         return modelAndView;
     }
 
