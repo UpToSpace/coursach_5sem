@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script type="text/javascript" src="../static/js/registration.js" th:src="@{../js/registration.js}"></script>
     <title>Title</title>
 </head>
 <body>
 <h1>registration</h1>
+<div class="container">
+    <form>
+        <p>email:
+            <input type="text" id="email" />
+        </p>
+        <p> username:
+            <input type="text" id="username" />
+        </p>
+        <p> password:
+            <input type="text" id="password" />
+        </p>
+        <button onclick="register()"></button>
+    </form>
+</div>
 </body>
 </html>

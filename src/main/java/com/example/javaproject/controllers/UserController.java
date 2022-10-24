@@ -2,22 +2,20 @@ package com.example.javaproject.controllers;
 
 
 import com.example.javaproject.forms.LoginForm;
-import com.example.javaproject.forms.RegistrationForm;
-import com.example.javaproject.models.Role;
-import com.example.javaproject.models.Student;
+import com.example.javaproject.models.Picture;
 import com.example.javaproject.models.User;
 import com.example.javaproject.services.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,29 +24,30 @@ import java.util.List;
 public class UserController {
     Logger logger = LoggerFactory.getLogger(UserController.class);
 
-//    ------- FOR PICTURES ---------
-//    private static final List<Student> students = Arrays.asList(
-//            new Student(1, "James Bond"),
-//        new Student(2, "Maria Jones"),
-//        new Student(3, "Anna Smith")
-//);
-//    @GetMapping(path = "/students/{studentId}")
-//    public Student getStudent(@PathVariable("studentId") Integer studentId) {
-//        return students.stream()
+//    ------- PICTURES ---------
+
+//    @GetMapping(path = "/pictures/{pictureId}")
+//    public Picture getPicture(@PathVariable("pictureId") Integer pictureId) {
+//        return pictures.stream()
 //                .filter(student -> studentId.equals(student.getStudentId()))
 //                .findFirst()
 //                .orElseThrow(() -> new IllegalStateException("Student "+studentId+" not found."));
 //    }
 
 
-//    --------------------------
+//    -------------LOGIN + REGISTRATION-------------
+
+    private final UserService userService;
 
     @Autowired
-    private UserService userService;
+    @Lazy
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/users")
     public List<User> usersPage(Model model) {
-        return userService.findAll();
+        return userService.findAllUsers();
     }
 
     @GetMapping("/login")
