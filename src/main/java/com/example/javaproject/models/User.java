@@ -36,11 +36,12 @@ public class User {
     @Size(min = 3, max = 20, message = "Username should be 3-20 characters long")
     private String password;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
 
-    private Status status;
+//    @Transient
+//    private Status status;
 
     @Override
     public String toString() {
@@ -48,11 +49,7 @@ public class User {
                 + this.username
                 + "\nEmail: " + this.email
                 + "\nPassword: " + this.password
-                + "\nStatus: " + this.status
+                //+ "\nStatus: " + this.status
                 + "\nRole: " + this.role;
-    }
-
-    public Date getUpdated() {
-        return null;
     }
 }

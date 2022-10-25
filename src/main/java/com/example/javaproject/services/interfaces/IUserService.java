@@ -8,8 +8,7 @@ import java.util.List;
 
 @Service
 public interface IUserService {
-    User findByEmail(String email);
-    User findByEmailAndPassword(String email, String password);
-    List<User> findAllUsers();
-    User register(User user);
+    User getUser(String email);
+    List<User> getAllUsers();
+    User saveUser(User user);
 }

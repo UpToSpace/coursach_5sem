@@ -22,8 +22,8 @@ public class Role {
     @Column(name = "name")
     private String roleName;
 
-    @OneToMany(mappedBy = "role")
-    private Set<User> userModels;
+//    @OneToMany(mappedBy = "role") recursion
+//    private Set<User> userModels;
 
     @Override
     public String toString() {
