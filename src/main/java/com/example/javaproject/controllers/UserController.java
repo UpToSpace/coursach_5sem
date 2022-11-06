@@ -6,6 +6,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.example.javaproject.forms.LoginForm;
+import com.example.javaproject.forms.RegistrationForm;
 import com.example.javaproject.models.Picture;
 import com.example.javaproject.models.User;
 import com.example.javaproject.services.UserService;
@@ -61,36 +62,36 @@ public class UserController {
         return ResponseEntity.ok().body(userService.getAllUsers());
     }
 
-//    @GetMapping("/login")
-//    public ModelAndView loginPage(HttpServletRequest request) {
-//        ModelAndView modelAndView = new ModelAndView();
-//       modelAndView.setViewName("login");
-////        String name = request.getParameter("name");
-////        String surname = request.getParameter("surname");
-////        System.out.println("name " + name + " surname " + surname);
-//        return modelAndView;
-//    }
-//
-//    @PostMapping("/login")
-//    public ModelAndView loginUser () {
-//        ModelAndView modelAndView = new ModelAndView();
-//        //String email = loginForm.getEmail();
-//        //String password = loginForm.getPassword();
-//        //User user = userService.findByEmailAndPassword(email, password);
-//
-//        //User user = userService.findByEmailAndPassword("Valerie143@mail.ru", "1111");
-//        System.out.println(userService.getAllUsers().stream().findFirst());
-////        if (user != null) {
-////            //authorized
-////            modelAndView.setViewName("/index");@RequestBody LoginForm loginForm
-////            logger.info("User logged in:\n " + user.toString());
-////            return modelAndView;
-////        }
-////            logger.error("User " + email + " not exists");
-////            //wrong email/password
-////        logger.info("user not exists");
-//        return modelAndView;
-//    }
+    @GetMapping("/login")
+    public ModelAndView loginPage(HttpServletRequest request) {
+        ModelAndView modelAndView = new ModelAndView();
+       modelAndView.setViewName("login");
+//        String name = request.getParameter("name");
+//        String surname = request.getParameter("surname");
+//        System.out.println("name " + name + " surname " + surname);
+        return modelAndView;
+    }
+
+    @PostMapping("/login")
+    public ModelAndView loginUser () {
+        ModelAndView modelAndView = new ModelAndView();
+        //String email = loginForm.getEmail();
+        //String password = loginForm.getPassword();
+        //User user = userService.findByEmailAndPassword(email, password);
+
+        //User user = userService.findByEmailAndPassword("Valerie143@mail.ru", "1111");
+        System.out.println(userService.getAllUsers().stream().findFirst());
+//        if (user != null) {
+//            //authorized
+//            modelAndView.setViewName("/index");@RequestBody LoginForm loginForm
+//            logger.info("User logged in:\n " + user.toString());
+//            return modelAndView;
+//        }
+//            logger.error("User " + email + " not exists");
+//            //wrong email/password
+//        logger.info("user not exists");
+        return modelAndView;
+    }
 
 //    @GetMapping(value = {"/registration"})
 //    ModelAndView registrationPage() {
@@ -114,6 +115,7 @@ public class UserController {
 //        }
 //        return modelAndView;
 //    }
+
 @GetMapping("/token/refresh")
 public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
     String authorizationHeader = request.getHeader(AUTHORIZATION);
