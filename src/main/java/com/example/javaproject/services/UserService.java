@@ -78,7 +78,7 @@ public class UserService implements IUserService, UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(email);
         if (user == null) {
-            log.error("ee");
+            log.error("userService: user doesnt exist");
             throw new UsernameNotFoundException("e");
         }
         Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();

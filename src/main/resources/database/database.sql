@@ -84,8 +84,63 @@ insert into users(email, username, password, role_id) values ('Valerie143@mail.r
 
 SELECT * FROM user_tables where TABLE_NAME = 'USERS';
 
-SELECT * FROM users where email='Valerie143@mail.ru' and password = '1111';
+SELECT * FROM users where email='Valerie143@mail.ru';
 
-delete from users where email='Valerie143@mail.ru' and password = '1111';
+delete from users where email='Valerie143@mail.ru';
 
 select * from userroles;
+
+--------procedures---------------------
+
+ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
+SELECT * FROM user_procedures where upper(procedure_name) like upper('%register_user%'); 
+select * from user_objects where object_name like upper('%register_user%');
+
+-- registration
+create or replace procedure register_user
+(user_email users.email%type,
+username users.username%type,
+user_password users.password%type)
+is
+user_count number;
+begin
+select count(*) into user_count from users where upper(user_email) = upper(email);
+if (user_count = 0) then
+insert into users(email, username, password, role_id) values (user_email, username, user_password, 2);
+commit;
+else
+raise_application_error(-20001, 'user already exists');
+end if;
+end register_user;
+
+--login
+create or replace procedure log_in_user
+(user_email in users.email%type,
+user_password in users.password%type,
+o_user_email out users.email%type,
+o_username out users.username%type)
+is 
+cursor user_cursor is select email, username from users
+where upper(user_email) = upper(users.email) and upper(user_password) = upper(users.password);
+begin
+open user_cursor;
+fetch user_cursor into o_user_email, o_username;
+if user_cursor%notfound then
+raise_application_error(-20000, 'user doesnt exist');
+end if;
+close user_cursor;
+end log_in_user; 
+
+----search pictures
+create or replace procedure search_picture
+(
+
+
+
+
+
+
+
+
+
+
