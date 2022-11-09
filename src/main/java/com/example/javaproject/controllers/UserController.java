@@ -5,17 +5,22 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.example.javaproject.dto.AuthResponse;
 import com.example.javaproject.forms.LoginForm;
 import com.example.javaproject.forms.RegistrationForm;
+import com.example.javaproject.models.Role;
 import com.example.javaproject.models.User;
 import com.example.javaproject.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import oracle.jdbc.OracleTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,6 +32,8 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.*;
 
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
@@ -44,6 +51,7 @@ public class UserController {
     Connection connection = DriverManager.getConnection(DBURL, DBUser, DBPassword);
     Logger logger = LoggerFactory.getLogger(UserController.class);
 
+    private final PasswordEncoder passwordEncoder;
 //    ------- PICTURES ---------
 
 //    @GetMapping(path = "/pictures/{pictureId}")
@@ -60,12 +68,20 @@ public class UserController {
     private final UserService userService;
 
     @Autowired
-    public UserController(UserService userService) throws SQLException {
+    public UserController(PasswordEncoder passwordEncoder, UserService userService) throws SQLException {
+        this.passwordEncoder = passwordEncoder;
         this.userService = userService;
     }
 
+    @GetMapping("/admin")
+    public ModelAndView adminPage(HttpServletRequest request) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("admin");
+        return modelAndView;
+    }
+
     @GetMapping("/admin/users")
-    public ResponseEntity<List<User>> usersPage(Model model) {
+    public ResponseEntity<List<User>> allUsersPage(HttpServletRequest request) {
         return ResponseEntity.ok().body(userService.getAllUsers());
     }
 
@@ -80,21 +96,37 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ModelAndView loginUser (@RequestBody LoginForm loginForm) {
-        ModelAndView modelAndView = new ModelAndView();
+    public ResponseEntity<?> loginUser (@RequestBody LoginForm loginForm) {
         String email = loginForm.getEmail();
         String password = loginForm.getPassword();
+        User user = null;
 
         try {
-            CallableStatement cs = connection.prepareCall("{call log_in_user(?, ?)}");
+            CallableStatement cs = connection.prepareCall("{call log_in_user(?, ?, ?, ?, ?)}");
             cs.setString(1, email);
             cs.setString(2, password);
+            cs.registerOutParameter(3, OracleTypes.VARCHAR);
+            cs.registerOutParameter(4, OracleTypes.NUMBER);
+            cs.registerOutParameter(5, OracleTypes.VARCHAR);
             cs.executeQuery();
+            //if (passwordEncoder.matches(password, cs.getString()))
+            user = new User(email, cs.getString(3), password, new Role(cs.getInt(4), cs.getString(5)));
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        modelAndView.setViewName("/index");
-        return modelAndView;
+
+        Algorithm algorithm = Algorithm.HMAC256("javathebest".getBytes()); //in another filter and userservice the same word
+        String access_token = JWT.create()
+                .withSubject(user.getEmail())
+                .withExpiresAt(Date.from(LocalDate.now().plusDays(30).atStartOfDay(ZoneId.systemDefault()).toInstant()))
+                .withClaim("role", user.getRole().getRoleName())
+                .sign(algorithm);
+
+        AuthResponse response = new AuthResponse(access_token, user.getRole());
+        //response.setHeader("access_token", access_token);
+        //response.setHeader("refresh_token", refresh_token);
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping(value = {"/registration"})
@@ -108,8 +140,9 @@ public class UserController {
     ModelAndView registerUser (@RequestBody RegistrationForm registrationForm) {
         ModelAndView modelAndView = new ModelAndView();
         String email = registrationForm.getEmail();
-        String password = registrationForm.getPassword();
         String username = registrationForm.getUsername();
+        String password = registrationForm.getPassword();
+        //String password = passwordEncoder.encode(registrationForm.getPassword());
 
         try {
         CallableStatement cs = connection.prepareCall("{call register_user(?, ?, ?)}");

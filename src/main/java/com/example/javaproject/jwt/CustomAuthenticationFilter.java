@@ -48,15 +48,9 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-        com.example.javaproject.models.User user = null;
-        try {
-            user = new Gson().fromJson(request.getReader(), com.example.javaproject.models.User.class);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-        log.info("User email: " + user.getEmail());
-        log.info("User password: " + user.getPassword());
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword());
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(email, password);
         return authenticationManager.authenticate(authenticationToken);
     }
 

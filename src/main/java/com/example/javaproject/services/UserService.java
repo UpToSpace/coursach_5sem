@@ -69,7 +69,7 @@ public class UserService implements IUserService, UserDetailsService {
 
     @Override
     public User saveUser(User user) { //registaration
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        //user.setPassword(passwordEncoder.encode(user.getPassword()));
         System.out.println("saveuser pass: " + user.getPassword());
         return userRepository.save(user);
     }

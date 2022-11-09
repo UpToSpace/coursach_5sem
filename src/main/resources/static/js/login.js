@@ -16,9 +16,10 @@ async function login() {
     let result = await logUser(data);
     if (result.ok) {
         let body = await result.text();
-        // let info = JSON.parse(body);
-        // localStorage.setItem('token', info['token']);
-        // window.location.replace(window.location.origin);
+        let info = JSON.parse(body);
+        localStorage.setItem('token', info['token']);
+        //alert('token ' + info['token']);
+        window.location.replace(window.location.origin);
     } else {
         mes.innerHTML = 'Error occured';
     }
