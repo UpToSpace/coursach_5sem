@@ -1,9 +1,7 @@
 package com.example.javaproject.config;
 
-import com.example.javaproject.jwt.CustomAuthenticationFilter;
 import com.example.javaproject.jwt.CustomAuthorizationFilter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,7 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static final String[] ADMIN_ENDPOINT = {"/admin/*", "/admin"};
+    private static final String[] ADMIN_ENDPOINT = {"/admin/*"};
     private static final String[] PERMITALL_ENDPOINT = {"/login", "/", "/registration", "/token/refresh/**", "/js/**"};
 
     private final UserDetailsService userDetailsService;

@@ -19,7 +19,7 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class UserService implements IUserService, UserDetailsService {
+public class UserService implements IUserService {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
@@ -58,8 +58,8 @@ public class UserService implements IUserService, UserDetailsService {
 //    }
 
     @Override
-    public User getUser(String email) {
-        return userRepository.findByEmail(email);
+    public User getUser(String email, String password) {
+        return userRepository.findByEmail(email, password);
     }
 
     @Override
@@ -68,21 +68,26 @@ public class UserService implements IUserService, UserDetailsService {
     }
 
     @Override
-    public User saveUser(User user) { //registaration
-        //user.setPassword(passwordEncoder.encode(user.getPassword()));
-        System.out.println("saveuser pass: " + user.getPassword());
-        return userRepository.save(user);
+    public void registerUser(String email, String username, String password) {
+        userRepository.registerUser(email, username, password );
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(email);
-        if (user == null) {
-            log.error("userService: user doesnt exist");
-            throw new UsernameNotFoundException("e");
-        }
-        Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(user.getRole().getRoleName()));
-        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), authorities);
-    }
+//    @Override
+//    public User saveUser(User user) { //registaration
+//        //user.setPassword(passwordEncoder.encode(user.getPassword()));
+//        System.out.println("saveuser pass: " + user.getPassword());
+//        return userRepository.save(user);
+//    }
+
+//    @Override
+//    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+//        User user = userRepository.findByEmail(email);
+//        if (user == null) {
+//            log.error("userService: user doesnt exist");
+//            throw new UsernameNotFoundException("e");
+//        }
+//        Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
+//        authorities.add(new SimpleGrantedAuthority(user.getRole().getRoleName()));
+//        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), authorities);
+//    }
 }
