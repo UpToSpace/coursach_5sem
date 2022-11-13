@@ -39,8 +39,6 @@ end if;
 close user_cursor;
 end log_in_user;
 
-    -----------------------------
-
 ---- delete user
 create or replace procedure delete_user
 (i_email in users.email%type)
@@ -55,7 +53,7 @@ raise_application_error(-20005, 'user doesnt exist');
 end if;
 end delete_user;
 
----- update user
+---- update user not created
 create or replace procedure update_user
 (i_email in users.email%type,
 i_username in users.username%type,
@@ -125,6 +123,9 @@ else
         raise_application_error(-20004, 'picture already exists');
 end if;
 end add_picture;
+
+
+-----------------------------
 
 
 --delete category

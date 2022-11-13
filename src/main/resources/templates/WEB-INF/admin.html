@@ -9,9 +9,46 @@
     <title>Document</title>
 </head>
 <body>
-<a href="addPicture.html">new picture</a>
-<a href="addAuthor.html">new author</a>
-<a href="addCategory.html">new category</a>
-<a href="users.html">users list</a>
+<p>new picture</p>
+<div class="container">
+    <p>name:
+        <input type="text" id="pictureName" />
+    </p>
+    <p> author name:
+        <input type="text" id="pictureAuthorName" />
+    </p>
+    <p> category name:
+        <input type="text" id="pictureCategoryName" />
+    </p>
+    <p> year:
+        <input type="text" id="pictureYear" />
+    </p>
+    <p> info:
+        <input type="text" id="pictureInfo" />
+    </p>
+    <button onclick="addPicture()">add picture</button>
+</div>
+<p>new author</p>
+<div class="container">
+    <p>name:
+        <input type="text" id="authorName" />
+    </p>
+    <p> info:
+        <input type="text" id="authorInfo" />
+    </p>
+    <button onclick="addAuthor()">add author</button>
+</div>
+<p>new category</p>
+<div class="container">
+    <p>name:
+        <input type="text" id="categoryName" />
+    </p>
+    <p> info:
+        <input type="text" id="categoryInfo" />
+    </p>
+    <button onclick="addCategory()">add category</button>
+</div>
+<button onclick="getUsersList()">get users list</button>
+<table id="usersTable"></table>
 </body>
 </html>

@@ -1,6 +1,5 @@
 package com.example.javaproject.repository;
 
-import com.example.javaproject.controllers.UserController;
 import com.example.javaproject.models.Role;
 import com.example.javaproject.models.User;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +15,7 @@ import java.util.List;
 @Slf4j
 @Repository
 public class UserRepository {
-    Logger logger = LoggerFactory.getLogger(UserController.class);
+    Logger logger = LoggerFactory.getLogger(UserRepository.class);
     private String DBURL;
     private String DBUser;
     private String DBPassword;
@@ -51,7 +50,7 @@ public class UserRepository {
         return user;
     }
 
-    public List<User> findAll() {
+    public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
         String query = "select * from user_userrole_view";
         try(Statement statement = connection.createStatement())
@@ -78,5 +77,16 @@ public class UserRepository {
             logger.error("SQL error register user: " + e.getMessage());;
         }
         logger.info("user " + email + " registered successfully");
+    }
+
+    public void deleteUser(String email) {
+        try {
+            CallableStatement cs = connection.prepareCall("{call delete_user(?)}");
+            cs.setString(1, email);
+            cs.executeQuery();
+        } catch (SQLException e) {
+            logger.error("SQL error delete user: " + e.getMessage());;
+        }
+        logger.info("user " + email + " deleted successfully");
     }
 }

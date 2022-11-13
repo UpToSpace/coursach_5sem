@@ -7,11 +7,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Picture {
+public class Author {
     private Integer id;
     private String name;
-    private Author author;
-    private Category category;
-    private Integer year;
     private String info;
 }

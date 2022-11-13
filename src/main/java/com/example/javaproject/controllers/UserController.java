@@ -26,20 +26,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.*;
-
-import static org.springframework.http.HttpHeaders.AUTHORIZATION;
-import static org.springframework.http.HttpStatus.FORBIDDEN;
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @Slf4j
@@ -48,18 +37,8 @@ public class UserController {
     Logger logger = LoggerFactory.getLogger(UserController.class);
 
     private final PasswordEncoder passwordEncoder;
-//    ------- PICTURES ---------
 
-//    @GetMapping(path = "/pictures/{pictureId}")
-//    public Picture getPicture(@PathVariable("pictureId") Integer pictureId) {
-//        return pictures.stream()
-//                .filter(student -> studentId.equals(student.getStudentId()))
-//                .findFirst()
-//                .orElseThrow(() -> new IllegalStateException("Student "+studentId+" not found."));
-//    }
-
-
-//    -------------LOGIN + REGISTRATION-------------
+    //    -------------LOGIN + REGISTRATION-------------
 
     private final UserService userService;
 
@@ -76,6 +55,7 @@ public class UserController {
 
     @DeleteMapping("/admin/users/delete/{email}")
     public ResponseEntity<?> deleteUser(@PathVariable(value = "email") String email) {
+        userService.deleteUser(email);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

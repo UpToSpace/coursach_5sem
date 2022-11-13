@@ -13,7 +13,10 @@ delete from users where email='Valerie143@mail.ru';
 
 select * from userroles;
 
-
+select * from authors;
+select * from categories;
+select * from pictures;
+select * from userroles;
 
 
 

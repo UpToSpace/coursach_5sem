@@ -1,20 +1,13 @@
 package com.example.javaproject.services;
 
 import com.example.javaproject.models.User;
-import com.example.javaproject.repository.RoleRepository;
 import com.example.javaproject.repository.UserRepository;
 import com.example.javaproject.services.interfaces.IUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Slf4j
@@ -22,13 +15,11 @@ import java.util.List;
 public class UserService implements IUserService {
 
     private final UserRepository userRepository;
-    private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserService(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -64,12 +55,17 @@ public class UserService implements IUserService {
 
     @Override
     public List<User> getAllUsers() {
-        return userRepository.findAll();
+        return userRepository.getAllUsers();
     }
 
     @Override
     public void registerUser(String email, String username, String password) {
         userRepository.registerUser(email, username, password );
+    }
+
+    @Override
+    public void deleteUser(String email) {
+        userRepository.deleteUser(email);
     }
 
 //    @Override

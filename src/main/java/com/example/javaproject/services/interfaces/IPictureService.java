@@ -8,5 +8,7 @@ import java.util.List;
 public interface IPictureService {
     Picture getPicture(Integer id);
     List<Picture> getAllPictures();
-    Picture savePicture(Picture picture);
+    void addAuthor(String name, String info);
+    void addCategory(String name, String info);
+    void addPicture(String name, String authorName, String categoryName, Integer year, String info);
 }
