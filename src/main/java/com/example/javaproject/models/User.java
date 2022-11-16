@@ -12,36 +12,25 @@ import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "users")
 public class User {
 
-    @Id
-    @Column
-    @NotEmpty(message = "Fill field username, please")
-    @Size(min = 3, max = 20, message = "Username should be 3-20 characters long")
-    @Email(message = "")
+//    @NotEmpty(message = "Fill field username, please")
+//    @Size(min = 3, max = 20, message = "Username should be 3-20 characters long")
+//    @Email(message = "")
     private String email;
 
-    @Column
-    @NotEmpty(message = "Fill field username, please")
-    @Size(min = 3, max = 20, message = "Username should be 3-20 characters long")
+//    @NotEmpty(message = "Fill field username, please")
+//    @Size(min = 3, max = 20, message = "Username should be 3-20 characters long")
     private String username;
-
-    @Column
-    @NotEmpty(message = "Fill field username, please")
-    @Size(min = 3, max = 20, message = "Username should be 3-20 characters long")
+//
+//    @NotEmpty(message = "Fill field username, please")
+//    @Size(min = 3, max = 20, message = "Username should be 3-20 characters long")
     private String password;
 
-    @ManyToOne
-    @JoinColumn(name = "role_id")
     private Role role;
-
-//    @Transient
-//    private Status status;
 
     @Override
     public String toString() {

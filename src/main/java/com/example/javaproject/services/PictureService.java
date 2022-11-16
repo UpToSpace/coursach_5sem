@@ -1,5 +1,7 @@
 package com.example.javaproject.services;
 
+import com.example.javaproject.models.Author;
+import com.example.javaproject.models.Category;
 import com.example.javaproject.models.Picture;
 import com.example.javaproject.repository.PictureRepository;
 import com.example.javaproject.services.interfaces.IPictureService;
@@ -29,6 +31,16 @@ public class PictureService implements IPictureService {
     }
 
     @Override
+    public List<Author> getAllAuthors() {
+        return pictureRepository.getAllAuthors();
+    }
+
+    @Override
+    public List<Category> getAllCategories() {
+        return pictureRepository.getAllCategories();
+    }
+
+    @Override
     public void addAuthor(String name, String info) {
         pictureRepository.addAuthor(name, info);
     }
@@ -41,5 +53,10 @@ public class PictureService implements IPictureService {
     @Override
     public void addPicture(String name, String authorName, String categoryName, Integer year, String info) {
         pictureRepository.addPicture(name, authorName, categoryName, year, info);
+    }
+
+    @Override
+    public void deletePicture(Integer id) {
+        pictureRepository.deletePicture(id);
     }
 }

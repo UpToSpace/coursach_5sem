@@ -25,4 +25,24 @@ public class BasicController {
         return "/admin";
     }
 
+    @GetMapping("/pictures")
+    public String picturesPage() {
+        return "/pictures";
+    }
+
+    @GetMapping("/authors")
+    public String authorsPage() {
+        return "/authors";
+    }
+
+    @GetMapping("/categories")
+    public String categoriesPage() {
+        return "/categories";
+    }
+
+    @GetMapping("/profile")
+    public String profilePage() {
+        return "/profile";
+    }
+
 }

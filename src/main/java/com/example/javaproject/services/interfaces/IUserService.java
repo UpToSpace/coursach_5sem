@@ -11,5 +11,7 @@ public interface IUserService {
     User getUser(String email, String password);
     List<User> getAllUsers();
     void registerUser(String email, String username, String password);
+    User getUser(String email);
+    void updateUser(String email, String username, String password);
     void deleteUser(String email);
 }

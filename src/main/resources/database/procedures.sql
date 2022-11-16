@@ -2,7 +2,8 @@
 
 ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
 SELECT * FROM user_procedures where upper(procedure_name) like upper('%register_user%');
-select * from user_objects where object_name like upper('%register_user%');
+select * from user_objects where object_name like upper('%add%');
+
 
 -- registration
 create or replace procedure register_user
@@ -20,6 +21,7 @@ else
 raise_application_error(-20001, 'user already exists');
 end if;
 end register_user;
+
 
 --login
 create or replace procedure log_in_user
@@ -53,7 +55,8 @@ raise_application_error(-20005, 'user doesnt exist');
 end if;
 end delete_user;
 
----- update user not created
+
+---- update user
 create or replace procedure update_user
 (i_email in users.email%type,
 i_username in users.username%type,
@@ -64,10 +67,12 @@ begin
     select count(*) into user_count from users where upper(i_email) = upper(users.EMAIL);
     if (user_count = 1) then
         update users set users.USERNAME = i_username, users.PASSWORD = i_password where upper(i_email) = upper(users.email);
+        commit;
     else
         raise_application_error(-20006, 'cannot update user because it doesnt exist');
         end if;
 end update_user;
+
 
 ----add author
 create or replace procedure add_author
@@ -85,6 +90,7 @@ else
 end if;
 end add_author;
 
+
 ----add category
 create or replace procedure add_category
 (i_name in categories.name%type,
@@ -100,6 +106,7 @@ else
         raise_application_error(-20003, 'category already exists');
 end if;
 end add_category;
+
 
 --add picture
 create or replace procedure add_picture
@@ -143,6 +150,7 @@ begin
     end if;
 end delete_category;
 
+
 --delete author
 create or replace procedure delete_author
 (i_name in authors.name%type)
@@ -158,21 +166,58 @@ begin
     end if;
 end delete_author;
 
+
 --delete picture
 create or replace procedure delete_picture
-(i_name in pictures.name%type,
- i_author_name in authors.name%type)
+(i_id in pictures.id%type)
     is
     picture_count number;
-    author_id authors.id%type;
 begin
-    select authors.id into author_id from authors where upper(i_author_name) = upper(authors.name);
-    select count(*) into picture_count from pictures where upper(pictures.name) = upper(i_name)
-                                                       and pictures.author_id = author_id;
+    select count(*) into picture_count from pictures where PICTURES.ID = i_id;
     if (picture_count = 1) then
-        delete pictures where upper(pictures.name) = upper(i_name) and pictures.author_id = author_id;
+        delete pictures where PICTURES.ID = i_id;
     else
         raise_application_error(-20009, 'cannot delete, picture doesnt exist');
     end if;
 end delete_picture;
+
 -------------------
+
+
+---search pictures by name
+
+--- add collection
+create or replace procedure add_collection
+(i_name in COLLECTIONS.name%type,
+ i_email in USERS.EMAIL%type)
+    is
+    collection_count number;
+begin
+    select count(*) into collection_count from collections where upper(collections.name) = upper(i_name);
+    if(collection_count = 0) then
+        insert into collections(name, email) values (i_name, i_email);
+        commit;
+    else
+        raise_application_error(-20010, 'collection already exists');
+    end if;
+end add_collection;
+
+-- delete collection
+create or replace procedure delete_collection
+(i_id in collections.id%type)
+    is
+    collection_count number;
+begin
+    select count(*) into collection_count from collections where COLLECTIONS.ID = i_id;
+    if(collection_count = 1) then
+        delete collections where COLLECTIONS.ID = i_id;
+        commit;
+    else
+        raise_application_error(-20011, 'cannot delete, author doesnt exist');
+    end if;
+end delete_collection;
+
+--- add pictures to user's collection
+
+--- delete pictures from user's collection
+--- 

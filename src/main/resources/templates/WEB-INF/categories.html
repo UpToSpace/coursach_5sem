@@ -5,15 +5,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="../static/js/categories.js" th:src="@{../js/categories.js}"></script>
     <title>Document</title>
 </head>
 <body>
-<h1> main page </h1>
-<a href="/">home</a>
-<a href="/pictures">pictures</a>
-<a href="/categories">categories</a>
-<a href="/authors">authors</a>
-<a href="/collections">collections</a>
-<a href="/login">login</a>
+<table id="categoriesTable"></table>
+<script>getCategoriesList()</script>
 </body>
 </html>

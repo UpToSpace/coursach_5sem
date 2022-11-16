@@ -24,13 +24,13 @@ public class UserService implements IUserService {
     }
 
 //    @Override
-//    public User findByEmail(String email) {
-//        return userRepository.findByEmail(email);
+//    public User loginUser(String email) {
+//        return userRepository.loginUser(email);
 //    }
 //
 //    @Override
 //    public User findByEmailAndPassword(String email, String password) {
-//        User user = findByEmail(email);
+//        User user = loginUser(email);
 //        if (user.getPassword().equals(password)) {
 //            return user;
 //        }
@@ -50,7 +50,7 @@ public class UserService implements IUserService {
 
     @Override
     public User getUser(String email, String password) {
-        return userRepository.findByEmail(email, password);
+        return userRepository.loginUser(email, password);
     }
 
     @Override
@@ -61,6 +61,16 @@ public class UserService implements IUserService {
     @Override
     public void registerUser(String email, String username, String password) {
         userRepository.registerUser(email, username, password );
+    }
+
+    @Override
+    public User getUser(String email) {
+        return userRepository.getUser(email);
+    }
+
+    @Override
+    public void updateUser(String email, String username, String password) {
+        userRepository.updateUser(email, username, password);
     }
 
     @Override
@@ -77,7 +87,7 @@ public class UserService implements IUserService {
 
 //    @Override
 //    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-//        User user = userRepository.findByEmail(email);
+//        User user = userRepository.loginUser(email);
 //        if (user == null) {
 //            log.error("userService: user doesnt exist");
 //            throw new UsernameNotFoundException("e");

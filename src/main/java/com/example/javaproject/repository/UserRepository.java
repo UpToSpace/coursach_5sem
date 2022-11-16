@@ -32,7 +32,7 @@ public class UserRepository {
         }
     }
 
-    public User findByEmail(String email, String password) {
+    public User loginUser(String email, String password) {
         User user = null;
         try {
             CallableStatement cs = connection.prepareCall("{call log_in_user(?, ?, ?, ?, ?)}");
@@ -79,6 +79,35 @@ public class UserRepository {
         logger.info("user " + email + " registered successfully");
     }
 
+    public User getUser(String email) {
+        String query = "select * from full_user_userrole_view where upper(email) = upper('" + email + "')";
+        User user = null;
+        try
+        {
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            while (rs.next()) {
+                user = new User(rs.getString(1), rs.getString(2), rs.getString(3), new Role(0, rs.getString(4)));
+            }
+        } catch (SQLException e) {
+            logger.error("SQL error full_user_userrole_view: " + e.getMessage());
+        }
+        return user;
+    }
+
+    public void updateUser(String email, String username, String password) {
+        try {
+            CallableStatement cs = connection.prepareCall("{call update_user(?, ?, ?)}");
+            cs.setString(1, email);
+            cs.setString(2, username);
+            cs.setString(3, password);
+            cs.executeQuery();
+        } catch (SQLException e) {
+            logger.error("SQL error update user: " + e.getMessage());;
+        }
+        logger.info("user " + email + " updated successfully");
+    }
+
     public void deleteUser(String email) {
         try {
             CallableStatement cs = connection.prepareCall("{call delete_user(?)}");
@@ -89,4 +118,6 @@ public class UserRepository {
         }
         logger.info("user " + email + " deleted successfully");
     }
+
+
 }

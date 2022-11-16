@@ -19,7 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static final String[] ADMIN_ENDPOINT = {"/admin/*"};
+    private static final String[] ADMIN_ENDPOINT = {"/admin/*", "/user/*"};
     private static final String[] PERMITALL_ENDPOINT = {"/login", "/", "/registration", "/token/refresh/**", "/js/**"};
 
 //    private final UserDetailsService userDetailsService;

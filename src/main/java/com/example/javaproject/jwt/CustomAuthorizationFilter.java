@@ -27,7 +27,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public class CustomAuthorizationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        if(request.getServletPath().equals("/login") || request.getServletPath().equals("/token/refresh")) {
+        if(request.getServletPath().equals("/login") || request.getServletPath().equals("/registration")) {
             filterChain.doFilter(request, response);
         } else {
             String authorizationHeader = request.getHeader(AUTHORIZATION);
@@ -45,14 +45,14 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                     filterChain.doFilter(request, response);
                 } catch (Exception e) {
-                    log.error("Error logging in: {}", e.getMessage());
-                    response.setHeader("error", e.getMessage());
-                    response.setStatus(FORBIDDEN.value());
-//                    response.sendError(FORBIDDEN.value());
-                    Map<String, String> errors = new HashMap<>();
-                    errors.put("error_message", e.getMessage());
-                    response.setContentType(APPLICATION_JSON_VALUE);
-                    new ObjectMapper().writeValue(response.getOutputStream(), errors);
+//                    log.error("Error logging in: {}", e.getMessage());
+//                    response.setHeader("error", e.getMessage());
+//                    response.setStatus(FORBIDDEN.value());
+////                    response.sendError(FORBIDDEN.value());
+//                    Map<String, String> errors = new HashMap<>();
+//                    errors.put("error_message", e.getMessage());
+//                    response.setContentType(APPLICATION_JSON_VALUE);
+//                    new ObjectMapper().writeValue(response.getOutputStream(), errors);
                 }
             } else {
                 filterChain.doFilter(request, response);

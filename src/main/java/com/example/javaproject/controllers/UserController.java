@@ -1,33 +1,21 @@
 package com.example.javaproject.controllers;
 
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.JWTVerifier;
-import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.interfaces.DecodedJWT;
 import com.example.javaproject.dto.AuthResponse;
 import com.example.javaproject.forms.LoginForm;
 import com.example.javaproject.forms.RegistrationForm;
-import com.example.javaproject.models.Picture;
-import com.example.javaproject.models.Role;
+import com.example.javaproject.jwt.JWTProvider;
 import com.example.javaproject.models.User;
 import com.example.javaproject.services.UserService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
-import oracle.jdbc.OracleTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.*;
 
 @RestController
@@ -37,14 +25,16 @@ public class UserController {
     Logger logger = LoggerFactory.getLogger(UserController.class);
 
     private final PasswordEncoder passwordEncoder;
+    private final JWTProvider jwtProvider;
 
     //    -------------LOGIN + REGISTRATION-------------
 
     private final UserService userService;
 
     @Autowired
-    public UserController(PasswordEncoder passwordEncoder, UserService userService) {
+    public UserController(PasswordEncoder passwordEncoder, JWTProvider jwtProvider, UserService userService) {
         this.passwordEncoder = passwordEncoder;
+        this.jwtProvider = jwtProvider;
         this.userService = userService;
     }
 
@@ -66,29 +56,40 @@ public class UserController {
 
         User user = userService.getUser(email, password);
 
-        Algorithm algorithm = Algorithm.HMAC256("javathebest".getBytes()); //in another filter and userservice the same word
-        String access_token = JWT.create()
-                .withSubject(user.getEmail())
-                .withExpiresAt(Date.from(LocalDate.now().plusDays(30).atStartOfDay(ZoneId.systemDefault()).toInstant()))
-                .withClaim("role", user.getRole().getRoleName())
-                .sign(algorithm);
+        String accessToken = jwtProvider.generateToken(user);
 
-        AuthResponse response = new AuthResponse(access_token, user.getRole());
+        AuthResponse response = new AuthResponse(accessToken, user.getRole());
         //response.setHeader("access_token", access_token);
         //response.setHeader("refresh_token", refresh_token);
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @PostMapping(value = {"/registration"})
-    ModelAndView registerUser (@RequestBody RegistrationForm registrationForm) {
-        ModelAndView modelAndView = new ModelAndView();
+    @PostMapping("/registration")
+    ResponseEntity registerUser (@RequestBody RegistrationForm registrationForm) {
         String email = registrationForm.getEmail();
         String username = registrationForm.getUsername();
         String password = registrationForm.getPassword();
         //String password = passwordEncoder.encode(registrationForm.getPassword());
         userService.registerUser(email, username, password);
-        return modelAndView;
+        return ResponseEntity.ok().body(HttpStatus.OK);
+    }
+
+    @GetMapping("/user/profile")
+    ResponseEntity<List<User>> getUser(@RequestHeader(name = "Authorization") String header) {
+        String token = header.substring("Bearer ".length());
+        String email = jwtProvider.getEmailFromToken(token);
+        User user = userService.getUser(email);
+        return ResponseEntity.ok().body(Collections.singletonList(user));
+    }
+
+    @PostMapping("/user/updateprofile")
+    ResponseEntity updateUser(@RequestBody RegistrationForm registrationForm,
+                              @RequestHeader(name = "Authorization") String header) {
+        String token = header.substring("Bearer ".length());
+        String email = jwtProvider.getEmailFromToken(token);
+        userService.updateUser(email, registrationForm.getUsername(), registrationForm.getPassword());
+        return ResponseEntity.ok().body(HttpStatus.OK);
     }
 
 //@GetMapping("/token/refresh")

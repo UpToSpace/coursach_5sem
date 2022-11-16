@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../static/js/profile.js" th:src="@{../js/profile.js}"></script>
+    <title>Title</title>
+</head>
+<body>
+<h1>profile</h1>
+<p id="role"></p>
+<div id="profile_info">
+    <p> email: </p> <p id="email"></p>
+    <p> username: </p> <p id="username"></p>
+    <p> password: </p> <p id="password"></p>
+</div>
+
+<!--<form>-->
+    <p> username:
+        <input type="text" id="newUsername" />
+    </p>
+    <p> password:
+        <input type="text" id="newPassword" />
+    </p>
+    <button onclick="updateUser()">update me</button>
+<!--</form>-->
+
+<script>getUserInfo()</script>
+</body>
+</html>

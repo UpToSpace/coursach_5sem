@@ -1,4 +1,5 @@
 ----------drop tables-----------------
+SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME like '%pictures%';
 drop table userroles;
 drop table users;
 drop table authors;
@@ -36,8 +37,8 @@ create table authors (
 );
 
 create table categories (
-                            id number(10) GENERATED AS IDENTITY
-                                (START WITH 1 INCREMENT BY 1),
+                            id number(10) GENERATED ALWAYS AS IDENTITY
+                                 (START WITH 1 INCREMENT BY 1 NOCYCLE) ,
                             name varchar2(100),
                             info varchar2(2000),
                             CONSTRAINT categories_pk PRIMARY KEY (id)

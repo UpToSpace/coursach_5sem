@@ -1,0 +1,13 @@
+@font-face {
+    font-family: Playfair Display;
+    src: url("./../fonts/PlayfairDisplay-Bold.ttf");
+}
+
+* {
+    background: #080706;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-family: "Playfair Display";
+}
