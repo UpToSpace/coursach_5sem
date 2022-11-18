@@ -51,8 +51,8 @@ public class PictureService implements IPictureService {
     }
 
     @Override
-    public void addPicture(String name, String authorName, String categoryName, Integer year, String info) {
-        pictureRepository.addPicture(name, authorName, categoryName, year, info);
+    public void addPicture(String name, String authorName, String categoryName, Integer year, String info, String picturePath) {
+        pictureRepository.addPicture(name, authorName, categoryName, year, info, picturePath);
     }
 
     @Override

@@ -14,4 +14,5 @@ public class Picture {
     private Category category;
     private Integer year;
     private String info;
+    private byte[] pictureBytes;
 }

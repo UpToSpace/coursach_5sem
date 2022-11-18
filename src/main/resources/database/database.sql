@@ -19,13 +19,12 @@ select * from users;
 select * from authors;
 select * from categories;
 select * from pictures;
-select * from userroles;
 
 select * from full_user_userrole_view where upper(email) = upper('Valerie143@mail.ru');
 select * from full_user_userrole_view where upper(email) = upper('bbb');
 
-insert into AUTHORS(name, info) values ('auth name', 'auth info');
-insert into CATEGORIES(name, info) values ('nameee', 'infoooo');
+insert into AUTHORS(name, info) values ('a', 'auth info');
+insert into CATEGORIES(name, info) values ('c', 'infoooo');
 
 
 

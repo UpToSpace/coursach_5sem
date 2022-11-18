@@ -114,7 +114,8 @@ create or replace procedure add_picture
 i_author_name in authors.name%type,
 i_category_name in categories.name%type,
 i_year in pictures.year%type,
-i_info in pictures.info%type)
+i_info in pictures.info%type,
+i_picture in pictures.picture%type)
 is
 picture_count number;
 author_id authors.id%type;
@@ -125,7 +126,8 @@ select categories.id into category_id from categories where upper(i_category_nam
 select count(*) into picture_count from pictures where upper(pictures.name) = upper(i_name)
                                                    and pictures.author_id = author_id;
 if (picture_count = 0) then
-        insert into pictures(name, author_id, category_id, year, info) values (i_name, author_id, category_id, i_year, i_info);
+        insert into pictures(name, author_id, category_id, year, info, PICTURE) values (i_name, author_id, category_id, i_year, i_info, i_picture);
+        commit;
 else
         raise_application_error(-20004, 'picture already exists');
 end if;

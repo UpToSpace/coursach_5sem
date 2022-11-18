@@ -51,7 +51,9 @@ async function getPicturesList() {
             data.forEach(e => {
                 str += `<tr> <td>${e.name}</td><td>${e.author.name}</td><td>${e.category.name}</td><td>${e.year}</td><td>${e.info}</td>
 <td><button class="delete_button" onclick="deletePicture(${e.id})" style="visibility: visible">delete</button></td>
-<td><button class="add_button" onclick="addPictureToCollection(${e.id})">add to my collection</button></td></tr>`
+<td><button class="add_button" onclick="addPictureToCollection(${e.id})">add to my collection</button></td>
+<td><img src="data:image/png;base64,${e.picturePath}"></td></tr>`
+
             })
             table.innerHTML = str;
         })

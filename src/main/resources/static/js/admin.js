@@ -87,13 +87,16 @@ async function addPicture() {
     let pictureCategoryName = document.getElementById("pictureCategoryName").value;
     let pictureYear = document.getElementById("pictureYear").value;
     let pictureInfo = document.getElementById("pictureInfo").value;
+    let picturePicture =
+        "D:\\University\\javaproject\\src\\main\\resources\\static\\images\\" + document.getElementById("picturePicture").value.split('\\')[2];
+    console.log(picturePicture)
     await fetch("/admin/addpicture", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({name: pictureName, authorName: pictureAuthorName, categoryName: pictureCategoryName, year: pictureYear, info: pictureInfo})
+        body: JSON.stringify({name: pictureName, authorName: pictureAuthorName, categoryName: pictureCategoryName, year: pictureYear, info: pictureInfo, picturePath: picturePicture})
     })
         .then(res => res.status === 200 ? alert("picture added successfully") : alert("smth went wrong"))
 }

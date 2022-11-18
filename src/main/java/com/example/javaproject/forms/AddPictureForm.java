@@ -13,4 +13,5 @@ public class AddPictureForm {
     private String categoryName;
     private Integer year;
     private String info;
+    private String picturePath;
 }

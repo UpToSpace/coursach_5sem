@@ -14,6 +14,6 @@ public interface IPictureService {
     List<Category> getAllCategories();
     void addAuthor(String name, String info);
     void addCategory(String name, String info);
-    void addPicture(String name, String authorName, String categoryName, Integer year, String info);
+    void addPicture(String name, String authorName, String categoryName, Integer year, String info, String picturePath);
     void deletePicture(Integer id);
 }

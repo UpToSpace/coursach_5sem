@@ -7,6 +7,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,17 +58,24 @@ public class PictureRepository {
         }
     }
 
-    public void addPicture(String name, String authorName, String categoryName, Integer year, String info) {
+    public void addPicture(String name, String authorName, String categoryName, Integer year, String info, String picturePath) {
         try {
-            CallableStatement cs = connection.prepareCall("{call add_picture(?, ?, ?, ?, ?)}");
+            CallableStatement cs = connection.prepareCall("{call add_picture(?, ?, ?, ?, ?, ?)}");
             cs.setString(1, name);
             cs.setString(2, authorName);
             cs.setString(3, categoryName);
             cs.setInt(4, year);
             cs.setString(5, info);
+            FileInputStream fileInputStream = new FileInputStream(picturePath);
+            cs.setBinaryStream(6, fileInputStream, fileInputStream.available());
             cs.executeQuery();
+            cs.close();
         } catch (SQLException e) {
             logger.error(e.getMessage());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -75,11 +86,20 @@ public class PictureRepository {
         {
             ResultSet rs = statement.executeQuery(query);
             while (rs.next()) {
+                Blob blob = rs.getBlob(7);
+                byte pictureBytes[] = blob.getBytes(1, (int)blob.length());
+                String dirPath = "D:\\University\\javaproject\\src\\main\\resources\\static\\images\\";
+                FileOutputStream fileOutputStream = new FileOutputStream(dirPath + rs.getInt(5) + ".jpg");
+                fileOutputStream.write(pictureBytes);
                 pictures.add(new Picture(rs.getInt(5), rs.getString(1), new Author(0, rs.getString(3), null),
-                        new Category(0, rs.getString(4), null), rs.getInt(6), rs.getString(2)));
+                        new Category(0, rs.getString(4), null), rs.getInt(6), rs.getString(2), dirPath + rs.getInt(5) + ".jpg"));
             }
         } catch (SQLException e) {
             logger.error("SQL error picture_view: " + e.getMessage());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         return pictures;

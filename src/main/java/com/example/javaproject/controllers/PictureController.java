@@ -48,7 +48,7 @@ public class PictureController {
     @PostMapping("/admin/addpicture")
     public ResponseEntity addPicture(@RequestBody AddPictureForm addPictureForm) {
         pictureService.addPicture(addPictureForm.getName(), addPictureForm.getAuthorName(),
-                addPictureForm.getCategoryName(), addPictureForm.getYear(), addPictureForm.getInfo());
+                addPictureForm.getCategoryName(), addPictureForm.getYear(), addPictureForm.getInfo(), addPictureForm.getPicturePath());
         return ResponseEntity.ok().body(HttpStatus.OK);
     }
 

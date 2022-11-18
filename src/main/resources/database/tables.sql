@@ -1,18 +1,18 @@
 ----------drop tables-----------------
 SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME like '%pictures%';
-drop table userroles;
-drop table users;
-drop table authors;
-drop table categories;
-drop table pictures;
-drop table collections;
-drop table collection_pictures;
-
+drop table userroles cascade constraints;
+drop table users cascade constraints;
+drop table authors cascade constraints;
+drop table categories cascade constraints;
+drop table pictures cascade constraints;
+drop table collections cascade constraints;
+drop table collection_pictures cascade constraints;
+commit;
 ----------create tables---------------
 
 create table userroles (
                            id number(10) GENERATED AS IDENTITY
-                               (START WITH 1 INCREMENT BY 1),
+                               (START WITH 1 INCREMENT BY 1 NOCYCLE ORDER),
                            name varchar2(50),
                            CONSTRAINT roles_pk PRIMARY KEY (id)
 );
@@ -30,7 +30,7 @@ create table users (
 
 create table authors (
                          id number(10) GENERATED AS IDENTITY
-                             (START WITH 1 INCREMENT BY 1),
+                             (START WITH 1 INCREMENT BY 1 NOCYCLE ORDER),
                          name varchar2(100),
                          info varchar2(2000),
                          CONSTRAINT authors_pk PRIMARY KEY (id)
@@ -38,7 +38,7 @@ create table authors (
 
 create table categories (
                             id number(10) GENERATED ALWAYS AS IDENTITY
-                                 (START WITH 1 INCREMENT BY 1 NOCYCLE) ,
+                                 (START WITH 1 INCREMENT BY 1 NOCYCLE ORDER) ,
                             name varchar2(100),
                             info varchar2(2000),
                             CONSTRAINT categories_pk PRIMARY KEY (id)
@@ -46,12 +46,13 @@ create table categories (
 
 create table pictures (
                           id number(10) GENERATED AS IDENTITY
-                              (START WITH 1 INCREMENT BY 1),
+                              (START WITH 1 INCREMENT BY 1 NOCYCLE ORDER),
                           name varchar2(255),
                           author_id number(10),
                           category_id number(10),
                           year number(10),
                           info varchar2(3000),
+                          picture blob,
                           CONSTRAINT pictures_pk PRIMARY KEY (id),
                           constraint author_fk foreign key (id) references authors(id),
                           constraint category_fk foreign key (id) references categories(id)
@@ -61,7 +62,7 @@ create table pictures (
 
 create table collections (
                              id number(10) GENERATED AS IDENTITY
-                                 (START WITH 1 INCREMENT BY 1),
+                                 (START WITH 1 INCREMENT BY 1 NOCYCLE ORDER),
                              name varchar2(255),
                              email varchar2(255),
                              CONSTRAINT collections_pk PRIMARY KEY (id),
@@ -70,7 +71,7 @@ create table collections (
 
 create table collection_pictures (
                                      id number(10) GENERATED AS IDENTITY
-                                         (START WITH 1 INCREMENT BY 1),
+                                         (START WITH 1 INCREMENT BY 1 NOCYCLE ORDER),
                                       collection_id number(10),
                                      picture_id number(10),
                                      CONSTRAINT collection_pictures_pk PRIMARY KEY (id),
