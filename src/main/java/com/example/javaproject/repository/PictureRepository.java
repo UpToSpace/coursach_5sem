@@ -35,6 +35,28 @@ public class PictureRepository {
         }
     }
 
+    public List<Picture> findPictures(String name) {
+        List<Picture> pictures = new ArrayList<>();
+        try {
+            CallableStatement cs = connection.prepareCall("{? = call search_picture(?)}");
+            cs.setString(2, name);
+            cs.registerOutParameter(1, Types.REF_CURSOR);
+            cs.executeQuery();
+            ResultSet rs = cs.getObject(1, ResultSet.class);
+            while(rs.next()) {
+                Blob blob = rs.getBlob(7);
+                byte pictureBytes[] = blob.getBytes(1, (int)blob.length());
+                pictures.add(new Picture(rs.getInt(5), rs.getString(1), new Author(0, rs.getString(3), null),
+                        new Category(0, rs.getString(4), null), rs.getInt(6), rs.getString(2), pictureBytes));
+                System.out.println(rs.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            logger.error(e.getMessage());
+        }
+        return pictures;
+    }
+
     public void addAuthor(String name, String info) {
         try {
             CallableStatement cs = connection.prepareCall("{call add_author(?, ?)}");
@@ -88,19 +110,11 @@ public class PictureRepository {
             while (rs.next()) {
                 Blob blob = rs.getBlob(7);
                 byte pictureBytes[] = blob.getBytes(1, (int)blob.length());
-                String dirPath = "D:\\University\\javaproject\\src\\main\\resources\\static\\images\\";
-                FileOutputStream fileOutputStream = new FileOutputStream(dirPath + rs.getInt(5) + ".jpg");
-                fileOutputStream.write(pictureBytes);
                 pictures.add(new Picture(rs.getInt(5), rs.getString(1), new Author(0, rs.getString(3), null),
-                        new Category(0, rs.getString(4), null), rs.getInt(6), rs.getString(2), dirPath + rs.getInt(5) + ".jpg"));
+                        new Category(0, rs.getString(4), null), rs.getInt(6), rs.getString(2), pictureBytes));
             }
         } catch (SQLException e) {
-            logger.error("SQL error picture_view: " + e.getMessage());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            logger.error("SQL error picture_view: " + e.getMessage());}
 
         return pictures;
     }
@@ -146,5 +160,16 @@ public class PictureRepository {
             logger.error("SQL error delete picture: " + e.getMessage());;
         }
         logger.info("picture " + id + " deleted successfully");
+    }
+
+    public void addPictureToCollection(Integer pictureId, String email) {
+        try {
+            CallableStatement cs = connection.prepareCall("{call add_picture_to_collection(?, ?)}");
+            cs.setInt(1, pictureId);
+            cs.setString(2, email);
+            cs.executeQuery();
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+        }
     }
 }

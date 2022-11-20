@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface IPictureService {
     Picture getPicture(Integer id);
+    List<Picture> findPictures(String name);
     List<Picture> getAllPictures();
     List<Author> getAllAuthors();
     List<Category> getAllCategories();
@@ -16,4 +17,5 @@ public interface IPictureService {
     void addCategory(String name, String info);
     void addPicture(String name, String authorName, String categoryName, Integer year, String info, String picturePath);
     void deletePicture(Integer id);
+    void addPictureToCollection(Integer pictureId, String email);
 }

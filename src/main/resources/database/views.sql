@@ -7,9 +7,9 @@ create view user_userrole_view as
 select users.email, users.username, userroles.name
 from users left join userroles on USERS.ROLE_ID = USERROLES.ID;
 
-----user and role for user (with password) not created
+----user and role for user (with password)
 create view full_user_userrole_view as
-select users.email, users.username, users.password, userroles.name
+select users.email, users.username, decrypt_password(users.password) as password, userroles.name
 from users left join userroles on USERS.ROLE_ID = USERROLES.ID;
 
 commit;

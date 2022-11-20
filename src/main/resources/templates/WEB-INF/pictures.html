@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="./../../static/css/style.css">
     <script type="text/javascript" src="../static/js/pictures.js" th:src="@{../js/pictures.js}"></script>
-    <title>Title</title>
+    <title>Pictures</title>
 </head>
+
 <body>
-<table id="pictures"></table>
-<script>getPicturesList()</script>
+    <header>
+        <div class="logo">
+            <a href="/">CADRE</a>
+        </div>
+        <div class="menu">
+            <a href="/">Home</a>
+            <a href="/pictures">Pictures</a>
+            <a href="/categories">Categories</a>
+            <a href="/authors">Authors</a>
+            <a href="/collections">Collections</a>
+        </div>
+        <div class="login">
+            <a href="/login">Log in / Registration</a>
+        </div>
+    </header>
+
+    <section>
+        <div class="search">
+            <input id="search" type="text">
+            <button onclick="findPictures()">Find</button>
+            <button onclick="resetSearch()">Reset</button>
+        </div>
+    </section>
+
+    <section>
+        <table id="pictures">
+            <div class="card">
+                <img src="./../../static/images/mona.jpg">
+                <div class="container">
+                    <h4><b>John Doe</b></h4>
+                    <p>Architect & Engineer</p>
+                  </div>
+            </div>
+        </table>
+    </section>
+    <script>getPicturesList()</script>
 </body>
+
 </html>

@@ -20,15 +20,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String[] ADMIN_ENDPOINT = {"/admin/*", "/user/*"};
-    private static final String[] PERMITALL_ENDPOINT = {"/login", "/", "/registration", "/token/refresh/**", "/js/**"};
-
-//    private final UserDetailsService userDetailsService;
-//    private final BCryptPasswordEncoder passwordEncoder;
-
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
-//    }
+    private static final String[] USER_ENDPOINT = {"/user/*"};
+    private static final String[] PERMITALL_ENDPOINT = {"/login", "/", "/registration", "/js/**"};
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -39,16 +32,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(ADMIN_ENDPOINT).hasAuthority("admin")
-//                .antMatchers("/user/*").hasRole("USER")
-//                .antMatchers("/admin/index").hasRole("ADMIN")
+                .antMatchers(USER_ENDPOINT).hasAuthority("user")
                 .antMatchers(PERMITALL_ENDPOINT).permitAll()
                 .and()
                 .addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
-
-//    @Bean
-//    @Override
-//    public AuthenticationManager authenticationManagerBean() throws Exception {
-//        return super.authenticationManagerBean();
-//    }
 }

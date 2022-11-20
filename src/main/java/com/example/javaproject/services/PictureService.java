@@ -26,6 +26,11 @@ public class PictureService implements IPictureService {
     }
 
     @Override
+    public List<Picture> findPictures(String name) {
+        return pictureRepository.findPictures(name);
+    }
+
+    @Override
     public List<Picture> getAllPictures() {
         return pictureRepository.getAllPictures();
     }
@@ -58,5 +63,10 @@ public class PictureService implements IPictureService {
     @Override
     public void deletePicture(Integer id) {
         pictureRepository.deletePicture(id);
+    }
+
+    @Override
+    public void addPictureToCollection(Integer pictureId, String email) {
+        pictureRepository.addPictureToCollection(pictureId, email);
     }
 }

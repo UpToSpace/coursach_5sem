@@ -1,19 +1,42 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <script type="text/javascript" src="../static/js/index.js" th:src="@{../js/index.js}"></script>
+    <link rel="stylesheet" href="./../../static/css/style.css"  th:href="@{../css/style.css}">
+    <title>Home</title>
 </head>
+
 <body>
-<h1> main page </h1>
-<a href="/">home</a>
-<a href="/pictures">pictures</a>
-<a href="/categories">categories</a>
-<a href="/authors">authors</a>
-<a href="/collections">collections</a>
-<a href="/login">login</a>
+    <header>
+        <div class="logo">
+            <a href="/">CADRE</a>
+        </div>
+        <div class="menu">
+            <a href="/">Home</a>
+            <a href="/pictures">Pictures</a>
+            <a href="/categories">Categories</a>
+            <a href="/authors">Authors</a>
+            <a href="/collections">Collections</a>
+        </div>
+        <div class="login" id="login">
+        </div>
+    </header>
+    <section>
+        <div class="hero">
+            <div class="hero-david">
+                <img src="./../../static/images/david.png" th:src="@{../images/david.png}">
+            </div>
+            <h1>Art Museum</h1>
+        </div>
+    </section>
+    <script>
+        getMenuLogin()
+    </script>
 </body>
+
 </html>

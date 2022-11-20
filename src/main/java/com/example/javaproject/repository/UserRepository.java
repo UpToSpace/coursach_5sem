@@ -42,7 +42,6 @@ public class UserRepository {
             cs.registerOutParameter(4, OracleTypes.NUMBER);
             cs.registerOutParameter(5, OracleTypes.VARCHAR);
             cs.executeQuery();
-            //if (passwordEncoder.matches(password, cs.getString()))
             user = new User(email, cs.getString(3), password, new Role(cs.getInt(4), cs.getString(5)));
         } catch (SQLException e) {
             System.out.println(e.getMessage());

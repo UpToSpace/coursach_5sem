@@ -45,4 +45,5 @@ async function updateUser() {
     } else {
         mes.innerHTML = 'Error occured';
     }
+    window.location.reload();
 }

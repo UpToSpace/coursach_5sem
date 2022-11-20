@@ -4,18 +4,45 @@ ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
 SELECT * FROM user_procedures where upper(procedure_name) like upper('%register_user%');
 select * from user_objects where object_name like upper('%add%');
 
+--encrypt password
+CREATE OR REPLACE FUNCTION encrypt_password
+(i_password in users.password%type)
+    RETURN users.password%type
+    IS
+    my_key VARCHAR2(2000) := '2022202220222022';
+    my_val VARCHAR2(2000) := i_password;
+    my_mod NUMBER := DBMS_CRYPTO.encrypt_aes128 + DBMS_CRYPTO.chain_cbc + DBMS_CRYPTO.pad_pkcs5;
+    encrypted_password RAW(2000);
+BEGIN
+    encrypted_password := DBMS_CRYPTO.encrypt(utl_i18n.string_to_raw(my_val, 'AL32UTF8'), my_mod, utl_i18n.string_to_raw(my_key, 'AL32UTF8'));
+    RETURN RAWTOHEX(encrypted_password);
+END encrypt_password;
+
+--decrypt password
+CREATE OR REPLACE FUNCTION decrypt_password
+(i_password in users.password%type)
+    return users.password%type
+    IS
+    my_key VARCHAR2(2000) := '2022202220222022';
+    my_val RAW(2000) := HEXTORAW(i_password);
+    my_mod NUMBER := DBMS_CRYPTO.encrypt_aes128 + DBMS_CRYPTO.chain_cbc + DBMS_CRYPTO.pad_pkcs5;
+    decrypted_password RAW(2000);
+BEGIN
+    decrypted_password := DBMS_CRYPTO.decrypt(my_val, my_mod, utl_i18n.string_to_raw(my_key, 'AL32UTF8'));
+    RETURN utl_i18n.raw_to_char(decrypted_password);
+END decrypt_password;
 
 -- registration
 create or replace procedure register_user
-(user_email users.email%type,
-username users.username%type,
-user_password users.password%type)
+(i_email users.email%type,
+i_username users.username%type,
+i_password users.password%type)
 is
 user_count number;
 begin
-select count(*) into user_count from users where upper(user_email) = upper(email);
+select count(*) into user_count from users where upper(i_email) = upper(email);
 if (user_count = 0) then
-insert into users(email, username, password, role_id) values (user_email, username, user_password, 2);
+insert into users(email, username, password, role_id) values (i_email, i_username, encrypt_password(i_password), 2);
 commit;
 else
 raise_application_error(-20001, 'user already exists');
@@ -25,19 +52,22 @@ end register_user;
 
 --login
 create or replace procedure log_in_user
-(user_email in users.email%type,
-user_password in users.password%type,
-o_user_email out users.email%type,
-o_username out users.username%type)
+(i_email in users.email%type,
+i_password in users.password%type,
+o_username out users.username%type,
+o_role_id out users.ROLE_ID%type,
+o_role_name out USERROLES.name%type
+)
 is
-cursor user_cursor is select email, username from users
-                      where upper(user_email) = upper(users.email) and upper(user_password) = upper(users.password);
+cursor user_cursor is select ROLE_ID, username from users
+                      where upper(i_email) = upper(users.email) and upper(i_password) = upper(decrypt_password(users.password));
 begin
 open user_cursor;
-fetch user_cursor into o_user_email, o_username;
+fetch user_cursor into o_role_id, o_username;
 if user_cursor%notfound then
 raise_application_error(-20000, 'user doesnt exist');
 end if;
+select userroles.name into o_role_name from USERROLES where o_role_id = USERROLES.ID;
 close user_cursor;
 end log_in_user;
 
@@ -66,7 +96,7 @@ i_password in users.password%type)
 begin
     select count(*) into user_count from users where upper(i_email) = upper(users.EMAIL);
     if (user_count = 1) then
-        update users set users.USERNAME = i_username, users.PASSWORD = i_password where upper(i_email) = upper(users.email);
+        update users set users.USERNAME = i_username, users.PASSWORD = encrypt_password(i_password) where upper(i_email) = upper(users.email);
         commit;
     else
         raise_application_error(-20006, 'cannot update user because it doesnt exist');
@@ -184,9 +214,19 @@ begin
 end delete_picture;
 
 -------------------
+--search pictures by name
+drop function search_picture;
 
-
----search pictures by name
+create or replace function search_picture
+(i_name in PICTURES.name%type)
+ return sys_refcursor
+is
+    o_picture_cursor sys_refcursor;
+begin
+    open o_picture_cursor for select * from PICTURE_VIEW where upper(NAME) like upper('%' || i_name|| '%');
+--close o_picture_cursor;
+    return o_picture_cursor;
+end;
 
 --- add collection
 create or replace procedure add_collection
@@ -220,6 +260,22 @@ begin
 end delete_collection;
 
 --- add pictures to user's collection
+create or replace procedure add_picture_to_collection
+(i_picture_id in PICTURES.ID%type,
+ i_email in USERS.EMAIL%type)
+    is
+    picture_count number;
+    collection_id COLLECTIONS.ID%type;
+begin
+    select count(*) into picture_count from collection_pictures where i_picture_id = COLLECTION_PICTURES.PICTURE_ID;
+    if(picture_count = 0) then
+        select COLLECTIONS.ID into collection_id from collections where upper(i_email) = upper(collections.email);
+        insert into COLLECTION_PICTURES(collection_id, picture_id) values (collection_id, i_picture_id);
+        commit;
+    else
+        raise_application_error(-20012, 'collection doesnt exist');
+    end if;
+end add_picture_to_collection;
 
 --- delete pictures from user's collection
 --- 

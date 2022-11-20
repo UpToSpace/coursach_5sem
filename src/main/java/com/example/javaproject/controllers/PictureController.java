@@ -33,6 +33,11 @@ public class PictureController {
         this.jwtProvider = jwtProvider;
     }
 
+    @PostMapping("/allpictures/search")
+    public ResponseEntity<List<Picture>> findPictures(@RequestBody String name) {
+        return ResponseEntity.ok().body(pictureService.findPictures(name));
+    }
+
     @PostMapping("/admin/addauthor")
     public ResponseEntity addAuthor(@RequestBody AddAuthorForm addAuthorForm) {
         pictureService.addAuthor(addAuthorForm.getName(), addAuthorForm.getInfo());
@@ -75,5 +80,12 @@ public class PictureController {
     @GetMapping("/allcategories") // TODO user cant see delete button
     public ResponseEntity<List<Category>> allCategoriesPage(@RequestHeader(name = "Authorization") String token) {
         return ResponseEntity.ok().body(pictureService.getAllCategories());
+    }
+
+    @PostMapping("/user/addtocollection/{id}")
+    public ResponseEntity addToCollection(@PathVariable int pictureId, @RequestBody String token) {
+        String email = jwtProvider.getEmailFromToken(token);
+        pictureService.addPictureToCollection(pictureId, email);
+        return ResponseEntity.ok().body(HttpStatus.OK);
     }
 }

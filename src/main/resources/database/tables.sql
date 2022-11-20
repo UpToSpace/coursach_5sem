@@ -54,8 +54,8 @@ create table pictures (
                           info varchar2(3000),
                           picture blob,
                           CONSTRAINT pictures_pk PRIMARY KEY (id),
-                          constraint author_fk foreign key (id) references authors(id),
-                          constraint category_fk foreign key (id) references categories(id)
+                          constraint author_fk foreign key (author_id) references authors(id),
+                          constraint category_fk foreign key (category_id) references categories(id)
 );
 
 -------------------------
@@ -72,7 +72,7 @@ create table collections (
 create table collection_pictures (
                                      id number(10) GENERATED AS IDENTITY
                                          (START WITH 1 INCREMENT BY 1 NOCYCLE ORDER),
-                                      collection_id number(10),
+                                     collection_id number(10),
                                      picture_id number(10),
                                      CONSTRAINT collection_pictures_pk PRIMARY KEY (id),
                                      constraint collection_fk foreign key (id) references collections(id),
