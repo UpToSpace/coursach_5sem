@@ -101,6 +101,29 @@ public class PictureRepository {
         }
     }
 
+    public void addCollection(String name, String email) {
+        try {
+            CallableStatement cs = connection.prepareCall("{call add_collection(?, ?)}");
+            cs.setString(1, name);
+            cs.setString(2, email);
+            cs.executeQuery();
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+        }
+    }
+
+    public void addPictureToCollection(int id, String email, String collectionName) {
+        try {
+            CallableStatement cs = connection.prepareCall("{call add_picture_to_collection(?, ?, ?)}");
+            cs.setInt(1, id);
+            cs.setString(2, email);
+            cs.setString(3, collectionName);
+            cs.executeQuery();
+        } catch (SQLException e) {
+            logger.error(e.getMessage());
+        }
+    }
+
     public List<Picture> getAllPictures() {
         List<Picture> pictures = new ArrayList<>();
         String query = "select * from picture_view";
@@ -151,6 +174,42 @@ public class PictureRepository {
         return categories;
     }
 
+    public List<Collection> getAllUserCollections(String email) {
+        List<Collection> collections = new ArrayList<>();
+        try {
+            CallableStatement cs = connection.prepareCall("{call list_users_collections(?, ?)}");
+            cs.setString(1, email);
+            cs.registerOutParameter(2, Types.REF_CURSOR);
+            cs.executeQuery();
+            ResultSet rs = cs.getObject(2, ResultSet.class);
+            int id = -10;
+            int prevId = id;
+            Collection collection = new Collection();
+            List<Picture> pictures = new ArrayList<>();
+            while(rs.next()) {
+                Picture picture = new Picture(rs.getInt(4), rs.getString(5), new Author(0, rs.getString(6), null),
+                        new Category(0, rs.getString(7), null), rs.getInt(8), rs.getString(9), rs.getBlob(10).getBytes(1, (int)rs.getBlob(10).length()));
+                pictures.add(picture);
+                id = rs.getInt(1);
+                if (id != prevId) {
+                    collection.setId(id);
+                    collection.setName(rs.getString(2));
+                    collection.setEmail(rs.getString(3));
+                    collection.setPictures(pictures);
+                    collections.add(collection);
+                    collection = new Collection();
+                    pictures = new ArrayList<>();
+                }
+                prevId = id;
+                System.out.println(rs.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            logger.error(e.getMessage());
+        }
+        return collections;
+    }
+
     public void deletePicture(Integer id) {
         try {
             CallableStatement cs = connection.prepareCall("{call delete_picture(?)}");
@@ -162,14 +221,15 @@ public class PictureRepository {
         logger.info("picture " + id + " deleted successfully");
     }
 
-    public void addPictureToCollection(Integer pictureId, String email) {
+    public void deletePictureFromCollection(int picture_id, int collection_id) {
         try {
-            CallableStatement cs = connection.prepareCall("{call add_picture_to_collection(?, ?)}");
-            cs.setInt(1, pictureId);
-            cs.setString(2, email);
+            CallableStatement cs = connection.prepareCall("{call delete_picture_from_collection(?, ?)}");
+            cs.setInt(1, picture_id);
+            cs.setInt(2, collection_id);
             cs.executeQuery();
         } catch (SQLException e) {
-            logger.error(e.getMessage());
+            logger.error("SQL error delete picture: " + e.getMessage());;
         }
+        logger.info("picture " + picture_id + " deleted successfully");
     }
 }

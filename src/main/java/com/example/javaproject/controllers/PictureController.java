@@ -7,6 +7,7 @@ import com.example.javaproject.forms.AddPictureForm;
 import com.example.javaproject.jwt.JWTProvider;
 import com.example.javaproject.models.Author;
 import com.example.javaproject.models.Category;
+import com.example.javaproject.models.Collection;
 import com.example.javaproject.models.Picture;
 import com.example.javaproject.services.PictureService;
 import lombok.extern.slf4j.Slf4j;
@@ -82,10 +83,29 @@ public class PictureController {
         return ResponseEntity.ok().body(pictureService.getAllCategories());
     }
 
+    @GetMapping("/user/collections")
+    public ResponseEntity<List<Collection>> allCollectionsPage(@RequestHeader(name = "Authorization") String token) {
+        String email = jwtProvider.getEmailFromHeader(token);
+        return ResponseEntity.ok().body(pictureService.getAllUserCollections(email));
+    }
+
+    @PostMapping("/user/addcollection")
+    public ResponseEntity addCollection(@RequestHeader(name = "Authorization") String token, @RequestBody String name) {
+        String email = jwtProvider.getEmailFromHeader(token);
+        pictureService.addCollection(name, email);
+        return ResponseEntity.ok().body(HttpStatus.OK);
+    }
+
     @PostMapping("/user/addtocollection/{id}")
-    public ResponseEntity addToCollection(@PathVariable int pictureId, @RequestBody String token) {
-        String email = jwtProvider.getEmailFromToken(token);
-        pictureService.addPictureToCollection(pictureId, email);
+    public ResponseEntity addToCollection(@PathVariable(value = "id") int pictureId, @RequestBody String collectionName, @RequestHeader(name = "Authorization") String header) {
+        String email = jwtProvider.getEmailFromHeader(header);
+        pictureService.addPictureToCollection(pictureId, email, collectionName);
+        return ResponseEntity.ok().body(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/user/collections/deletepicture/{pictureId}")
+    public ResponseEntity deletePictureFromCollection(@PathVariable(value = "pictureId") Integer pictureId, @RequestBody int collectionId) {
+        pictureService.deletePictureFromCollection(pictureId, collectionId);
         return ResponseEntity.ok().body(HttpStatus.OK);
     }
 }

@@ -19,6 +19,8 @@ select * from users;
 select * from authors;
 select * from categories;
 select * from pictures;
+select * from collections;
+select * from collection_pictures;
 
 select * from full_user_userrole_view where upper(email) = upper('Valerie143@mail.ru');
 select * from full_user_userrole_view where upper(email) = upper('bbb');
@@ -34,5 +36,10 @@ values('itsname', 1, 1, 2002, 'myinfo');
 
 commit;
 
-
+                                select COLLECTIONS.ID, COLLECTIONS.NAME, COLLECTIONS.EMAIL, PICTURE_VIEW.ID as Pictures_id,
+                PICTURE_VIEW.NAME as Picture_name, PICTURE_VIEW.AUTHOR_NAME, PICTURE_VIEW.CATEGORIES_NAME, PICTURE_VIEW.YEAR,
+                PICTURE_VIEW.INFO, PICTURE_VIEW.PICTURE from COLLECTIONS
+                right join collection_pictures on collections.id = COLLECTION_ID
+                join picture_view on COLLECTION_PICTURES.PICTURE_ID = PICTURE_VIEW.ID
+                where upper('user1') = upper(collections.email) order by COLLECTION_ID;
 

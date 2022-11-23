@@ -42,22 +42,30 @@ async function deletePicture(id) {
     }
 }
 
-async function addPictureToCollection(id) { //add to collection
-    await fetch("/user/addtocollection/" + id, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: localStorage.getItem('token')
-    })
-        .then(res => console.log(res.text())) //????
-        .then(res => {
-            if (res.status >= 400 && res.status <= 500) {
-                //console.log(res.status);
-            } else {
-                alert(`Picture ${id} was added to collection successfully`);
-            }
+async function addPictureToCollection(id) {
+    alert("Picture id " + id);
+    let collectionName = document.getElementById("collectionName").value;
+    alert("collection name: " + collectionName);
+    if (collectionName.length == 0) {
+        alert("input your collection!")
+    } else {
+        await fetch("/user/addtocollection/" + id, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+            body: collectionName
         })
+            .then(res => console.log(res.text())) //????
+            .then(res => {
+                if (res.status >= 400 && res.status <= 500) {
+                    //console.log(res.status);
+                } else {
+                    alert(`Picture ${id} was added to collection successfully`);
+                }
+            })
+    }
 }
 
 async function getPicturesList() {

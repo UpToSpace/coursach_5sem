@@ -4,6 +4,16 @@ ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
 SELECT * FROM user_procedures where upper(procedure_name) like upper('%register_user%');
 select * from user_objects where object_name like upper('%add%');
 
+--admin package
+create or replace package admin_package
+as
+end admin_package;
+
+--user package
+create or replace package user_package
+as
+end user_package;
+
 --encrypt password
 CREATE OR REPLACE FUNCTION encrypt_password
 (i_password in users.password%type)
@@ -50,7 +60,7 @@ end if;
 end register_user;
 
 
---login
+--login ***можно рефкурсор***
 create or replace procedure log_in_user
 (i_email in users.email%type,
 i_password in users.password%type,
@@ -163,10 +173,6 @@ else
 end if;
 end add_picture;
 
-
------------------------------
-
-
 --delete category
 create or replace procedure delete_category
 (i_name in categories.name%type)
@@ -181,7 +187,6 @@ begin
         raise_application_error(-20007, 'cannot delete category doesnt exist');
     end if;
 end delete_category;
-
 
 --delete author
 create or replace procedure delete_author
@@ -198,7 +203,6 @@ begin
     end if;
 end delete_author;
 
-
 --delete picture
 create or replace procedure delete_picture
 (i_id in pictures.id%type)
@@ -213,7 +217,6 @@ begin
     end if;
 end delete_picture;
 
--------------------
 --search pictures by name
 drop function search_picture;
 
@@ -224,7 +227,6 @@ is
     o_picture_cursor sys_refcursor;
 begin
     open o_picture_cursor for select * from PICTURE_VIEW where upper(NAME) like upper('%' || i_name|| '%');
---close o_picture_cursor;
     return o_picture_cursor;
 end;
 
@@ -235,7 +237,8 @@ create or replace procedure add_collection
     is
     collection_count number;
 begin
-    select count(*) into collection_count from collections where upper(collections.name) = upper(i_name);
+    select count(*) into collection_count from collections where upper(collections.name) = upper(i_name)
+                                                             and upper(COLLECTIONS.email) = upper(i_email);
     if(collection_count = 0) then
         insert into collections(name, email) values (i_name, i_email);
         commit;
@@ -244,7 +247,7 @@ begin
     end if;
 end add_collection;
 
--- delete collection
+-- delete collection not created
 create or replace procedure delete_collection
 (i_id in collections.id%type)
     is
@@ -259,17 +262,43 @@ begin
     end if;
 end delete_collection;
 
+--list all user's collections with pictures
+create or replace procedure list_users_collections
+(i_email in users.email%type,
+ o_collection_cursor out sys_refcursor)
+is
+collections_count number;
+    begin
+        select count(*) into collections_count from COLLECTIONS where upper(i_email) = upper(collections.email);
+        if (collections_count = 0) then
+            raise_application_error(-20013, 'user doesnt have any collection');
+        else
+            open o_collection_cursor for
+                select COLLECTIONS.ID, COLLECTIONS.NAME, COLLECTIONS.EMAIL, PICTURE_VIEW.ID as Pictures_id,
+                PICTURE_VIEW.NAME as Picture_name, PICTURE_VIEW.AUTHOR_NAME, PICTURE_VIEW.CATEGORIES_NAME, PICTURE_VIEW.YEAR,
+                PICTURE_VIEW.INFO, PICTURE_VIEW.PICTURE from COLLECTIONS
+                full join collection_pictures on collections.id = COLLECTION_ID
+                join picture_view on COLLECTION_PICTURES.PICTURE_ID = PICTURE_VIEW.ID
+                where upper(i_email) = upper(collections.email) order by COLLECTION_ID;
+        end if;
+end list_users_collections;
+
 --- add pictures to user's collection
 create or replace procedure add_picture_to_collection
 (i_picture_id in PICTURES.ID%type,
- i_email in USERS.EMAIL%type)
+ i_email in USERS.EMAIL%type,
+ i_collection_name in COLLECTIONS.name%type)
     is
     picture_count number;
     collection_id COLLECTIONS.ID%type;
 begin
-    select count(*) into picture_count from collection_pictures where i_picture_id = COLLECTION_PICTURES.PICTURE_ID;
+    select COLLECTIONS.ID into collection_id from collections where upper(i_email) = upper(collections.email) and upper(i_collection_name) = upper(COLLECTIONS.NAME);
+    if collection_id is null then
+        raise_application_error(-20015, 'collection doesnt exist');
+    end if;
+    select count(*) into picture_count from collection_pictures
+    where i_picture_id = COLLECTION_PICTURES.PICTURE_ID and COLLECTION_PICTURES.COLLECTION_ID = COLLECTION_ID;
     if(picture_count = 0) then
-        select COLLECTIONS.ID into collection_id from collections where upper(i_email) = upper(collections.email);
         insert into COLLECTION_PICTURES(collection_id, picture_id) values (collection_id, i_picture_id);
         commit;
     else
@@ -278,4 +307,18 @@ begin
 end add_picture_to_collection;
 
 --- delete pictures from user's collection
---- 
+create or replace procedure delete_picture_from_collection
+(i_picture_id in PICTURES.ID%type,
+ i_collection_id in COLLECTIONS.id%type)
+    is
+    picture_count number;
+begin
+    select count(*) into picture_count from collection_pictures
+    where i_picture_id = COLLECTION_PICTURES.PICTURE_ID and COLLECTION_PICTURES.COLLECTION_ID = COLLECTION_ID;
+    if (picture_count = 1) then
+        delete from COLLECTION_PICTURES where i_collection_id = collection_id and i_picture_id = picture_id;
+        commit;
+    else
+        raise_application_error(-20012, 'collections picture doesnt exist');
+    end if;
+end delete_picture_from_collection;

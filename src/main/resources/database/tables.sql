@@ -58,8 +58,6 @@ create table pictures (
                           constraint category_fk foreign key (category_id) references categories(id)
 );
 
--------------------------
-
 create table collections (
                              id number(10) GENERATED AS IDENTITY
                                  (START WITH 1 INCREMENT BY 1 NOCYCLE ORDER),

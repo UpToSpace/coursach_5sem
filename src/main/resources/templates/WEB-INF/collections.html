@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./../../static/css/style.css" th:href="@{../css/style.css}">
+    <script type="text/javascript" src="../static/js/collections.js" th:src="@{../js/collections.js}"></script>
+    <title>Pictures</title>
+</head>
+
+<body>
+<header>
+    <div class="logo">
+        <a href="/">CADRE</a>
+    </div>
+    <div class="menu">
+        <a href="/">Home</a>
+        <a href="/pictures">Pictures</a>
+        <a href="/categories">Categories</a>
+        <a href="/authors">Authors</a>
+        <a href="/collections">Collections</a>
+    </div>
+    <div class="login">
+        <a href="/login">Log in / Registration</a>
+    </div>
+</header>
+
+
+<div class="container">
+    <h2>new collection</h2>
+    <p>name:
+        <input type="text" id="name" />
+    </p>
+    <button onclick="addCollection()">new collection</button>
+</div>
+
+<section>
+    <div id="collections">
+    </div>
+</section>
+
+<script>getCollectionsList()</script>
+</body>
+
+</html>

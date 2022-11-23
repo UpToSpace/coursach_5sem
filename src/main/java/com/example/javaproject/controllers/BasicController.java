@@ -45,4 +45,9 @@ public class BasicController {
         return "/profile";
     }
 
+    @GetMapping("/collections")
+    public String collectionsPage() {
+        return "/collections";
+    }
+
 }

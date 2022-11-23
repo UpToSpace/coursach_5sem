@@ -15,7 +15,6 @@ from users left join userroles on USERS.ROLE_ID = USERROLES.ID;
 commit;
 
 ----picture with author and category
-drop view picture_view;
 create view picture_view as
 select PICTURES.NAME, PICTURES.INFO, AUTHORS.NAME as author_name, CATEGORIES.NAME as categories_name, PICTURES.ID, PICTURES.YEAR, PICTURES.PICTURE from PICTURES
 left join authors on PICTURES.AUTHOR_ID = AUTHORS.ID

@@ -47,6 +47,12 @@ public class JWTProvider {
         return email;
     }
 
+    public String getEmailFromHeader(String header) {
+        String token = header.substring("Bearer ".length());
+        String email = getEmailFromToken(token);
+        return email;
+    }
+
     public String getRoleFromToken(String token) {
         Algorithm algorithm = Algorithm.HMAC256("javathebest".getBytes());
         JWTVerifier verifier = JWT.require(algorithm).build();
