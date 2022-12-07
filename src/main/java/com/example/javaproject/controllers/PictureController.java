@@ -64,22 +64,18 @@ public class PictureController {
         return ResponseEntity.ok().body(HttpStatus.OK);
     }
 
-    @GetMapping("/allpictures") // TODO user cant see delete button
-    public ResponseEntity<List<Picture>> allPicturesPage(@RequestHeader(name = "Authorization") String token) {
-//        if (jwtProvider.getRoleFromToken(token) == "admin") {
-//            return ResponseEntity.ok().body(new AllPicturesResponse(pictureService.getAllPictures(), true));
-//        }
-//        return ResponseEntity.ok().body(new AllPicturesResponse(pictureService.getAllPictures(), false));
+    @GetMapping("/allpictures")
+    public ResponseEntity<List<Picture>> allPicturesPage() {
         return ResponseEntity.ok().body(pictureService.getAllPictures());
     }
 
-    @GetMapping("/allauthors") // TODO user cant see delete button
-    public ResponseEntity<List<Author>> allAuthorsPage(@RequestHeader(name = "Authorization") String token) {
+    @GetMapping("/allauthors")
+    public ResponseEntity<List<Author>> allAuthorsPage() {
         return ResponseEntity.ok().body(pictureService.getAllAuthors());
     }
 
-    @GetMapping("/allcategories") // TODO user cant see delete button
-    public ResponseEntity<List<Category>> allCategoriesPage(@RequestHeader(name = "Authorization") String token) {
+    @GetMapping("/allcategories")
+    public ResponseEntity<List<Category>> allCategoriesPage() {
         return ResponseEntity.ok().body(pictureService.getAllCategories());
     }
 
@@ -87,6 +83,12 @@ public class PictureController {
     public ResponseEntity<List<Collection>> allCollectionsPage(@RequestHeader(name = "Authorization") String token) {
         String email = jwtProvider.getEmailFromHeader(token);
         return ResponseEntity.ok().body(pictureService.getAllUserCollections(email));
+    }
+
+    @GetMapping("/user/collectionsnames")
+    public ResponseEntity<List<String>> allCollectionsNamesPage(@RequestHeader(name = "Authorization") String token) {
+        String email = jwtProvider.getEmailFromHeader(token);
+        return ResponseEntity.ok().body(pictureService.getAllCollectionsNames(email));
     }
 
     @PostMapping("/user/addcollection")

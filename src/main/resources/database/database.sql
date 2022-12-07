@@ -3,10 +3,10 @@ ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
 insert into userroles(name) values ('admin');
 insert into userroles(name) values ('user');
 
-insert into users(email, username, password, role_id) values ('Valerie143@mail.ru', 'admin1', '1111', 1);
-insert into users(email, username, password, role_id) values ('aaa', 'user1', '2222', 2);
-insert into users(email, username, password, role_id) values ('bbb', 'admin2', '3333', 1);
-insert into users(email, username, password, role_id) values ('ccc', 'user2', '4444', 2);
+insert into users(email, username, password, role_id) values ('Valerie143@mail.ru', 'admin1', ENCRYPT_PASSWORD('1111'), 3);
+insert into users(email, username, password, role_id) values ('aaa', 'user1', ENCRYPT_PASSWORD('2222'), 4);
+insert into users(email, username, password, role_id) values ('bbb', 'admin2', ENCRYPT_PASSWORD('3333'), 3);
+insert into users(email, username, password, role_id) values ('ccc', 'user2', ENCRYPT_PASSWORD('4444'), 4);
 
 SELECT * FROM user_tables where TABLE_NAME = 'USERS';
 
@@ -42,4 +42,5 @@ commit;
                 right join collection_pictures on collections.id = COLLECTION_ID
                 join picture_view on COLLECTION_PICTURES.PICTURE_ID = PICTURE_VIEW.ID
                 where upper('user1') = upper(collections.email) order by COLLECTION_ID;
+
 

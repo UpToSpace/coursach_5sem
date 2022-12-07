@@ -14,10 +14,18 @@ async function findPictures() {
             let str = ''
             console.log(data);
             data.forEach(e => {
-                str += `<tr> <td>${e.name}</td><td>${e.author.name}</td><td>${e.category.name}</td><td>${e.year}</td><td>${e.info}</td>
-<td><button class="delete_button" onclick="deletePicture(${e.id})" style="visibility: visible">delete</button></td>
-<td><button class="add_button" onclick="addPictureToCollection(${e.id})">add to my collection</button></td>
-<td><img src="data:image/png;base64,${e.pictureBytes}"></td></tr>`
+                str += `<div class="card">
+                <img src="data:image/png;base64,${e.pictureBytes}">
+                <div class="container">
+                    <h3><b>${e.name}</b></h3>
+                    <p>${e.author.name}</p>
+                    <p>category: ${e.category.name}</p>
+                    <p>year: ${e.year}</p>
+                    <p>info: ${e.info}</p>
+                  </div>
+                  <button class="delete_button admin" onclick="deletePicture(${e.id})">delete</button>
+                  <button class="add_button" onclick="addPictureToCollection(${e.id})">add to my collection</button>
+            </div>`
             })
             table.innerHTML = str;})
 }
@@ -78,32 +86,37 @@ async function getPicturesList() {
     })
         .then(response => response.json())
         .then(data => {
-            let table = document.getElementById('pictures')
             let str = ''
+            let styleDisplay = "";
             console.log(data);
-            data.forEach(e => {
-                str += `<tr> <td>${e.name}</td><td>${e.author.name}</td><td>${e.category.name}</td><td>${e.year}</td><td>${e.info}</td>
-<td><button class="delete_button" onclick="deletePicture(${e.id})" style="visibility: visible">delete</button></td>
-<td><button class="add_button" onclick="addPictureToCollection(${e.id})">add to my collection</button></td>
-<td><img src="data:image/png;base64,${e.pictureBytes}"></td></tr>`
-            })
-            table.innerHTML = str;
+                fetch(`/isAdmin/`, {
+                    headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
+                }).then(response => response.json())
+                    .then(isAdmin => {
+                        if(!isAdmin) {
+                            styleDisplay = "\"display: none\""
+                            console.log(styleDisplay)
+                        }
+            }).then(() => {
+                    console.log(styleDisplay)
+                    data.forEach(e => {
+                        str += `<div class="card">
+                <img src="data:image/png;base64,${e.pictureBytes}">
+                <div class="container">
+                    <h3><b>${e.name}</b></h3>
+                    <p>${e.author.name}</p>
+                    <p>category: ${e.category.name}</p>
+                    <p>year: ${e.year}</p>
+                    <p>info: ${e.info}</p>
+                  </div>
+                  <button class="delete_button" style=${styleDisplay} onclick="deletePicture(${e.id})">delete</button>
+                  <button class="add_button" onclick="addPictureToCollection(${e.id})">add to my collection</button>
+            </div>`
+                    })
+                    let pictures = document.getElementById('pictures')
+                    pictures.innerHTML = str;
+                })
         })
-    // document.addEventListener('click', (e) => {
-    //     if (e.target.classList.contains('delete_button')) {
-    //         const element = e.target;
-    //         const id = element.dataset.id;
-    //         if (confirm("Are you sure you want to delete picture " + id + "?")) {
-    //             deletePicture(id);
-    //         }
-    //     }
-
-    //     if (e.target.classList.contains('add_button')) {
-    //         const element = e.target;
-    //         const id = element.dataset.id;
-    //         addPicture(id);
-    //     }
-    // });
 }
 
 async function resetSearch() {

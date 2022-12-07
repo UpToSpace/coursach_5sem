@@ -47,6 +47,11 @@ public class PictureService implements IPictureService {
     }
 
     @Override
+    public List<String> getAllCollectionsNames(String email) {
+        return pictureRepository.getAllCollectionsNames(email);
+    }
+
+    @Override
     public List<Collection> getAllUserCollections(String email) {
         return pictureRepository.getAllUserCollections(email);
     }

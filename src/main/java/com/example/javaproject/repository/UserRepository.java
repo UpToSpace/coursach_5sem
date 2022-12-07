@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import oracle.jdbc.OracleTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
@@ -16,15 +17,12 @@ import java.util.List;
 @Repository
 public class UserRepository {
     Logger logger = LoggerFactory.getLogger(UserRepository.class);
-    private String DBURL;
-    private String DBUser;
-    private String DBPassword;
+
     private Connection connection;
 
-    UserRepository() {
-        DBURL = "jdbc:oracle:thin:@//192.168.56.101:1521/orcl";
-        DBUser = "sys as sysdba";
-        DBPassword = "Vv1542139";
+    UserRepository(@Value("${spring.datasource.url}") String DBURL,
+                   @Value("${spring.datasource.username}") String DBUser,
+                   @Value("${spring.datasource.password}") String DBPassword) {
         try {
             connection = DriverManager.getConnection(DBURL, DBUser, DBPassword);
         } catch (SQLException e) {

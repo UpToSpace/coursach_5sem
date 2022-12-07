@@ -9,22 +9,29 @@ async function getAuthorsList() {
     })
         .then(response => response.json())
         .then(data => {
-            let table = document.getElementById('authorsTable')
             let str = ''
-            //console.log(data);
-            data.forEach(e => {
-                str += `<tr> <td>${e.name}</td><td>${e.info}</td><td><button class="delete_button" data-email="${e.id}">delete</button></td></tr>`
+            let styleDisplay = "";
+            fetch(`/isAdmin/`, {
+                headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
+            }).then(response => response.json())
+                .then(isAdmin => {
+                    if(!isAdmin) {
+                        styleDisplay = "\"display: none\""
+                        console.log(styleDisplay)
+                    }
+                }).then(() => {
+                console.log(styleDisplay)
+                data.forEach(e => {
+                    str += `<div>
+                <div class="container">
+                    <h3><b>${e.name}</b></h3>
+                    <p>info: ${e.info}</p>
+                  </div>
+                  <button class="delete_button" style=${styleDisplay} onclick="deletePicture(${e.id})">delete</button>
+            </div>`
+                })
+                let authors = document.getElementById('authors')
+                authors.innerHTML = str;
             })
-            table.innerHTML = str;
         })
-
-    // document.addEventListener('click', (e) => {
-    //     if (e.target.classList.contains('delete_button')) {
-    //         const element = e.target;
-    //         const email = element.dataset.email;
-    //         if (confirm("Are you sure you want to delete user " + email + "?")) {
-    //             deleteUser(email);
-    //         }
-    //     }
-    // });
 }

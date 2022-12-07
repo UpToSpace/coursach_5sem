@@ -5,12 +5,26 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="../static/js/index.js" th:src="@{../js/index.js}"></script>
+    <link rel="stylesheet" href="./../../static/css/style.css"  th:href="@{../css/style.css}">
     <script type="text/javascript" src="../static/js/admin.js" th:src="@{../js/admin.js}"></script>
-    <title>Document</title>
+    <title>Admin</title>
 </head>
 <body>
-<p>new picture</p>
-<div class="container">
+    <header>
+        <div class="logo">
+            <a href="/">CADRE</a>
+        </div>
+        <div class="menu">
+            <a href="/">Home</a>
+            <a href="/pictures">Pictures</a>
+            <a href="/categories">Categories</a>
+            <a href="/authors">Authors</a>
+            <a href="/collections">Collections</a>
+        </div>
+    </header>
+<p style="margin: 0 auto; display:block; text-align: center">new picture</p>
+<form>
     <p>name:
         <input type="text" id="pictureName" />
     </p>
@@ -30,9 +44,9 @@
         <input type="file" id="picturePicture" accept=".jpg, .jpeg, .png" />
     </p>
     <button onclick="addPicture()">add picture</button>
-</div>
-<p>new author</p>
-<div class="container">
+</form>
+<p style="margin: 0 auto; display:block; text-align: center">new author</p>
+<form>
     <p>name:
         <input type="text" id="authorName" />
     </p>
@@ -40,9 +54,9 @@
         <input type="text" id="authorInfo" />
     </p>
     <button onclick="addAuthor()">add author</button>
-</div>
-<p>new category</p>
-<div class="container">
+</form>
+<p style="margin: 0 auto; display:block; text-align: center">new category</p>
+<form>
     <p>name:
         <input type="text" id="categoryName" />
     </p>
@@ -50,8 +64,9 @@
         <input type="text" id="categoryInfo" />
     </p>
     <button onclick="addCategory()">add category</button>
-</div>
-<button onclick="getUsersList()">get users list</button>
+</form>
+<button onclick="getUsersList()" style="margin: 0 auto; display:block; text-align: center">get users list</button>
 <table id="usersTable"></table>
+<script> showMenuAdmin(); getMenuLogin(); checkIsAdmin() </script>
 </body>
 </html>

@@ -34,8 +34,28 @@ async function deletePictureFromCollection(pictureId, collectionId) {
     }
 }
 
+async function getCollectionsNamesList() {
+    await fetch("/user/collectionsnames/", {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            let collectionsNames = document.getElementById('collectionsNames')
+            let str = ''
+            data.forEach(el => {
+                str += `<div>${el}</div>`
+            })
+            collectionsNames.innerHTML = str;
+        })
+}
+
 async function getCollectionsList() {
-    await fetch("/user/collections", {
+    await fetch("/user/collections/", {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',

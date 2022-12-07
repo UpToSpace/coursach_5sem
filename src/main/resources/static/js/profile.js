@@ -1,6 +1,6 @@
-async function getUserInfo() {
+function getUserInfo() {
     let token = localStorage.getItem("token");
-    await fetch("/user/profile", {
+    fetch("/user/profile/", {
         method: "GET",
         headers: {
             'Authorization': `Bearer ${token}`,
@@ -34,16 +34,18 @@ async function changeUserData(data) {
 async function updateUser() {
     let password = document.getElementById("newPassword").value;
     let username = document.getElementById("newUsername").value;
-    let mes = document.getElementById("message");
     let data = {username: username, password: password};
     let result = await changeUserData(data);
     if (result.ok) {
-        // let body = await result.text();
-        // let info = JSON.parse(body);
-        // localStorage.setItem('token', info['token']);
-        // window.location.replace(window.location.origin);
+        window.location.reload();
     } else {
-        mes.innerHTML = 'Error occured';
+        alert('Error occured');
     }
-    window.location.reload();
+}
+
+async function logout() {
+    if (confirm("Are you sure you want to logout?")) {
+        localStorage.removeItem('token');
+        window.location.replace(window.location.origin);
+    }
 }

@@ -3,20 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="../static/js/login.js" th:src="@{../js/login.js}"></script>
-    <title>Document</title>
+    <script type="text/javascript" src="../static/js/index.js" th:src="@{../js/index.js}"></script>
+    <link rel="stylesheet" href="./../../static/css/style.css"  th:href="@{../css/style.css}">
+    <title>Login</title>
 </head>
 <body>
-<h1>login</h1>
-<a href="/registration">login</a>
-<div class="container">
+    <header>
+        <div class="logo">
+            <a href="/">CADRE</a>
+        </div>
+        <div class="menu">
+            <a href="/">Home</a>
+            <a href="/pictures">Pictures</a>
+            <a href="/categories">Categories</a>
+            <a href="/authors">Authors</a>
+            <a href="/collections">Collections</a>
+        </div>
+    </header>
+
+<h1>Login</h1>
+<a href="/registration" style="margin: 0 auto; display:block; text-align: center">Don't have account? Registration</a>
+<div class="form">
         <p>email:
             <input type="text" id="email" />
         </p>
         <p> password:
             <input type="text" id="password" />
         </p>
-        <button onclick="login()"></button>
-    <p id="message"></p>
+        <button onclick="login()">login</button>
 </div>
+    <script>
+        getMenuLogin(); showMenuAdmin();
+    </script>
 </body>
 </html>

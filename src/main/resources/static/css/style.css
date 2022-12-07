@@ -13,11 +13,51 @@
     margin: 0;
     padding: 0;
     color: #fff;
-    font-family: "Playfair Display";
+    font-family: "Raleway";
 }
 
 body {
     background: #080706;
+    padding: 40px 120px 40px 120px; /* top | right | bottom | left */
+}
+
+form {
+    border: 2px solid #FF0000;
+    border-radius: 5px;
+    max-width: 300px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.form {
+    border: 2px solid #FF0000;
+    border-radius: 5px;
+    max-width: 300px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.admin {
+    display: none;
+}
+
+/* form input {
+    width: 100%;
+} */
+
+h1 {
+    text-align: center;
+    margin: 20px;
+}
+
+p {
+    word-wrap: break-word;
 }
 
 a {
@@ -35,6 +75,7 @@ input {
     border-radius: 3px;
     background-color: transparent;
     font-family: "Raleway";
+    margin: 1px;
 }
 
 button {
@@ -44,6 +85,7 @@ button {
     cursor: pointer;
     border-radius: 3px;
     padding: 5px 20px;
+    margin: 5px 2px;
 }
 
 button:hover {
@@ -54,19 +96,22 @@ button:hover {
 /* header */
 
 header {
+    margin-bottom: 20px;
     display: flex;
-    flex-direction: row;
-    padding: 46px 120px 25px 120px; /* top | right | bottom | left */
 }
 
 .logo {
     font-size: 44px;
-    margin-top: -25px;
     margin-left: 0;
+    justify-self: left;
+}
+
+.logo a {
+    font-family: "Playfair Display";
 }
 
 .menu {
-    width: 430px;
+    width: 40%;
     margin: auto;
     display: flex;
     flex-direction: row;
@@ -79,16 +124,23 @@ header {
     justify-content: space-between;
 }
 
+.login {
+    margin: auto 0;
+}
+
 .login a {
     font-family: "Raleway";
     font-weight: 400;
-    margin-right: 0;
 }
 
 /* home */
 
 .hero {
     position: relative;
+}
+
+.hero h1 {
+    font-family: "Playfair Display";
 }
 
 .hero-david {
@@ -110,6 +162,7 @@ header {
     font-size: 120px;
     font-weight: bold;
     color: #FF0000;
+    width: max-content;
     letter-spacing: 1mm;
     margin-top: -10px;
 }
@@ -118,7 +171,7 @@ header {
 .search {
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .search input {
@@ -134,19 +187,27 @@ header {
 .card {
     width: 300px;
     height: 450px;
+    margin: 20px 0px;
     border: 2px solid #FF0000;
     padding: 5px;
+    display: inline-block;
 }
 
 .card img {
     max-width: 80%;
     max-height: 80%;
+    margin: 2px auto;
+    display: block;
 }
 
 .card .container {
     padding: 2px 16px;
   }
 
+/* profile */
+#profile_info {
+    text-align: center;
+}
 
 
 

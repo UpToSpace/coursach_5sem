@@ -1,29 +1,57 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
+    <script type="text/javascript" src="../static/js/index.js" th:src="@{../js/index.js}"></script>
     <script type="text/javascript" src="../static/js/profile.js" th:src="@{../js/profile.js}"></script>
-    <title>Title</title>
+    <link rel="stylesheet" href="./../../static/css/style.css" th:href="@{../css/style.css}">
+    <title>Profile</title>
 </head>
+
 <body>
-<h1>profile</h1>
-<p id="role"></p>
-<div id="profile_info">
-    <p> email: </p> <p id="email"></p>
-    <p> username: </p> <p id="username"></p>
-    <p> password: </p> <p id="password"></p>
-</div>
+<script>getUserInfo();</script>
+    <header>
+        <div class="logo">
+            <a href="/">CADRE</a>
+        </div>
+        <div class="menu" id="menu">
+            <a href="/">Home</a>
+            <a href="/pictures">Pictures</a>
+            <a href="/categories">Categories</a>
+            <a href="/authors">Authors</a>
+            <a href="/collections">Collections</a>
+        </div>
+        <div class="login">
+            <a onclick="logout()">Log Out</a>
+        </div>
+    </header>
 
-<!--<form>-->
-    <p> username:
-        <input type="text" id="newUsername" />
-    </p>
-    <p> password:
-        <input type="text" id="newPassword" />
-    </p>
-    <button onclick="updateUser()">update me</button>
-<!--</form>-->
-
-<script>getUserInfo()</script>
+    <h1>profile</h1>
+    <div id="profile_info">
+        <div>
+            <p id="role"></p>
+            <p> email:
+            <p id="email"></p>
+            </p>
+            <p> username: </p>
+            <p id="username"></p>
+            <p> password: </p>
+            <p id="password"></p>
+        </div>
+        <div class="form">
+            <p> username:
+                <input type="text" id="newUsername" />
+            </p>
+            <p> password:
+                <input type="text" id="newPassword" />
+            </p>
+            <button onclick="updateUser()">update me</button>
+        </div>
+    </div>
+<script>
+    showMenuAdmin();
+</script>
 </body>
+
 </html>

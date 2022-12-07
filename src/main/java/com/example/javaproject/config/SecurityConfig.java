@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final String[] ADMIN_ENDPOINT = {"/admin/*", "/user/*"};
     private static final String[] USER_ENDPOINT = {"/user/*"};
-    private static final String[] PERMITALL_ENDPOINT = {"/login", "/", "/registration", "/js/**"};
+    private static final String[] PERMITALL_ENDPOINT = {"/login", "/", "/registration", "/js/**", "/isAdmin"};
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

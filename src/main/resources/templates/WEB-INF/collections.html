@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./../../static/css/style.css" th:href="@{../css/style.css}">
+    <script type="text/javascript" src="../static/js/index.js" th:src="@{../js/index.js}"></script>
     <script type="text/javascript" src="../static/js/collections.js" th:src="@{../js/collections.js}"></script>
     <title>Pictures</title>
 </head>
@@ -20,9 +21,6 @@
         <a href="/authors">Authors</a>
         <a href="/collections">Collections</a>
     </div>
-    <div class="login">
-        <a href="/login">Log in / Registration</a>
-    </div>
 </header>
 
 
@@ -34,12 +32,14 @@
     <button onclick="addCollection()">new collection</button>
 </div>
 
+<div id="collectionsNames">
+</div>
 <section>
     <div id="collections">
     </div>
 </section>
 
-<script>getCollectionsList()</script>
+<script>getCollectionsList(); getCollectionsNamesList(); getMenuLogin(); showMenuAdmin();</script>
 </body>
 
 </html>

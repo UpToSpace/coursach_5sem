@@ -6,10 +6,24 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script type="text/javascript" src="../static/js/categories.js" th:src="@{../js/categories.js}"></script>
-    <title>Document</title>
+    <script type="text/javascript" src="../static/js/index.js" th:src="@{../js/index.js}"></script>
+    <link rel="stylesheet" href="./../../static/css/style.css"  th:href="@{../css/style.css}">
+    <title>Categories</title>
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <a href="/">CADRE</a>
+        </div>
+        <div class="menu">
+            <a href="/">Home</a>
+            <a href="/pictures">Pictures</a>
+            <a href="/categories">Categories</a>
+            <a href="/authors">Authors</a>
+            <a href="/collections">Collections</a>
+        </div>
+    </header>
 <table id="categoriesTable"></table>
-<script>getCategoriesList()</script>
+<script>getCategoriesList(); getMenuLogin(); showMenuAdmin();</script>
 </body>
 </html>

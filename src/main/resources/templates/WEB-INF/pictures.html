@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./../../static/css/style.css">
+    <link rel="stylesheet" href="./../../static/css/style.css"  th:href="@{../css/style.css}">
+    <script type="text/javascript" src="../static/js/index.js" th:src="@{../js/index.js}"></script>
     <script type="text/javascript" src="../static/js/pictures.js" th:src="@{../js/pictures.js}"></script>
     <title>Pictures</title>
 </head>
@@ -20,9 +21,6 @@
             <a href="/authors">Authors</a>
             <a href="/collections">Collections</a>
         </div>
-        <div class="login">
-            <a href="/login">Log in / Registration</a>
-        </div>
     </header>
 
     <section>
@@ -35,22 +33,25 @@
 
     <section>
         <div class="collection">
-            <input id="collectionName" type="text">
+            <p>Enter your collection's name</p><input id="collectionName" type="text">
         </div>
     </section>
 
     <section>
-        <table id="pictures">
-            <div class="card">
-                <img src="./../../static/images/mona.jpg">
-                <div class="container">
-                    <h4><b>John Doe</b></h4>
-                    <p>Architect & Engineer</p>
-                  </div>
-            </div>
-        </table>
+        <div id="pictures">
+<!--            <div class="card">-->
+<!--                <img src="./../../static/images/Bathers.jpg">-->
+<!--                <div class="container">-->
+<!--                    <h4><b>name</b></h4>-->
+<!--                    <p>Author name</p>-->
+<!--                    <p>category</p>-->
+<!--                    <p>year</p>-->
+<!--                    <p>info Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem architecto omnis illum adipisci corrupti aperiam similique alias voluptatum dolores harum. Fuga earum repellat eius asperiores, alias error temporibus quo quia?</p>-->
+<!--                  </div>-->
+<!--            </div>-->
+        </div>
     </section>
-    <script>getPicturesList()</script>
+    <script>getPicturesList(); getMenuLogin(); showMenuAdmin();</script>
 </body>
 
 </html>

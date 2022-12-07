@@ -55,13 +55,11 @@ public class UserController {
         String password = loginForm.getPassword();
 
         User user = userService.getUser(email, password);
-
+        if (user == null) {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
         String accessToken = jwtProvider.generateToken(user);
-
         AuthResponse response = new AuthResponse(accessToken, user.getRole());
-        //response.setHeader("access_token", access_token);
-        //response.setHeader("refresh_token", refresh_token);
-
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
@@ -92,38 +90,14 @@ public class UserController {
         return ResponseEntity.ok().body(HttpStatus.OK);
     }
 
-//@GetMapping("/token/refresh")
-//public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//    String authorizationHeader = request.getHeader(AUTHORIZATION);
-//    if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
-//        try {
-//            String refresh_token = authorizationHeader.substring("Bearer ".length());
-//            Algorithm algorithm = Algorithm.HMAC256("javathebest".getBytes());
-//            JWTVerifier verify = JWT.require(algorithm).build();
-//            DecodedJWT decodedJWT = verify.verify(refresh_token);
-//            String username = decodedJWT.getSubject();
-//            User user = userService.getUser(username);
-//            String access_token = JWT.create()
-//                    .withSubject(user.getUsername())
-//                    .withExpiresAt(new Date(System.currentTimeMillis() + 10 * 60 * 1000))
-//                    .withIssuer(request.getRequestURI())
-//                    .withClaim("roles", user.getRole().getRoleName())
-//                    .sign(algorithm);
-//            Map<String, String> tokens = new HashMap<>();
-//            tokens.put("access_token", access_token);
-//            tokens.put("refresh_token", refresh_token);
-//            response.setContentType(APPLICATION_JSON_VALUE);
-//            new ObjectMapper().writeValue(response.getOutputStream(), tokens);
-//        } catch (Exception exception) {
-//            log.error("Error : {}", exception.getMessage());
-//            response.setStatus(FORBIDDEN.value());
-//            Map<String, String> errors = new HashMap<>();
-//            errors.put("error_message", exception.getMessage());
-//            response.setContentType(APPLICATION_JSON_VALUE);
-//            new ObjectMapper().writeValue(response.getOutputStream(), errors);
-//        }
-//    } else {
-//        throw new RuntimeException("Refresh token is missing");
-//    }
-//}
+    @GetMapping(value = "/isAdmin")
+    public ResponseEntity<Boolean> isAdmin(@RequestHeader(name = "Authorization") String header) {
+        String token = header.substring("Bearer ".length());
+        String role = jwtProvider.getRoleFromToken(token);
+        if(role.equals("admin")) {
+            return new ResponseEntity<>(true, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(false, HttpStatus.OK);
+        //else throw new AccountAuthException("Account not found!");
+    }
 }

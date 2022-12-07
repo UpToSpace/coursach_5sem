@@ -8,7 +8,7 @@ drop table pictures cascade constraints;
 drop table collections cascade constraints;
 drop table collection_pictures cascade constraints;
 commit;
-----------create tables---------------
+----------create tables (admin) ---------------
 
 create table userroles (
                            id number(10) GENERATED AS IDENTITY
@@ -76,3 +76,5 @@ create table collection_pictures (
                                      constraint collection_fk foreign key (id) references collections(id),
                                      constraint picture_fk foreign key (id) references pictures(id)
 );
+commit;
+select * from user_objects;

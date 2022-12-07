@@ -6,10 +6,25 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script type="text/javascript" src="../static/js/authors.js" th:src="@{../js/authors.js}"></script>
-    <title>Document</title>
+    <script type="text/javascript" src="../static/js/index.js" th:src="@{../js/index.js}"></script>
+    <link rel="stylesheet" href="./../../static/css/style.css"  th:href="@{../css/style.css}">
+    <title>Authors</title>
 </head>
 <body>
-<table id="authorsTable"></table>
-<script>getAuthorsList()</script>
+<header>
+    <div class="logo">
+        <a href="/">CADRE</a>
+    </div>
+    <div class="menu">
+        <a href="/">Home</a>
+        <a href="/pictures">Pictures</a>
+        <a href="/categories">Categories</a>
+        <a href="/authors">Authors</a>
+        <a href="/collections">Collections</a>
+    </div>
+</header>
+
+<div id="authors"></div>
+<script>getAuthorsList(); getMenuLogin(); showMenuAdmin();</script>
 </body>
 </html>

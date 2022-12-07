@@ -11,16 +11,18 @@ async function logUser(data) {
 async function login() {
     let password = document.getElementById("password").value;
     let email = document.getElementById("email").value;
-    let mes = document.getElementById("message");
     let data = {email: email, password: password};
+    //alert(email + password);
     let result = await logUser(data);
+    //alert(result);
     if (result.ok) {
         let body = await result.text();
         let info = JSON.parse(body);
+        //alert("ok " + info)
         localStorage.setItem('token', info['token']);
-        alert('token ' + info['token']);
+        //alert('token ' + info['token']);
         window.location.replace(window.location.origin);
     } else {
-        mes.innerHTML = 'Error occured';
+        alert('theres no user with this parameters');
     }
 }

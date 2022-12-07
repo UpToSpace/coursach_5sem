@@ -10,6 +10,7 @@ public interface IPictureService {
     List<Picture> getAllPictures();
     List<Author> getAllAuthors();
     List<Category> getAllCategories();
+    List<String> getAllCollectionsNames(String email);
     List<Collection> getAllUserCollections(String email);
     void addAuthor(String name, String info);
     void addCategory(String name, String info);

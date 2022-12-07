@@ -4,16 +4,6 @@ ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
 SELECT * FROM user_procedures where upper(procedure_name) like upper('%register_user%');
 select * from user_objects where object_name like upper('%add%');
 
---admin package
-create or replace package admin_package
-as
-end admin_package;
-
---user package
-create or replace package user_package
-as
-end user_package;
-
 --encrypt password
 CREATE OR REPLACE FUNCTION encrypt_password
 (i_password in users.password%type)
@@ -21,10 +11,10 @@ CREATE OR REPLACE FUNCTION encrypt_password
     IS
     my_key VARCHAR2(2000) := '2022202220222022';
     my_val VARCHAR2(2000) := i_password;
-    my_mod NUMBER := DBMS_CRYPTO.encrypt_aes128 + DBMS_CRYPTO.chain_cbc + DBMS_CRYPTO.pad_pkcs5;
+    my_mod NUMBER := sys.DBMS_CRYPTO.encrypt_aes128 + sys.DBMS_CRYPTO.chain_cbc + sys.DBMS_CRYPTO.pad_pkcs5;
     encrypted_password RAW(2000);
 BEGIN
-    encrypted_password := DBMS_CRYPTO.encrypt(utl_i18n.string_to_raw(my_val, 'AL32UTF8'), my_mod, utl_i18n.string_to_raw(my_key, 'AL32UTF8'));
+    encrypted_password := sys.DBMS_CRYPTO.encrypt(utl_i18n.string_to_raw(my_val, 'AL32UTF8'), my_mod, utl_i18n.string_to_raw(my_key, 'AL32UTF8'));
     RETURN RAWTOHEX(encrypted_password);
 END encrypt_password;
 
@@ -218,7 +208,7 @@ begin
 end delete_picture;
 
 --search pictures by name
-drop function search_picture;
+--drop function search_picture;
 
 create or replace function search_picture
 (i_name in PICTURES.name%type)
@@ -263,7 +253,7 @@ begin
 end delete_collection;
 
 --list all user's collections with pictures
-create or replace procedure list_users_collections
+create or replace procedure full_list_users_collections
 (i_email in users.email%type,
  o_collection_cursor out sys_refcursor)
 is
@@ -281,6 +271,23 @@ collections_count number;
                 join picture_view on COLLECTION_PICTURES.PICTURE_ID = PICTURE_VIEW.ID
                 where upper(i_email) = upper(collections.email) order by COLLECTION_ID;
         end if;
+end full_list_users_collections;
+
+--- list all users collections names
+create or replace procedure list_users_collections
+(i_email in users.email%type,
+ o_collection_cursor out sys_refcursor)
+    is
+    collections_count number;
+begin
+    select count(*) into collections_count from COLLECTIONS where upper(i_email) = upper(collections.email);
+    if (collections_count = 0) then
+        raise_application_error(-20013, 'user doesnt have any collection');
+    else
+        open o_collection_cursor for
+            select COLLECTIONS.NAME from COLLECTIONS
+            where upper(i_email) = upper(collections.email) order by COLLECTIONS.ID;
+    end if;
 end list_users_collections;
 
 --- add pictures to user's collection
@@ -319,6 +326,47 @@ begin
         delete from COLLECTION_PICTURES where i_collection_id = collection_id and i_picture_id = picture_id;
         commit;
     else
-        raise_application_error(-20012, 'collections picture doesnt exist');
+        raise_application_error(-20016, 'collections picture doesnt exist');
     end if;
 end delete_picture_from_collection;
+
+
+---import xml not created
+create or replace procedure importXmlDataFromUser
+as
+MYFILE UTL_FILE.FILE_TYPE;
+USERCLOB CLOB;
+begin
+SELECT  
+DBMS_XMLGEN.GETXML('
+SELECT
+ USERS.EMAIL, USERS.USERNAME, USERS.PASSWORD, USERS.NAME
+FROM
+USERS') INTO USERCLOB FROM DUAL;
+MYFILE:= UTL_FILE.FOPEN('D:\University\xmlfolder', 'IMPORTUSER.XML', 'W');
+UTL_FILE.PUT(MYFILE, USERCLOB);
+UTL_FILE.FCLOSE(MYFILE);
+exception
+when others then
+   raise_application_error(-20017,'error during xml import');
+end importXmlDataFromUser;
+
+---export xml not created
+create or replace procedure exportXmlToUsers
+as
+begin
+insert into USERS (EMAIL, USERNAME, PASSWORD, ROLE_ID)
+SELECT *
+    FROM XMLTABLE('/ROWSET/ROW'
+           PASSING XMLTYPE(BFILENAME('DIR','CLIENTS1.XML'),
+           NLS_CHARSET_ID('CHAR_CS'))
+           COLUMNS FullName nvarchar2(50) PATH 'FullName',
+                    Adress nvarchar2(200) PATH 'Adress',
+                    PhoneNumber nvarchar2(40) PATH 'Phone',
+                    Login nvarchar2(150) PATH 'Login',
+                    Passw nvarchar2(150) PATH 'Passw');
+                    commit;
+                    exception
+when others then
+   raise_application_error(-20018,'error during xml export');
+end exportXmlToUsers;
