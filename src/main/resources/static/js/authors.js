@@ -1,3 +1,24 @@
+async function deleteAuthor(id) {
+    if (confirm("Are you sure you want to delete author " + id + "?")) {
+        await fetch("/admin/authors/delete/" + id, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+            .then(res => res.json())
+            .then(res => {
+                if (res.status >= 400 && res.status <= 500) {
+                    //console.log(res.status);
+                } else {
+                    alert(`Author ${id} was deleted successfully`);
+                    window.location.reload();
+                }
+            })
+    }
+}
+
 async function getAuthorsList() {
     let token = localStorage.getItem("token");
     await fetch("/allauthors", {
@@ -16,7 +37,7 @@ async function getAuthorsList() {
             }).then(response => response.json())
                 .then(isAdmin => {
                     if(!isAdmin) {
-                        styleDisplay = "\"display: none\""
+                        styleDisplay = "style=\"display: none\""
                         console.log(styleDisplay)
                     }
                 }).then(() => {
@@ -27,7 +48,7 @@ async function getAuthorsList() {
                     <h3><b>${e.name}</b></h3>
                     <p>info: ${e.info}</p>
                   </div>
-                  <button class="delete_button" style=${styleDisplay} onclick="deletePicture(${e.id})">delete</button>
+                  <button class="delete_button" ${styleDisplay} onclick="deleteAuthor(${e.id})">delete</button>
             </div>`
                 })
                 let authors = document.getElementById('authors')

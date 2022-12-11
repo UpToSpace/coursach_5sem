@@ -87,6 +87,21 @@ public class PictureService implements IPictureService {
     }
 
     @Override
+    public void deleteAuthor(Integer id) {
+        pictureRepository.deleteAuthor(id);
+    }
+
+    @Override
+    public void deleteCategory(Integer id) {
+        pictureRepository.deleteCategory(id);
+    }
+
+    @Override
+    public void deleteCollection(String name) {
+        pictureRepository.deleteCollection(name);
+    }
+
+    @Override
     public void deletePictureFromCollection(int picture_id, int collection_id) {
         pictureRepository.deletePictureFromCollection(picture_id, collection_id);
     }

@@ -58,6 +58,18 @@ public class PictureController {
         return ResponseEntity.ok().body(HttpStatus.OK);
     }
 
+    @DeleteMapping("/admin/authors/delete/{id}")
+    public ResponseEntity deleteAuthor(@PathVariable(value = "id") Integer id) {
+        pictureService.deleteAuthor(id);
+        return ResponseEntity.ok().body(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/admin/categories/delete/{id}")
+    public ResponseEntity deleteCategory(@PathVariable(value = "id") Integer id) {
+        pictureService.deleteCategory(id);
+        return ResponseEntity.ok().body(HttpStatus.OK);
+    }
+
     @DeleteMapping("/admin/pictures/delete/{id}")
     public ResponseEntity deletePicture(@PathVariable(value = "id") Integer id) {
         pictureService.deletePicture(id);
@@ -108,6 +120,12 @@ public class PictureController {
     @DeleteMapping("/user/collections/deletepicture/{pictureId}")
     public ResponseEntity deletePictureFromCollection(@PathVariable(value = "pictureId") Integer pictureId, @RequestBody int collectionId) {
         pictureService.deletePictureFromCollection(pictureId, collectionId);
+        return ResponseEntity.ok().body(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/user/collections/delete/{name}")
+    public ResponseEntity deletePictureFromCollection(@PathVariable(value = "name") String name) {
+        pictureService.deleteCollection(name);
         return ResponseEntity.ok().body(HttpStatus.OK);
     }
 }

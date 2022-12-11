@@ -18,5 +18,8 @@ public interface IPictureService {
     void addCollection(String name, String email);
     void addPictureToCollection(int id, String email, String collectionName);
     void deletePicture(Integer id);
+    void deleteAuthor(Integer id);
+    void deleteCategory(Integer id);
+    void deleteCollection(String name);
     void deletePictureFromCollection(int picture_id, int collection_id);
 }

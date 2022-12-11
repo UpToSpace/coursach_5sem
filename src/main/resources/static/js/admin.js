@@ -40,10 +40,10 @@ function deleteUser(email) {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
     })
-        .then(res => console.log(res.text())) //????
+        .then(res => res.json())
         .then(res => {
         if (res.status >= 400 && res.status <= 500) {
-            //console.log(res.status);
+            console.log(res.status);
         } else {
             alert(`User ${email} was deleted successfully`);
         }

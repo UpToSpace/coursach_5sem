@@ -2,6 +2,8 @@ drop view picture_view;
 drop view user_userrole_view;
 drop view full_user_userrole_view;
 
+select * from picture_view;
+
 ----user and role for admin (without password)
 create view user_userrole_view as
 select users.email, users.username, userroles.name

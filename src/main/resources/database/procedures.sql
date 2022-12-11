@@ -1,8 +1,8 @@
 --------procedures---------------------
 
 ALTER SESSION SET "_ORACLE_SCRIPT" = TRUE;
-SELECT * FROM user_procedures where upper(procedure_name) like upper('%register_user%');
-select * from user_objects where object_name like upper('%add%');
+-- SELECT * FROM user_procedures where upper(procedure_name) like upper('%register_user%');
+-- select * from user_objects where object_name like upper('%add%');
 
 --encrypt password
 CREATE OR REPLACE FUNCTION encrypt_password
@@ -50,7 +50,7 @@ end if;
 end register_user;
 
 
---login ***можно рефкурсор***
+--login I
 create or replace procedure log_in_user
 (i_email in users.email%type,
 i_password in users.password%type,
@@ -104,7 +104,7 @@ begin
 end update_user;
 
 
-----add author
+----add author I
 create or replace procedure add_author
 (i_name in authors.name%type,
 i_info in authors.info%type)
@@ -121,7 +121,7 @@ end if;
 end add_author;
 
 
-----add category
+----add category I
 create or replace procedure add_category
 (i_name in categories.name%type,
  i_info in categories.info%type)
@@ -138,7 +138,7 @@ end if;
 end add_category;
 
 
---add picture
+--add picture I
 create or replace procedure add_picture
 (i_name in pictures.name%type,
 i_author_name in authors.name%type,
@@ -165,13 +165,13 @@ end add_picture;
 
 --delete category
 create or replace procedure delete_category
-(i_name in categories.name%type)
+(i_id in categories.ID%type)
     is
     category_count number;
 begin
-    select count(*) into category_count from categories where upper(categories.name) = upper(i_name);
+    select count(*) into category_count from categories where categories.ID = i_id;
     if(category_count = 1) then
-        delete categories where upper(categories.name) = upper(i_name);
+        delete categories where categories.ID = i_id;
         commit;
     else
         raise_application_error(-20007, 'cannot delete category doesnt exist');
@@ -180,13 +180,13 @@ end delete_category;
 
 --delete author
 create or replace procedure delete_author
-(i_name in authors.name%type)
+(i_id in authors.id%type)
     is
     author_count number;
 begin
-    select count(*) into author_count from authors where upper(authors.name) = upper(i_name);
+    select count(*) into author_count from authors where authors.id = i_id;
     if(author_count = 1) then
-        delete authors where upper(authors.name) = upper(i_name);
+        delete authors where authors.id = i_id;
         commit;
     else
         raise_application_error(-20008, 'cannot delete, author doesnt exist');
@@ -207,7 +207,7 @@ begin
     end if;
 end delete_picture;
 
---search pictures by name
+--search pictures by name I
 --drop function search_picture;
 
 create or replace function search_picture
@@ -220,7 +220,7 @@ begin
     return o_picture_cursor;
 end;
 
---- add collection
+--- add collection I
 create or replace procedure add_collection
 (i_name in COLLECTIONS.name%type,
  i_email in USERS.EMAIL%type)
@@ -237,7 +237,7 @@ begin
     end if;
 end add_collection;
 
--- delete collection not created
+-- delete collection
 create or replace procedure delete_collection
 (i_id in collections.id%type)
     is
@@ -252,7 +252,7 @@ begin
     end if;
 end delete_collection;
 
---list all user's collections with pictures
+--list all user's collections with pictures I
 create or replace procedure full_list_users_collections
 (i_email in users.email%type,
  o_collection_cursor out sys_refcursor)
@@ -273,7 +273,7 @@ collections_count number;
         end if;
 end full_list_users_collections;
 
---- list all users collections names
+--- list all users collections names I
 create or replace procedure list_users_collections
 (i_email in users.email%type,
  o_collection_cursor out sys_refcursor)
@@ -297,19 +297,19 @@ create or replace procedure add_picture_to_collection
  i_collection_name in COLLECTIONS.name%type)
     is
     picture_count number;
-    collection_id COLLECTIONS.ID%type;
+    var_collection_id COLLECTIONS.ID%type;
 begin
-    select COLLECTIONS.ID into collection_id from collections where upper(i_email) = upper(collections.email) and upper(i_collection_name) = upper(COLLECTIONS.NAME);
-    if collection_id is null then
+    select COLLECTIONS.ID into var_collection_id from collections where upper(i_email) = upper(collections.email) and upper(i_collection_name) = upper(COLLECTIONS.NAME);
+    if var_collection_id is null then
         raise_application_error(-20015, 'collection doesnt exist');
     end if;
     select count(*) into picture_count from collection_pictures
-    where i_picture_id = COLLECTION_PICTURES.PICTURE_ID and COLLECTION_PICTURES.COLLECTION_ID = COLLECTION_ID;
+    where i_picture_id = COLLECTION_PICTURES.PICTURE_ID and COLLECTION_PICTURES.COLLECTION_ID = var_COLLECTION_ID;
     if(picture_count = 0) then
-        insert into COLLECTION_PICTURES(collection_id, picture_id) values (collection_id, i_picture_id);
+        insert into COLLECTION_PICTURES(collection_id, picture_id) values (var_collection_id, i_picture_id);
         commit;
     else
-        raise_application_error(-20012, 'collection doesnt exist');
+        raise_application_error(-20012, 'picture already in collection');
     end if;
 end add_picture_to_collection;
 
@@ -331,42 +331,37 @@ begin
 end delete_picture_from_collection;
 
 
----import xml not created
-create or replace procedure importXmlDataFromUser
+-- CREATE OR REPLACE DIRECTORY MYDIR AS 'C:\XMLFILE';
+---import xml
+create or replace procedure import_xml
 as
-MYFILE UTL_FILE.FILE_TYPE;
-USERCLOB CLOB;
+rc sys_refcursor;
+doc DBMS_XMLDOM.DOMDocument;
 begin
-SELECT  
-DBMS_XMLGEN.GETXML('
-SELECT
- USERS.EMAIL, USERS.USERNAME, USERS.PASSWORD, USERS.NAME
-FROM
-USERS') INTO USERCLOB FROM DUAL;
-MYFILE:= UTL_FILE.FOPEN('D:\University\xmlfolder', 'IMPORTUSER.XML', 'W');
-UTL_FILE.PUT(MYFILE, USERCLOB);
-UTL_FILE.FCLOSE(MYFILE);
-exception
-when others then
-   raise_application_error(-20017,'error during xml import');
-end importXmlDataFromUser;
+OPEN rc FOR SELECT * FROM users;
+doc := DBMS_XMLDOM.NewDOMDocument(XMLTYPE(rc));
+DBMS_XMLDOM.WRITETOFILE(doc, 'MYDIR/userexport.xml');
+commit;
+--exception
+--when others then
+   --raise_application_error(-20017,'error during xml import');
+end import_xml;
 
----export xml not created
-create or replace procedure exportXmlToUsers
+---export xml not working
+create or replace procedure export_xml
 as
 begin
 insert into USERS (EMAIL, USERNAME, PASSWORD, ROLE_ID)
 SELECT *
     FROM XMLTABLE('/ROWSET/ROW'
-           PASSING XMLTYPE(BFILENAME('DIR','CLIENTS1.XML'),
+           PASSING XMLTYPE(BFILENAME('DIR','IMPORTUSER.XML'),
            NLS_CHARSET_ID('CHAR_CS'))
-           COLUMNS FullName nvarchar2(50) PATH 'FullName',
-                    Adress nvarchar2(200) PATH 'Adress',
-                    PhoneNumber nvarchar2(40) PATH 'Phone',
-                    Login nvarchar2(150) PATH 'Login',
-                    Passw nvarchar2(150) PATH 'Passw');
+           COLUMNS EMAIL nvarchar2(50) PATH 'EMAIL',
+                      USERNAME nvarchar2(200) PATH 'USERNAME',
+                      PASSWORD nvarchar2(40) PATH 'PASSWORD',
+                      ROLE_ID nvarchar2(150) PATH 'ROLE_ID');
                     commit;
                     exception
 when others then
    raise_application_error(-20018,'error during xml export');
-end exportXmlToUsers;
+end export_xml;

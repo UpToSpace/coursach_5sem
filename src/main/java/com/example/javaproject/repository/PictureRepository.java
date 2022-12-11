@@ -199,27 +199,29 @@ public class PictureRepository {
             cs.registerOutParameter(2, Types.REF_CURSOR);
             cs.executeQuery();
             ResultSet rs = cs.getObject(2, ResultSet.class);
-            int id = -10;
-            int prevId = id;
+            int collectionId = -10;
+            int collectionPrevId = collectionId;
             Collection collection = new Collection();
             List<Picture> pictures = new ArrayList<>();
             while(rs.next()) {
+                collectionId = rs.getInt(1);
                 Picture picture = new Picture(rs.getInt(4), rs.getString(5), new Author(0, rs.getString(6), null),
                         new Category(0, rs.getString(7), null), rs.getInt(8), rs.getString(9), rs.getBlob(10).getBytes(1, (int)rs.getBlob(10).length()));
-                pictures.add(picture);
-                id = rs.getInt(1);
-                if (id != prevId) {
-                    collection.setId(id);
-                    collection.setName(rs.getString(2));
-                    collection.setEmail(rs.getString(3));
-                    collection.setPictures(pictures);
+                if (collectionId != collectionPrevId && collectionPrevId > 0) {
                     collections.add(collection);
                     collection = new Collection();
                     pictures = new ArrayList<>();
                 }
-                prevId = id;
-                System.out.println(rs.getString(1));
+                collection.setId(collectionId);
+                collection.setName(rs.getString(2));
+                collection.setEmail(rs.getString(3));
+                collection.setPictures(pictures);
+                pictures.add(picture);
+                collectionPrevId = collectionId;
+                System.out.println(collection.getId() + " " + picture.getId());
             }
+            collection.setPictures(pictures);
+            collections.add(collection);
         } catch (SQLException e) {
             e.printStackTrace();
             logger.error(e.getMessage());
@@ -236,6 +238,39 @@ public class PictureRepository {
             logger.error("SQL error delete picture: " + e.getMessage());;
         }
         logger.info("picture " + id + " deleted successfully");
+    }
+
+    public void deleteAuthor(Integer id) {
+        try {
+            CallableStatement cs = connection.prepareCall("{call delete_author(?)}");
+            cs.setInt(1, id);
+            cs.executeQuery();
+        } catch (SQLException e) {
+            logger.error("SQL error delete author: " + e.getMessage());;
+        }
+        logger.info("author " + id + " deleted successfully");
+    }
+
+    public void deleteCategory(Integer id) {
+        try {
+            CallableStatement cs = connection.prepareCall("{call delete_category(?)}");
+            cs.setInt(1, id);
+            cs.executeQuery();
+        } catch (SQLException e) {
+            logger.error("SQL error delete category: " + e.getMessage());;
+        }
+        logger.info("category " + id + " deleted successfully");
+    }
+
+    public void deleteCollection(String name) {
+        try {
+            CallableStatement cs = connection.prepareCall("{call delete_collection(?)}");
+            cs.setString(1, name);
+            cs.executeQuery();
+        } catch (SQLException e) {
+            logger.error("SQL error delete collection: " + e.getMessage());;
+        }
+        logger.info("collection " + name + " deleted successfully");
     }
 
     public void deletePictureFromCollection(int picture_id, int collection_id) {

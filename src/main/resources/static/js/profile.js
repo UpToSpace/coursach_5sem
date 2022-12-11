@@ -34,12 +34,16 @@ async function changeUserData(data) {
 async function updateUser() {
     let password = document.getElementById("newPassword").value;
     let username = document.getElementById("newUsername").value;
-    let data = {username: username, password: password};
-    let result = await changeUserData(data);
-    if (result.ok) {
-        window.location.reload();
+    if (password.length == 0 || username.length == 0) {
+        alert("Enter new username and password!")
     } else {
-        alert('Error occured');
+        let data = {username: username, password: password};
+        let result = await changeUserData(data);
+        if (result.ok) {
+            window.location.reload();
+        } else {
+            alert('Error occured');
+        }
     }
 }
 

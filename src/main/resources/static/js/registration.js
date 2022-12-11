@@ -13,14 +13,18 @@ async function register() {
     let email = document.getElementById("email").value;
     let username = document.getElementById("username").value;
     let mes = document.getElementById("message");
-    let data = {email: email, username: username, password: password};
-    let result = await regUser(data);
-    if (result.ok) {
-        let body = await result.text();
-        // let info = JSON.parse(body);
-        // localStorage.setItem('token', info['token']);
-        // window.location.replace(window.location.origin);
+    if (password.length == 0 || email.length == 0 || username.length == 0) {
+        alert("Please, enter information about yourself")
     } else {
-        mes.innerHTML = 'Error occured';
+        let data = {email: email, username: username, password: password};
+        let result = await regUser(data);
+        if (result.ok) {
+            let body = await result.text();
+            // let info = JSON.parse(body);
+            // localStorage.setItem('token', info['token']);
+            // window.location.replace(window.location.origin);
+        } else {
+            mes.innerHTML = 'Error occured';
+        }
     }
 }
