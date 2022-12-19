@@ -21,10 +21,11 @@
             <a href="/categories">Categories</a>
             <a href="/authors">Authors</a>
             <a href="/collections">Collections</a>
+            <a href="/admin">Admin</a>
         </div>
     </header>
 <p style="margin: 0 auto; display:block; text-align: center">new picture</p>
-<form>
+<div class="form">
     <p>name:
         <input type="text" id="pictureName" />
     </p>
@@ -44,9 +45,9 @@
         <input type="file" id="picturePicture" accept=".jpg, .jpeg, .png" />
     </p>
     <button onclick="addPicture()">add picture</button>
-</form>
+</div>
 <p style="margin: 0 auto; display:block; text-align: center">new author</p>
-<form>
+<div class="form">
     <p>name:
         <input type="text" id="authorName" />
     </p>
@@ -54,9 +55,9 @@
         <input type="text" id="authorInfo" />
     </p>
     <button onclick="addAuthor()">add author</button>
-</form>
+</div>
 <p style="margin: 0 auto; display:block; text-align: center">new category</p>
-<form>
+<div class="form">
     <p>name:
         <input type="text" id="categoryName" />
     </p>
@@ -64,7 +65,7 @@
         <input type="text" id="categoryInfo" />
     </p>
     <button onclick="addCategory()">add category</button>
-</form>
+</div>
 <button onclick="getUsersList()" style="margin: 0 auto; display:block; text-align: center">get users list</button>
 <table id="usersTable"></table>
 <script> showMenuAdmin(); getMenuLogin(); checkIsAdmin() </script>

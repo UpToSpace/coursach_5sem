@@ -20,7 +20,7 @@ function getUserInfo() {
 
 async function changeUserData(data) {
     let token = localStorage.getItem("token");
-    return await fetch("/user/updateprofile", {
+    return await fetch("/user/updateprofile/", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {

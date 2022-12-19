@@ -3,7 +3,7 @@ async function addCollection() {
     if (name.length == 0) {
         alert("Enter name of the collection!")
     } else {
-        await fetch("/user/addcollection", {
+        await fetch("/user/addcollection/", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -89,12 +89,12 @@ async function getCollectionsList() {
     })
         .then(response => response.json())
         .then(data => {
+            let str = '';
             console.log(data);
             let collections = document.getElementById('collections')
-            let str = ''
-            if (data) {
+            if (data[0].id != null) {
             data.forEach(el => {
-                str += `<h3>${el.name}</h3>`
+                str += `<h2>${el.name}</h2><div style="display: grid; grid-template-columns: repeat(4, 1fr);">`
                 el.pictures.forEach(e => {
                     str += `<div class="card">
                 <img src="data:image/png;base64,${e.pictureBytes}">
@@ -108,6 +108,7 @@ async function getCollectionsList() {
                   <button class="delete_button" onclick="deletePictureFromCollection(${e.id}, ${el.id})">delete</button>
             </div>`
                 })
+                str += '</div>'
             })}
             collections.innerHTML = str;
         })

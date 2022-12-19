@@ -50,7 +50,7 @@ end if;
 end register_user;
 
 
---login I
+--login
 create or replace procedure log_in_user
 (i_email in users.email%type,
 i_password in users.password%type,
@@ -104,7 +104,7 @@ begin
 end update_user;
 
 
-----add author I
+----add author
 create or replace procedure add_author
 (i_name in authors.name%type,
 i_info in authors.info%type)
@@ -121,7 +121,7 @@ end if;
 end add_author;
 
 
-----add category I
+----add category 
 create or replace procedure add_category
 (i_name in categories.name%type,
  i_info in categories.info%type)
@@ -138,7 +138,7 @@ end if;
 end add_category;
 
 
---add picture I
+--add picture 
 create or replace procedure add_picture
 (i_name in pictures.name%type,
 i_author_name in authors.name%type,
@@ -161,6 +161,9 @@ if (picture_count = 0) then
 else
         raise_application_error(-20004, 'picture already exists');
 end if;
+exception
+    when no_data_found
+    then raise_application_error(-20020, 'This collection or author doesnt exists');
 end add_picture;
 
 --delete category
@@ -252,17 +255,12 @@ begin
     end if;
 end delete_collection;
 
---list all user's collections with pictures I
+--list all user's collections with pictures 
 create or replace procedure full_list_users_collections
 (i_email in users.email%type,
  o_collection_cursor out sys_refcursor)
 is
-collections_count number;
     begin
-        select count(*) into collections_count from COLLECTIONS where upper(i_email) = upper(collections.email);
-        if (collections_count = 0) then
-            raise_application_error(-20013, 'user doesnt have any collection');
-        else
             open o_collection_cursor for
                 select COLLECTIONS.ID, COLLECTIONS.NAME, COLLECTIONS.EMAIL, PICTURE_VIEW.ID as Pictures_id,
                 PICTURE_VIEW.NAME as Picture_name, PICTURE_VIEW.AUTHOR_NAME, PICTURE_VIEW.CATEGORIES_NAME, PICTURE_VIEW.YEAR,
@@ -270,24 +268,17 @@ collections_count number;
                 full join collection_pictures on collections.id = COLLECTION_ID
                 join picture_view on COLLECTION_PICTURES.PICTURE_ID = PICTURE_VIEW.ID
                 where upper(i_email) = upper(collections.email) order by COLLECTION_ID;
-        end if;
 end full_list_users_collections;
 
 --- list all users collections names I
 create or replace procedure list_users_collections
 (i_email in users.email%type,
  o_collection_cursor out sys_refcursor)
-    is
-    collections_count number;
+     is
 begin
-    select count(*) into collections_count from COLLECTIONS where upper(i_email) = upper(collections.email);
-    if (collections_count = 0) then
-        raise_application_error(-20013, 'user doesnt have any collection');
-    else
         open o_collection_cursor for
             select COLLECTIONS.NAME from COLLECTIONS
             where upper(i_email) = upper(collections.email) order by COLLECTIONS.ID;
-    end if;
 end list_users_collections;
 
 --- add pictures to user's collection
@@ -321,7 +312,7 @@ create or replace procedure delete_picture_from_collection
     picture_count number;
 begin
     select count(*) into picture_count from collection_pictures
-    where i_picture_id = COLLECTION_PICTURES.PICTURE_ID and COLLECTION_PICTURES.COLLECTION_ID = COLLECTION_ID;
+    where i_picture_id = COLLECTION_PICTURES.PICTURE_ID and COLLECTION_PICTURES.COLLECTION_ID = I_COLLECTION_ID;
     if (picture_count = 1) then
         delete from COLLECTION_PICTURES where i_collection_id = collection_id and i_picture_id = picture_id;
         commit;
@@ -340,26 +331,26 @@ doc DBMS_XMLDOM.DOMDocument;
 begin
 OPEN rc FOR SELECT * FROM users;
 doc := DBMS_XMLDOM.NewDOMDocument(XMLTYPE(rc));
-DBMS_XMLDOM.WRITETOFILE(doc, 'MYDIR/userexport.xml');
+DBMS_XMLDOM.WRITETOFILE(doc, 'MYDIR/userimport.xml');
 commit;
---exception
---when others then
-   --raise_application_error(-20017,'error during xml import');
+exception
+when others then
+   raise_application_error(-20017,'error during xml import');
 end import_xml;
 
----export xml not working
+---export xml
 create or replace procedure export_xml
 as
 begin
 insert into USERS (EMAIL, USERNAME, PASSWORD, ROLE_ID)
 SELECT *
     FROM XMLTABLE('/ROWSET/ROW'
-           PASSING XMLTYPE(BFILENAME('DIR','IMPORTUSER.XML'),
+           PASSING XMLTYPE(BFILENAME('MYDIR','userexport.xml'),
            NLS_CHARSET_ID('CHAR_CS'))
-           COLUMNS EMAIL nvarchar2(50) PATH 'EMAIL',
-                      USERNAME nvarchar2(200) PATH 'USERNAME',
-                      PASSWORD nvarchar2(40) PATH 'PASSWORD',
-                      ROLE_ID nvarchar2(150) PATH 'ROLE_ID');
+           COLUMNS EMAIL nvarchar2(100) PATH 'EMAIL',
+                      USERNAME nvarchar2(100) PATH 'USERNAME',
+                      PASSWORD nvarchar2(255) PATH 'PASSWORD',
+                      ROLE_ID number(10) PATH 'ROLE_ID');
                     commit;
                     exception
 when others then

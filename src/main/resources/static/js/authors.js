@@ -43,10 +43,10 @@ async function getAuthorsList() {
                 }).then(() => {
                 console.log(styleDisplay)
                 data.forEach(e => {
-                    str += `<div>
+                    str += `<div class="card">
                 <div class="container">
                     <h3><b>${e.name}</b></h3>
-                    <p>info: ${e.info}</p>
+                    <p>${e.info}</p>
                   </div>
                   <button class="delete_button" ${styleDisplay} onclick="deleteAuthor(${e.id})">delete</button>
             </div>`

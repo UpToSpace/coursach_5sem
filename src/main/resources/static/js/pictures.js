@@ -17,11 +17,11 @@ async function findPictures() {
                 str += `<div class="card">
                 <img src="data:image/png;base64,${e.pictureBytes}">
                 <div class="container">
-                    <h3><b>${e.name}</b></h3>
+                <h3><b>${e.name}</b></h3>
                     <p>${e.author.name}</p>
-                    <p>category: ${e.category.name}</p>
+                    <p><i>${e.category.name}</i></p>
                     <p>year: ${e.year}</p>
-                    <p>info: ${e.info}</p>
+                    <p>${e.info}</p>
                   </div>
                   <button class="delete_button admin" onclick="deletePicture(${e.id})">delete</button>
                   <button class="add_button" onclick="addPictureToCollection(${e.id})">add to my collection</button>
@@ -106,9 +106,9 @@ async function getPicturesList() {
                 <div class="container">
                     <h3><b>${e.name}</b></h3>
                     <p>${e.author.name}</p>
-                    <p>category: ${e.category.name}</p>
+                    <p><i>${e.category.name}</i></p>
                     <p>year: ${e.year}</p>
-                    <p>info: ${e.info}</p>
+                    <p>${e.info}</p>
                   </div>
                   <button class="delete_button" ${styleDisplay} onclick="deletePicture(${e.id})">delete</button>
                   <button class="add_button" onclick="addPictureToCollection(${e.id})">add to my collection</button>

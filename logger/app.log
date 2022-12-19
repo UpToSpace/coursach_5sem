@@ -1,802 +1,120 @@
-2022-12-11 00:01:37.795  INFO 12660 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 00:01:37.805  INFO 12660 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 00:01:37.861  INFO 12660 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 00:01:41.893  INFO 6980 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 6980 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 00:01:41.896  INFO 6980 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 00:01:41.962  INFO 6980 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 00:01:41.962  INFO 6980 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 00:01:41.962  INFO 6980 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 00:01:41.962  INFO 6980 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 00:01:43.202  INFO 6980 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 00:01:43.243  INFO 6980 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 0 JPA repository interfaces.
-2022-12-11 00:01:44.935  INFO 6980 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 00:01:44.945  INFO 6980 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 00:01:44.946  INFO 6980 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 00:01:45.086  INFO 6980 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 00:01:45.087  INFO 6980 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3125 ms
-2022-12-11 00:01:45.298  INFO 6980 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 00:01:45.586  INFO 6980 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 00:01:45.633  INFO 6980 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 00:01:45.684  INFO 6980 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 00:01:45.871  INFO 6980 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 00:01:46.010  INFO 6980 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 00:01:46.318  INFO 6980 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 00:01:46.331  INFO 6980 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 00:01:46.399  WARN 6980 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 00:01:46.600  WARN 6980 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+2022-12-19 12:43:06.393  INFO 7996 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 7996 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
+2022-12-19 12:43:06.400  INFO 7996 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-12-19 12:43:06.476  INFO 7996 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
+2022-12-19 12:43:06.477  INFO 7996 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
+2022-12-19 12:43:06.477  INFO 7996 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-19 12:43:06.477  INFO 7996 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-19 12:43:07.292  INFO 7996 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-19 12:43:07.309  INFO 7996 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+2022-12-19 12:43:07.820  INFO 7996 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-19 12:43:07.829  INFO 7996 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-19 12:43:07.830  INFO 7996 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-19 12:43:07.900  INFO 7996 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-19 12:43:07.900  INFO 7996 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1422 ms
+2022-12-19 12:43:08.074  INFO 7996 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-19 12:43:08.394  INFO 7996 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-19 12:43:08.462  INFO 7996 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-19 12:43:08.539  INFO 7996 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
+2022-12-19 12:43:08.705  INFO 7996 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-19 12:43:08.849  INFO 7996 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
+2022-12-19 12:43:09.140  INFO 7996 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-19 12:43:09.148  INFO 7996 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-19 12:43:09.188  WARN 7996 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-19 12:43:09.319  WARN 7996 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 9155badd-fc99-463e-9478-f0f43b75ffee
+Using generated security password: 013d1876-a220-4fb4-8e4d-f1e18767706d
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2022-12-11 00:01:46.695  INFO 6980 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@41c6bb2b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@291ba5af, org.springframework.security.web.context.SecurityContextPersistenceFilter@4fb5c22a, org.springframework.security.web.header.HeaderWriterFilter@5be11e2a, org.springframework.security.web.authentication.logout.LogoutFilter@51e7e322, com.example.javaproject.jwt.CustomAuthorizationFilter@49684805, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4937fd7d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2e96cd87, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2073e314, org.springframework.security.web.session.SessionManagementFilter@6195285f, org.springframework.security.web.access.ExceptionTranslationFilter@780e7959, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5c89aac9]
-2022-12-11 00:01:47.124  INFO 6980 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 00:01:47.197  INFO 6980 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 00:01:47.215  INFO 6980 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 5.919 seconds (JVM running for 8.347)
-2022-12-11 00:01:52.716  INFO 6980 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-11 00:01:52.716  INFO 6980 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-11 00:01:52.718  INFO 6980 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2022-12-11 00:02:14.166 ERROR 6980 --- [http-nio-8080-exec-2] c.e.j.repository.UserRepository          : SQL error delete picture: ORA-20016: collections picture doesnt exist
-ORA-06512: на  "LERA.DELETE_PICTURE_FROM_COLLECTION", line 13
+2022-12-19 12:43:09.419  INFO 7996 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@52d22827, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@707d1de0, org.springframework.security.web.context.SecurityContextPersistenceFilter@556f2ff7, org.springframework.security.web.header.HeaderWriterFilter@3e30bf1, org.springframework.security.web.authentication.logout.LogoutFilter@174bb4dd, com.example.javaproject.jwt.CustomAuthorizationFilter@79f64b0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@45fa3438, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@51778601, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b346294, org.springframework.security.web.session.SessionManagementFilter@baf0113, org.springframework.security.web.access.ExceptionTranslationFilter@753e93bf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5e3aeb20]
+2022-12-19 12:43:09.755  INFO 7996 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-19 12:43:09.791  INFO 7996 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-12-19 12:43:09.801  INFO 7996 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 4.01 seconds (JVM running for 6.24)
+2022-12-19 12:43:20.636  INFO 7996 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-19 12:43:20.636  INFO 7996 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-19 12:43:20.637  INFO 7996 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-12-19 12:56:18.363  INFO 7996 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-19 12:56:18.370  INFO 7996 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-19 12:56:18.488  INFO 7996 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-19 14:39:23.190  INFO 14952 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 14952 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
+2022-12-19 14:39:23.194  INFO 14952 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-12-19 14:39:23.356  INFO 14952 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
+2022-12-19 14:39:23.357  INFO 14952 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
+2022-12-19 14:39:23.358  INFO 14952 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-19 14:39:23.358  INFO 14952 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-19 14:39:25.332  INFO 14952 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-19 14:39:25.381  INFO 14952 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 0 JPA repository interfaces.
+2022-12-19 14:39:26.732  INFO 14952 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-19 14:39:26.776  INFO 14952 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-19 14:39:26.777  INFO 14952 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-19 14:39:26.947  INFO 14952 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-19 14:39:26.948  INFO 14952 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3589 ms
+2022-12-19 14:39:27.348  INFO 14952 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-19 14:39:27.819  INFO 14952 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-19 14:39:27.898  INFO 14952 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-19 14:39:27.999  INFO 14952 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
+2022-12-19 14:39:28.287  INFO 14952 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-19 14:39:28.498  INFO 14952 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
+2022-12-19 14:39:28.958  INFO 14952 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-19 14:39:28.976  INFO 14952 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-19 14:39:29.057  WARN 14952 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-19 14:39:29.322  WARN 14952 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: ffd2037e-12ed-4222-a190-a0d5364b5795
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-12-19 14:39:29.474  INFO 14952 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@529feaa2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5133fc5a, org.springframework.security.web.context.SecurityContextPersistenceFilter@67e2e46c, org.springframework.security.web.header.HeaderWriterFilter@10d2a65e, org.springframework.security.web.authentication.logout.LogoutFilter@2d3edc12, com.example.javaproject.jwt.CustomAuthorizationFilter@64d23f99, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5e6ecfe9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@35249b3e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3887ba88, org.springframework.security.web.session.SessionManagementFilter@b0d7295, org.springframework.security.web.access.ExceptionTranslationFilter@3c51cd1d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@74af7f5b]
+2022-12-19 14:39:30.062  INFO 14952 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-19 14:39:30.127  INFO 14952 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-12-19 14:39:30.149  INFO 14952 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 8.399 seconds (JVM running for 12.711)
+2022-12-19 14:39:44.499  INFO 14952 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-19 14:39:44.500  INFO 14952 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-19 14:39:44.503  INFO 14952 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2022-12-19 14:47:16.815 ERROR 14952 --- [http-nio-8080-exec-1] c.e.j.repository.UserRepository          : ORA-20004: picture already exists
+ORA-06512: на  "LERA.ADD_PICTURE", line 21
 ORA-06512: на  line 1
 
-2022-12-11 00:02:14.167  INFO 6980 --- [http-nio-8080-exec-2] c.e.j.repository.UserRepository          : picture 1 deleted successfully
-2022-12-11 00:02:29.846 ERROR 6980 --- [http-nio-8080-exec-8] c.e.j.repository.UserRepository          : SQL error delete picture: ORA-20016: collections picture doesnt exist
-ORA-06512: на  "LERA.DELETE_PICTURE_FROM_COLLECTION", line 13
-ORA-06512: на  line 1
+2022-12-19 14:48:30.991  INFO 14952 --- [http-nio-8080-exec-4] c.e.j.repository.UserRepository          : user user registered successfully
+2022-12-19 14:51:09.655  INFO 14952 --- [http-nio-8080-exec-9] c.e.j.repository.UserRepository          : user user updated successfully
+2022-12-19 14:54:32.689  INFO 14952 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-19 14:54:32.698  INFO 14952 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-19 14:54:32.751  INFO 14952 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-19 15:00:31.954  INFO 1404 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 1404 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
+2022-12-19 15:00:31.956  INFO 1404 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
+2022-12-19 15:00:32.020  INFO 1404 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
+2022-12-19 15:00:32.020  INFO 1404 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
+2022-12-19 15:00:32.020  INFO 1404 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-12-19 15:00:32.020  INFO 1404 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-12-19 15:00:32.965  INFO 1404 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-19 15:00:32.986  INFO 1404 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
+2022-12-19 15:00:33.660  INFO 1404 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-19 15:00:33.671  INFO 1404 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-19 15:00:33.671  INFO 1404 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-19 15:00:33.764  INFO 1404 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-19 15:00:33.764  INFO 1404 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1743 ms
+2022-12-19 15:00:33.973  INFO 1404 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-19 15:00:34.311  INFO 1404 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-19 15:00:34.366  INFO 1404 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-19 15:00:34.436  INFO 1404 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
+2022-12-19 15:00:34.599  INFO 1404 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-19 15:00:34.723  INFO 1404 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
+2022-12-19 15:00:35.083  INFO 1404 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-19 15:00:35.095  INFO 1404 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-19 15:00:35.154  WARN 1404 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-19 15:00:35.354  WARN 1404 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
 
-2022-12-11 00:02:29.847  INFO 6980 --- [http-nio-8080-exec-8] c.e.j.repository.UserRepository          : picture 1 deleted successfully
-2022-12-11 00:05:27.468 ERROR 6980 --- [http-nio-8080-exec-6] c.e.j.repository.UserRepository          : SQL error delete picture: ORA-20016: collections picture doesnt exist
-ORA-06512: на  "LERA.DELETE_PICTURE_FROM_COLLECTION", line 13
-ORA-06512: на  line 1
-
-2022-12-11 00:05:27.469  INFO 6980 --- [http-nio-8080-exec-6] c.e.j.repository.UserRepository          : picture 2 deleted successfully
-2022-12-11 00:08:59.605  INFO 6980 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 00:08:59.610  INFO 6980 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 00:08:59.668  INFO 6980 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 00:09:04.231  INFO 976 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 976 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 00:09:04.233  INFO 976 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 00:09:04.292  INFO 976 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 00:09:04.292  INFO 976 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 00:09:04.293  INFO 976 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 00:09:04.293  INFO 976 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 00:09:05.110  INFO 976 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 00:09:05.134  INFO 976 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 JPA repository interfaces.
-2022-12-11 00:09:05.821  INFO 976 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 00:09:05.831  INFO 976 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 00:09:05.832  INFO 976 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 00:09:05.934  INFO 976 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 00:09:05.934  INFO 976 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1641 ms
-2022-12-11 00:09:06.133  INFO 976 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 00:09:06.366  INFO 976 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 00:09:06.410  INFO 976 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 00:09:06.459  INFO 976 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 00:09:06.641  INFO 976 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 00:09:06.776  INFO 976 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 00:09:07.070  INFO 976 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 00:09:07.081  INFO 976 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 00:09:07.153  WARN 976 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 00:09:07.332  WARN 976 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 0dafbb33-0085-41ab-9298-1633644111d7
+Using generated security password: 655bf73d-678b-4cdf-a7a2-b591bb45e244
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2022-12-11 00:09:07.439  INFO 976 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@78be1d7a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7110fff4, org.springframework.security.web.context.SecurityContextPersistenceFilter@114d0a06, org.springframework.security.web.header.HeaderWriterFilter@28142ae, org.springframework.security.web.authentication.logout.LogoutFilter@2e61aad2, com.example.javaproject.jwt.CustomAuthorizationFilter@6e49acc3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@38466916, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@419f058d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2c952efa, org.springframework.security.web.session.SessionManagementFilter@55205e18, org.springframework.security.web.access.ExceptionTranslationFilter@3ff851aa, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@346d5c7b]
-2022-12-11 00:09:07.897  INFO 976 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 00:09:07.947  INFO 976 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 00:09:07.965  INFO 976 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 4.257 seconds (JVM running for 5.38)
-2022-12-11 00:10:17.267  INFO 976 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 00:10:17.272  INFO 976 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 00:10:17.314  INFO 976 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 00:10:24.118  INFO 684 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 684 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 00:10:24.120  INFO 684 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 00:10:24.185  INFO 684 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 00:10:24.185  INFO 684 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 00:10:24.185  INFO 684 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 00:10:24.185  INFO 684 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 00:10:25.094  INFO 684 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 00:10:25.116  INFO 684 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
-2022-12-11 00:10:25.779  INFO 684 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 00:10:25.793  INFO 684 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 00:10:25.793  INFO 684 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 00:10:25.975  INFO 684 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 00:10:25.976  INFO 684 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1790 ms
-2022-12-11 00:10:26.182  INFO 684 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 00:10:26.361  INFO 684 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 00:10:26.408  INFO 684 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 00:10:26.453  INFO 684 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 00:10:26.608  INFO 684 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 00:10:26.720  INFO 684 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 00:10:26.975  INFO 684 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 00:10:26.987  INFO 684 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 00:10:27.043  WARN 684 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 00:10:27.205  WARN 684 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 2dad3b8a-8a9e-42ce-a3dc-9caf39347c61
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-11 00:10:27.293  INFO 684 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@336696f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3703fc4a, org.springframework.security.web.context.SecurityContextPersistenceFilter@7e03276d, org.springframework.security.web.header.HeaderWriterFilter@699637c7, org.springframework.security.web.authentication.logout.LogoutFilter@de880d0, com.example.javaproject.jwt.CustomAuthorizationFilter@3cedcb5b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41836e2c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7bf834d6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@15ec2e25, org.springframework.security.web.session.SessionManagementFilter@64db0c3b, org.springframework.security.web.access.ExceptionTranslationFilter@1b424749, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@192e9b49]
-2022-12-11 00:10:27.768  INFO 684 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 00:10:27.822  INFO 684 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 00:10:27.842  INFO 684 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 4.184 seconds (JVM running for 5.045)
-2022-12-11 00:11:33.798  INFO 684 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-11 00:11:33.799  INFO 684 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-11 00:11:33.801  INFO 684 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2022-12-11 00:13:20.328  INFO 684 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 00:13:20.332  INFO 684 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 00:13:20.400  INFO 684 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 00:13:27.368  INFO 9688 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 9688 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 00:13:27.370  INFO 9688 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 00:13:27.422  INFO 9688 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 00:13:27.423  INFO 9688 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 00:13:27.423  INFO 9688 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 00:13:27.423  INFO 9688 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 00:13:28.316  INFO 9688 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 00:13:28.338  INFO 9688 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
-2022-12-11 00:13:28.957  INFO 9688 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 00:13:28.967  INFO 9688 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 00:13:28.967  INFO 9688 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 00:13:29.051  INFO 9688 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 00:13:29.052  INFO 9688 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1628 ms
-2022-12-11 00:13:29.240  INFO 9688 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 00:13:29.430  INFO 9688 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 00:13:29.471  INFO 9688 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 00:13:29.523  INFO 9688 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 00:13:29.671  INFO 9688 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 00:13:29.783  INFO 9688 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 00:13:30.051  INFO 9688 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 00:13:30.062  INFO 9688 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 00:13:30.119  WARN 9688 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 00:13:30.290  WARN 9688 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: d8a8ee4a-8a9e-4075-a908-1a404a44f607
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-11 00:13:30.375  INFO 9688 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@392d25b1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4b30de90, org.springframework.security.web.context.SecurityContextPersistenceFilter@1984e019, org.springframework.security.web.header.HeaderWriterFilter@6f4a62c5, org.springframework.security.web.authentication.logout.LogoutFilter@32e8ac7d, com.example.javaproject.jwt.CustomAuthorizationFilter@6180ee4d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@54ac748a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7d63c72c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4f7a691, org.springframework.security.web.session.SessionManagementFilter@659e4f13, org.springframework.security.web.access.ExceptionTranslationFilter@466d44b0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3ee12b85]
-2022-12-11 00:13:30.770  INFO 9688 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 00:13:30.814  INFO 9688 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 00:13:30.830  INFO 9688 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 3.939 seconds (JVM running for 4.791)
-2022-12-11 00:14:03.925  INFO 9688 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-11 00:14:03.925  INFO 9688 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-11 00:14:03.926  INFO 9688 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-12-11 00:14:04.582 ERROR 9688 --- [http-nio-8080-exec-5] c.e.j.repository.UserRepository          : Набор результатов после последней строки
-2022-12-11 00:16:03.143  INFO 9688 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 00:16:03.148  INFO 9688 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 00:16:03.203  INFO 9688 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 00:16:09.886  INFO 16312 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 16312 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 00:16:09.887  INFO 16312 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 00:16:09.943  INFO 16312 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 00:16:09.954  INFO 16312 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 00:16:09.955  INFO 16312 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 00:16:09.955  INFO 16312 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 00:16:10.793  INFO 16312 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 00:16:10.816  INFO 16312 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 JPA repository interfaces.
-2022-12-11 00:16:11.436  INFO 16312 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 00:16:11.444  INFO 16312 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 00:16:11.445  INFO 16312 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 00:16:11.531  INFO 16312 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 00:16:11.531  INFO 16312 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1575 ms
-2022-12-11 00:16:11.721  INFO 16312 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 00:16:11.908  INFO 16312 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 00:16:11.949  INFO 16312 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 00:16:12.001  INFO 16312 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 00:16:12.148  INFO 16312 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 00:16:12.260  INFO 16312 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 00:16:12.521  INFO 16312 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 00:16:12.532  INFO 16312 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 00:16:12.589  WARN 16312 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 00:16:12.753  WARN 16312 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: df231bba-1192-467c-917b-516209bb4fe5
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-11 00:16:12.836  INFO 16312 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5ce96fe8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@b70be33, org.springframework.security.web.context.SecurityContextPersistenceFilter@fea0ca3, org.springframework.security.web.header.HeaderWriterFilter@340611c9, org.springframework.security.web.authentication.logout.LogoutFilter@59b166d3, com.example.javaproject.jwt.CustomAuthorizationFilter@16e61b70, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@54018d3c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@748801a7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3c155495, org.springframework.security.web.session.SessionManagementFilter@2611d2a5, org.springframework.security.web.access.ExceptionTranslationFilter@5759b2d6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2294e27c]
-2022-12-11 00:16:13.279  INFO 16312 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 00:16:13.323  INFO 16312 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 00:16:13.337  INFO 16312 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 3.883 seconds (JVM running for 4.745)
-2022-12-11 00:16:18.328  INFO 16312 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-11 00:16:18.328  INFO 16312 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-11 00:16:18.330  INFO 16312 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2022-12-11 00:17:33.895  INFO 16312 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 00:17:33.902  INFO 16312 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 00:17:33.990  INFO 16312 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 00:17:41.300  INFO 13512 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 13512 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 00:17:41.302  INFO 13512 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 00:17:41.372  INFO 13512 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 00:17:41.372  INFO 13512 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 00:17:41.372  INFO 13512 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 00:17:41.372  INFO 13512 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 00:17:42.213  INFO 13512 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 00:17:42.235  INFO 13512 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
-2022-12-11 00:17:42.939  INFO 13512 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 00:17:42.949  INFO 13512 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 00:17:42.950  INFO 13512 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 00:17:43.054  INFO 13512 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 00:17:43.054  INFO 13512 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1680 ms
-2022-12-11 00:17:43.313  INFO 13512 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 00:17:43.513  INFO 13512 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 00:17:43.558  INFO 13512 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 00:17:43.608  INFO 13512 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 00:17:43.781  INFO 13512 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 00:17:43.914  INFO 13512 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 00:17:44.212  INFO 13512 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 00:17:44.224  INFO 13512 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 00:17:44.294  WARN 13512 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 00:17:44.523  WARN 13512 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 03d4207b-667f-4aa0-a23d-060974ba6c45
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-11 00:17:44.619  INFO 13512 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@54a75549, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@27781770, org.springframework.security.web.context.SecurityContextPersistenceFilter@1c7a3c98, org.springframework.security.web.header.HeaderWriterFilter@7a67b5ed, org.springframework.security.web.authentication.logout.LogoutFilter@63d7b9e0, com.example.javaproject.jwt.CustomAuthorizationFilter@17cc3164, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21df486e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@23b15c0a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@34f44347, org.springframework.security.web.session.SessionManagementFilter@6a64ffab, org.springframework.security.web.access.ExceptionTranslationFilter@378a4603, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7df68d83]
-2022-12-11 00:17:45.054  INFO 13512 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 00:17:45.103  INFO 13512 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 00:17:45.119  INFO 13512 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 4.355 seconds (JVM running for 5.546)
-2022-12-11 00:17:56.689  INFO 13512 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-11 00:17:56.689  INFO 13512 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-11 00:17:56.691  INFO 13512 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2022-12-11 00:24:32.335  WARN 13512 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m14s944ms893µs400ns).
-2022-12-11 00:24:32.576  INFO 13512 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 00:24:32.587  INFO 13512 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 00:24:32.761  INFO 13512 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 11:23:22.765  INFO 12028 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 12028 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 11:23:22.767  INFO 12028 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 11:23:22.829  INFO 12028 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 11:23:22.829  INFO 12028 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 11:23:22.829  INFO 12028 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 11:23:22.829  INFO 12028 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 11:23:23.569  INFO 12028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 11:23:23.590  INFO 12028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JPA repository interfaces.
-2022-12-11 11:23:24.135  INFO 12028 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 11:23:24.145  INFO 12028 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 11:23:24.146  INFO 12028 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 11:23:24.218  INFO 12028 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 11:23:24.219  INFO 12028 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1389 ms
-2022-12-11 11:23:24.407  INFO 12028 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 11:23:25.122  INFO 12028 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 11:23:25.162  INFO 12028 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 11:23:25.227  INFO 12028 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 11:23:25.372  INFO 12028 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 11:23:25.476  INFO 12028 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 11:23:25.727  INFO 12028 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 11:23:25.736  INFO 12028 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 11:23:25.781  WARN 12028 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 11:23:26.332  WARN 12028 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 3184d825-bfde-4f4f-9a90-ffc9074ec294
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-11 11:23:26.411  INFO 12028 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2a537ab7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@47ca4867, org.springframework.security.web.context.SecurityContextPersistenceFilter@4e272394, org.springframework.security.web.header.HeaderWriterFilter@64095073, org.springframework.security.web.authentication.logout.LogoutFilter@18d99c65, com.example.javaproject.jwt.CustomAuthorizationFilter@6fbd5bed, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2113e8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@42854642, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@29cc9783, org.springframework.security.web.session.SessionManagementFilter@12a42a66, org.springframework.security.web.access.ExceptionTranslationFilter@33fee523, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4fb7ab17]
-2022-12-11 11:23:26.773  INFO 12028 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 11:23:26.812  INFO 12028 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 11:23:26.824  INFO 12028 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 4.454 seconds (JVM running for 5.553)
-2022-12-11 11:23:55.019  INFO 12028 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-11 11:23:55.019  INFO 12028 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-11 11:23:55.020  INFO 12028 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-12-11 11:24:36.641  INFO 12028 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 11:24:36.647  INFO 12028 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 11:24:36.680  INFO 12028 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 11:29:16.616  INFO 5548 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 5548 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 11:29:16.622  INFO 5548 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 11:29:16.669  INFO 5548 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 11:29:16.669  INFO 5548 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 11:29:16.670  INFO 5548 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 11:29:16.670  INFO 5548 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 11:29:17.292  INFO 5548 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 11:29:17.307  INFO 5548 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
-2022-12-11 11:29:17.829  INFO 5548 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 11:29:17.839  INFO 5548 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 11:29:17.840  INFO 5548 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 11:29:17.918  INFO 5548 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 11:29:17.918  INFO 5548 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1248 ms
-2022-12-11 11:29:18.068  INFO 5548 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 11:29:18.302  INFO 5548 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 11:29:18.348  INFO 5548 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 11:29:18.424  INFO 5548 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 11:29:18.571  INFO 5548 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 11:29:18.675  INFO 5548 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 11:29:18.925  INFO 5548 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 11:29:18.933  INFO 5548 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 11:29:18.973  WARN 5548 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 11:29:19.119  WARN 5548 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 9c664fe1-f892-471d-ad18-1136a95fe680
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-11 11:29:19.186  INFO 5548 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@471d0ea8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@53c0eb5, org.springframework.security.web.context.SecurityContextPersistenceFilter@5395af9e, org.springframework.security.web.header.HeaderWriterFilter@19a5fc12, org.springframework.security.web.authentication.logout.LogoutFilter@3080d427, com.example.javaproject.jwt.CustomAuthorizationFilter@4235f0f7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7ff5afb9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@779cd1ae, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@620054c2, org.springframework.security.web.session.SessionManagementFilter@41b26580, org.springframework.security.web.access.ExceptionTranslationFilter@58cfb295, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@177a56a9]
-2022-12-11 11:29:19.492  INFO 5548 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 11:29:19.527  INFO 5548 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 11:29:19.537  INFO 5548 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 3.237 seconds (JVM running for 4.004)
-2022-12-11 11:29:24.394  INFO 5548 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-11 11:29:24.394  INFO 5548 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-11 11:29:24.395  INFO 5548 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-12-11 11:30:27.048  INFO 5548 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 11:30:27.051  INFO 5548 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 11:30:27.090  INFO 5548 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 11:32:27.100  INFO 7204 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 7204 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 11:32:27.101  INFO 7204 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 11:32:27.150  INFO 7204 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 11:32:27.150  INFO 7204 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 11:32:27.150  INFO 7204 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 11:32:27.150  INFO 7204 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 11:32:27.698  INFO 7204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 11:32:27.719  INFO 7204 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 JPA repository interfaces.
-2022-12-11 11:32:28.165  INFO 7204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 11:32:28.171  INFO 7204 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 11:32:28.171  INFO 7204 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 11:32:28.249  INFO 7204 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 11:32:28.250  INFO 7204 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1098 ms
-2022-12-11 11:32:28.391  INFO 7204 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 11:32:28.531  INFO 7204 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 11:32:28.560  INFO 7204 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 11:32:28.596  INFO 7204 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 11:32:28.702  INFO 7204 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 11:32:28.782  INFO 7204 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 11:32:28.976  INFO 7204 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 11:32:28.983  INFO 7204 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 11:32:29.023  WARN 7204 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 11:32:29.139  WARN 7204 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: d9146885-8e7e-49d6-9168-073c0231b78d
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-11 11:32:29.203  INFO 7204 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3ae6f2a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2dc28a31, org.springframework.security.web.context.SecurityContextPersistenceFilter@7821d6b4, org.springframework.security.web.header.HeaderWriterFilter@222fb1e0, org.springframework.security.web.authentication.logout.LogoutFilter@11c6a71e, com.example.javaproject.jwt.CustomAuthorizationFilter@6439937c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4c806d87, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6762504c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@52b3103f, org.springframework.security.web.session.SessionManagementFilter@2e53c9d7, org.springframework.security.web.access.ExceptionTranslationFilter@691050bc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3336512a]
-2022-12-11 11:32:29.489  INFO 7204 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 11:32:29.522  INFO 7204 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 11:32:29.533  INFO 7204 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 2.749 seconds (JVM running for 3.461)
-2022-12-11 11:32:31.436  INFO 7204 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-11 11:32:31.436  INFO 7204 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-11 11:32:31.437  INFO 7204 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-12-11 11:33:44.917  WARN 7204 --- [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<java.util.List<com.example.javaproject.models.Picture>> com.example.javaproject.controllers.PictureController.findPictures(java.lang.String)]
-2022-12-11 11:35:01.411 ERROR 7204 --- [http-nio-8080-exec-4] c.e.j.repository.UserRepository          : SQL error delete author: ORA-02292: нарушено ограничение целостности (LERA.AUTHOR_FK) - обнаружена порожденная запись
-ORA-06512: на  "LERA.DELETE_AUTHOR", line 8
-ORA-06512: на  line 1
-
-2022-12-11 11:35:01.412  INFO 7204 --- [http-nio-8080-exec-4] c.e.j.repository.UserRepository          : author 1 deleted successfully
-2022-12-11 11:38:16.090  INFO 7204 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 11:38:16.092  INFO 7204 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 11:38:16.121  INFO 7204 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 13:19:16.023  INFO 15672 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 15672 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 13:19:16.025  INFO 15672 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 13:19:16.100  INFO 15672 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 13:19:16.100  INFO 15672 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 13:19:16.101  INFO 15672 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 13:19:16.101  INFO 15672 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 13:19:16.926  INFO 15672 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 13:19:16.948  INFO 15672 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 JPA repository interfaces.
-2022-12-11 13:19:17.614  INFO 15672 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 13:19:17.625  INFO 15672 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 13:19:17.625  INFO 15672 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 13:19:17.730  INFO 15672 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 13:19:17.731  INFO 15672 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1628 ms
-2022-12-11 13:19:17.977  INFO 15672 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 13:19:18.254  INFO 15672 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 13:19:18.305  INFO 15672 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 13:19:18.396  INFO 15672 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 13:19:18.598  INFO 15672 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 13:19:18.751  INFO 15672 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 13:19:19.098  INFO 15672 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 13:19:19.110  INFO 15672 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 13:19:19.168  WARN 15672 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 13:19:19.388  WARN 15672 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 6744bc0f-dcd6-41e5-a264-cd182b01f2c7
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-11 13:19:19.505  INFO 15672 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7c959ace, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7dab3b77, org.springframework.security.web.context.SecurityContextPersistenceFilter@596a671c, org.springframework.security.web.header.HeaderWriterFilter@3d02379d, org.springframework.security.web.authentication.logout.LogoutFilter@5185d779, com.example.javaproject.jwt.CustomAuthorizationFilter@3cc7ef1a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5759b2d6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@480ca516, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@39fb2f0b, org.springframework.security.web.session.SessionManagementFilter@51f154e8, org.springframework.security.web.access.ExceptionTranslationFilter@5d489c60, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@763a44a5]
-2022-12-11 13:19:19.918  INFO 15672 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 13:19:20.012  INFO 15672 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 13:19:20.048  INFO 15672 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 4.529 seconds (JVM running for 5.721)
-2022-12-11 13:19:25.815  INFO 15672 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-11 13:19:25.816  INFO 15672 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-11 13:19:25.820  INFO 15672 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2022-12-11 13:40:20.964  INFO 15672 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 13:40:20.968  INFO 15672 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 13:40:21.013  INFO 15672 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 13:40:23.597  INFO 5848 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 5848 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 13:40:23.599  INFO 5848 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 13:40:23.666  INFO 5848 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 13:40:23.666  INFO 5848 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 13:40:23.666  INFO 5848 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 13:40:23.666  INFO 5848 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 13:40:24.482  INFO 5848 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 13:40:24.502  INFO 5848 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JPA repository interfaces.
-2022-12-11 13:40:25.217  INFO 5848 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 13:40:25.227  INFO 5848 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 13:40:25.227  INFO 5848 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 13:40:25.319  INFO 5848 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 13:40:25.319  INFO 5848 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1652 ms
-2022-12-11 13:40:25.527  INFO 5848 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 13:40:25.792  INFO 5848 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 13:40:25.903  INFO 5848 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 13:40:26.001  INFO 5848 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 13:40:26.181  INFO 5848 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 13:40:26.297  INFO 5848 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 13:40:26.631  INFO 5848 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 13:40:26.643  INFO 5848 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 13:40:26.697  WARN 5848 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 13:40:26.935  WARN 5848 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 6340eaa1-d95a-46dc-bb13-165f9f063132
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-11 13:40:27.033  INFO 5848 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@49c2ba4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@200b36eb, org.springframework.security.web.context.SecurityContextPersistenceFilter@21b76234, org.springframework.security.web.header.HeaderWriterFilter@628bf70c, org.springframework.security.web.authentication.logout.LogoutFilter@7a6d4950, com.example.javaproject.jwt.CustomAuthorizationFilter@43432ea7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a383f01, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1787d19d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@21ac2bdc, org.springframework.security.web.session.SessionManagementFilter@53b849f2, org.springframework.security.web.access.ExceptionTranslationFilter@60aeb617, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@23c1baa4]
-2022-12-11 13:40:27.459  INFO 5848 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 13:40:27.512  INFO 5848 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 13:40:27.527  INFO 5848 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 4.361 seconds (JVM running for 5.579)
-2022-12-11 13:40:36.540  INFO 5848 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-11 13:40:36.540  INFO 5848 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-11 13:40:36.542  INFO 5848 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2022-12-11 13:41:06.472  INFO 5848 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 13:41:06.477  INFO 5848 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 13:41:06.519  INFO 5848 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 13:41:10.329  INFO 6720 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 6720 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 13:41:10.330  INFO 6720 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 13:41:10.395  INFO 6720 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 13:41:10.395  INFO 6720 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 13:41:10.395  INFO 6720 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 13:41:10.396  INFO 6720 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 13:41:11.562  INFO 6720 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 13:41:11.588  INFO 6720 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 JPA repository interfaces.
-2022-12-11 13:41:12.394  INFO 6720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 13:41:12.436  INFO 6720 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 13:41:12.437  INFO 6720 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 13:41:12.565  INFO 6720 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 13:41:12.565  INFO 6720 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2169 ms
-2022-12-11 13:41:12.769  INFO 6720 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 13:41:13.377  INFO 6720 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 13:41:13.533  INFO 6720 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 13:41:13.731  INFO 6720 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 13:41:13.945  INFO 6720 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 13:41:14.076  INFO 6720 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 13:41:14.450  INFO 6720 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 13:41:14.462  INFO 6720 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 13:41:14.520  WARN 6720 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 13:41:14.704  WARN 6720 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 31da54f0-0171-4785-a300-9d18c3efe036
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-11 13:41:14.805  INFO 6720 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@336696f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3703fc4a, org.springframework.security.web.context.SecurityContextPersistenceFilter@7e03276d, org.springframework.security.web.header.HeaderWriterFilter@699637c7, org.springframework.security.web.authentication.logout.LogoutFilter@de880d0, com.example.javaproject.jwt.CustomAuthorizationFilter@3cedcb5b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41836e2c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7bf834d6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@15ec2e25, org.springframework.security.web.session.SessionManagementFilter@64db0c3b, org.springframework.security.web.access.ExceptionTranslationFilter@1b424749, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@192e9b49]
-2022-12-11 13:41:15.218  INFO 6720 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 13:41:15.262  INFO 6720 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 13:41:15.277  INFO 6720 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 5.427 seconds (JVM running for 6.432)
-2022-12-11 13:41:21.170  INFO 6720 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-11 13:41:21.170  INFO 6720 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-11 13:41:21.172  INFO 6720 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2022-12-11 13:50:33.843  INFO 6720 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 13:50:33.847  INFO 6720 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 13:50:33.910  INFO 6720 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 13:50:38.303  INFO 13652 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 13652 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 13:50:38.305  INFO 13652 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 13:50:38.377  INFO 13652 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 13:50:38.377  INFO 13652 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 13:50:38.377  INFO 13652 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 13:50:38.378  INFO 13652 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 13:50:39.563  INFO 13652 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 13:50:39.628  INFO 13652 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 0 JPA repository interfaces.
-2022-12-11 13:50:40.453  INFO 13652 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 13:50:40.462  INFO 13652 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 13:50:40.463  INFO 13652 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 13:50:40.554  INFO 13652 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 13:50:40.554  INFO 13652 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2175 ms
-2022-12-11 13:50:40.780  INFO 13652 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 13:50:41.110  INFO 13652 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 13:50:41.153  INFO 13652 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 13:50:41.199  INFO 13652 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 13:50:41.381  INFO 13652 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 13:50:41.487  INFO 13652 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 13:50:41.814  INFO 13652 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 13:50:41.825  INFO 13652 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 13:50:41.917  WARN 13652 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 13:50:42.620  WARN 13652 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: d467a5cd-fa4b-4a9d-89d8-4c06cc6f30bf
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-11 13:50:42.773  INFO 13652 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5b153a75, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5c7770a6, org.springframework.security.web.context.SecurityContextPersistenceFilter@751ed368, org.springframework.security.web.header.HeaderWriterFilter@7153aace, org.springframework.security.web.authentication.logout.LogoutFilter@7d59367b, com.example.javaproject.jwt.CustomAuthorizationFilter@1416df0a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@577b01ca, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1506a0b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@27b6f24a, org.springframework.security.web.session.SessionManagementFilter@4c7555a, org.springframework.security.web.access.ExceptionTranslationFilter@4cdadd3b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5dabcd11]
-2022-12-11 13:50:43.481  INFO 13652 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 13:50:43.535  INFO 13652 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 13:50:43.551  INFO 13652 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 5.752 seconds (JVM running for 7.165)
-2022-12-11 13:50:55.190  INFO 13652 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-11 13:50:55.190  INFO 13652 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-11 13:50:55.193  INFO 13652 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2022-12-11 13:51:14.418 ERROR 13652 --- [http-nio-8080-exec-2] c.e.j.repository.UserRepository          : ORA-20013: user doesnt have any collection
-ORA-06512: на  "LERA.FULL_LIST_USERS_COLLECTIONS", line 9
-ORA-06512: на  line 1
-
-2022-12-11 13:51:14.449 ERROR 13652 --- [http-nio-8080-exec-7] c.e.j.repository.UserRepository          : SQL error categories table: ORA-20013: user doesnt have any collection
-ORA-06512: на  "LERA.LIST_USERS_COLLECTIONS", line 9
-ORA-06512: на  line 1
-
-2022-12-11 13:54:28.526  INFO 13652 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 13:54:28.531  INFO 13652 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 13:54:28.601  INFO 13652 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 13:54:35.944  INFO 5916 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 5916 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 13:54:35.946  INFO 5916 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 13:54:36.061  INFO 5916 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 13:54:36.062  INFO 5916 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 13:54:36.063  INFO 5916 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 13:54:36.063  INFO 5916 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 13:54:37.401  INFO 5916 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 13:54:37.437  INFO 5916 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 0 JPA repository interfaces.
-2022-12-11 13:54:38.799  INFO 5916 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 13:54:38.813  INFO 5916 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 13:54:38.814  INFO 5916 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 13:54:39.027  INFO 5916 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 13:54:39.027  INFO 5916 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2963 ms
-2022-12-11 13:54:39.545  INFO 5916 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 13:54:40.423  INFO 5916 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 13:54:40.514  INFO 5916 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 13:54:40.609  INFO 5916 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 13:54:40.852  INFO 5916 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 13:54:41.076  INFO 5916 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 13:54:41.533  INFO 5916 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 13:54:41.548  INFO 5916 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 13:54:41.640  WARN 5916 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 13:54:42.374  WARN 5916 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 468a0b9e-8484-47f3-aaab-15e43ed0674e
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-11 13:54:42.530  INFO 5916 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7460289a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7b7cb206, org.springframework.security.web.context.SecurityContextPersistenceFilter@5776e075, org.springframework.security.web.header.HeaderWriterFilter@3c5d50ba, org.springframework.security.web.authentication.logout.LogoutFilter@ab253f, com.example.javaproject.jwt.CustomAuthorizationFilter@2b46f8be, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@ec8d830, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2ba1f550, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@51548cba, org.springframework.security.web.session.SessionManagementFilter@7e38e9ed, org.springframework.security.web.access.ExceptionTranslationFilter@38382773, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7c3e55a9]
-2022-12-11 13:54:43.211  INFO 5916 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 13:54:43.277  INFO 5916 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 13:54:43.299  INFO 5916 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 8.181 seconds (JVM running for 11.012)
-2022-12-11 13:54:47.633  INFO 5916 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-11 13:54:47.633  INFO 5916 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-11 13:54:47.634  INFO 5916 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-12-11 13:58:21.826  INFO 5916 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 13:58:21.835  INFO 5916 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 13:58:21.930  INFO 5916 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 13:58:27.282  INFO 7672 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 7672 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 13:58:27.285  INFO 7672 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 13:58:27.405  INFO 7672 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 13:58:27.405  INFO 7672 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 13:58:27.406  INFO 7672 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 13:58:27.406  INFO 7672 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 13:58:28.828  INFO 7672 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 13:58:28.861  INFO 7672 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 JPA repository interfaces.
-2022-12-11 13:58:29.905  INFO 7672 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 13:58:29.922  INFO 7672 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 13:58:29.922  INFO 7672 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 13:58:30.067  INFO 7672 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 13:58:30.067  INFO 7672 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2660 ms
-2022-12-11 13:58:30.413  INFO 7672 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 13:58:30.831  INFO 7672 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 13:58:30.919  INFO 7672 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 13:58:31.046  INFO 7672 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 13:58:31.349  INFO 7672 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 13:58:31.610  INFO 7672 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 13:58:32.119  INFO 7672 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 13:58:32.136  INFO 7672 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 13:58:32.230  WARN 7672 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 13:58:32.748  WARN 7672 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: f52edc0a-6159-4e30-a079-e14f10c1a8a3
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-11 13:58:32.929  INFO 7672 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@26c77304, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3d5932b3, org.springframework.security.web.context.SecurityContextPersistenceFilter@64402cff, org.springframework.security.web.header.HeaderWriterFilter@259c59cf, org.springframework.security.web.authentication.logout.LogoutFilter@f5ce369, com.example.javaproject.jwt.CustomAuthorizationFilter@33c86c48, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@729ac771, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@14fbc072, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4efebef7, org.springframework.security.web.session.SessionManagementFilter@1c766cf6, org.springframework.security.web.access.ExceptionTranslationFilter@42f8e0f3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7b788ede]
-2022-12-11 13:58:33.812  INFO 7672 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 13:58:33.889  INFO 7672 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 13:58:33.912  INFO 7672 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 7.723 seconds (JVM running for 10.556)
-2022-12-11 13:58:43.438  INFO 7672 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-11 13:58:43.439  INFO 7672 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-11 13:58:43.442  INFO 7672 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2022-12-11 14:00:52.678  INFO 7672 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 14:00:52.687  INFO 7672 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 14:00:52.775  INFO 7672 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 14:00:59.556  INFO 12692 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 12692 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 14:00:59.558  INFO 12692 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 14:00:59.650  INFO 12692 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 14:00:59.650  INFO 12692 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 14:00:59.650  INFO 12692 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 14:00:59.651  INFO 12692 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 14:01:00.963  INFO 12692 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 14:01:00.995  INFO 12692 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 JPA repository interfaces.
-2022-12-11 14:01:01.965  INFO 12692 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 14:01:01.979  INFO 12692 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 14:01:01.979  INFO 12692 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 14:01:02.117  INFO 12692 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 14:01:02.118  INFO 12692 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2465 ms
-2022-12-11 14:01:02.401  INFO 12692 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 14:01:02.622  INFO 12692 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 14:01:02.666  INFO 12692 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 14:01:02.710  INFO 12692 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 14:01:02.878  INFO 12692 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 14:01:02.990  INFO 12692 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 14:01:03.249  INFO 12692 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 14:01:03.259  INFO 12692 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 14:01:03.324  WARN 12692 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 14:01:03.487  WARN 12692 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 21d13c63-c5a5-46c5-935f-ba1b6c8b2aa8
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-11 14:01:03.581  INFO 12692 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@23911040, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6c52770, org.springframework.security.web.context.SecurityContextPersistenceFilter@1219d183, org.springframework.security.web.header.HeaderWriterFilter@14f1914e, org.springframework.security.web.authentication.logout.LogoutFilter@3e9fc90a, com.example.javaproject.jwt.CustomAuthorizationFilter@74237d64, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1abcc840, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@46f700d9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@27a8e544, org.springframework.security.web.session.SessionManagementFilter@4c368a9e, org.springframework.security.web.access.ExceptionTranslationFilter@62734d4b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@59df5e73]
-2022-12-11 14:01:03.971  INFO 12692 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 14:01:04.017  INFO 12692 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 14:01:04.032  INFO 12692 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 5.186 seconds (JVM running for 6.866)
-2022-12-11 14:01:10.926  INFO 12692 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-11 14:01:10.927  INFO 12692 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-11 14:01:10.929  INFO 12692 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2022-12-11 14:01:21.066  INFO 12692 --- [http-nio-8080-exec-2] c.e.j.repository.UserRepository          : picture 2 deleted successfully
-2022-12-11 14:41:11.910  WARN 12692 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m39s52ms782µs300ns).
-2022-12-11 14:43:15.771  INFO 12692 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 14:43:15.813  INFO 12692 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 14:43:15.856  INFO 12692 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 14:50:38.658  INFO 7136 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 7136 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 14:50:38.659  INFO 7136 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 14:50:38.724  INFO 7136 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 14:50:38.725  INFO 7136 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 14:50:38.725  INFO 7136 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 14:50:38.725  INFO 7136 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 14:50:39.739  INFO 7136 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 14:50:39.763  INFO 7136 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
-2022-12-11 14:50:40.528  INFO 7136 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 14:50:40.540  INFO 7136 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 14:50:40.541  INFO 7136 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 14:50:40.641  INFO 7136 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 14:50:40.641  INFO 7136 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1914 ms
-2022-12-11 14:50:40.868  INFO 7136 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 14:50:41.110  INFO 7136 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 14:50:41.166  INFO 7136 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 14:50:41.258  INFO 7136 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 14:50:41.459  INFO 7136 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 14:50:41.617  INFO 7136 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 14:50:41.984  INFO 7136 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 14:50:41.996  INFO 7136 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 14:50:42.056  WARN 7136 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 14:50:42.312  WARN 7136 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 3139b7c3-8566-4d2f-b9c5-d6008cc327c8
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-11 14:50:42.456  INFO 7136 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@14207588, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2a975f4, org.springframework.security.web.context.SecurityContextPersistenceFilter@6762504c, org.springframework.security.web.header.HeaderWriterFilter@596a671c, org.springframework.security.web.authentication.logout.LogoutFilter@4a775c8a, com.example.javaproject.jwt.CustomAuthorizationFilter@18b12eac, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2fde1797, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3ae45f7e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@13e894c2, org.springframework.security.web.session.SessionManagementFilter@6b5a8598, org.springframework.security.web.access.ExceptionTranslationFilter@77ab0122, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4e80e64b]
-2022-12-11 14:50:42.873  INFO 7136 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 14:50:42.955  INFO 7136 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 14:50:42.973  INFO 7136 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 4.851 seconds (JVM running for 5.982)
-2022-12-11 14:50:47.186  INFO 7136 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-11 14:50:47.186  INFO 7136 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-11 14:50:47.187  INFO 7136 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-12-11 14:52:21.359  INFO 7136 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 14:52:21.372  INFO 7136 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 14:52:21.570  INFO 7136 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 14:52:26.566  INFO 9544 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 9544 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 14:52:26.567  INFO 9544 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 14:52:26.623  INFO 9544 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 14:52:26.624  INFO 9544 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 14:52:26.624  INFO 9544 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 14:52:26.624  INFO 9544 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 14:52:27.931  INFO 9544 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 14:52:27.964  INFO 9544 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 0 JPA repository interfaces.
-2022-12-11 14:52:28.677  INFO 9544 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 14:52:28.691  INFO 9544 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 14:52:28.691  INFO 9544 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 14:52:28.796  INFO 9544 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 14:52:28.797  INFO 9544 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2172 ms
-2022-12-11 14:52:29.044  INFO 9544 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 14:52:29.326  INFO 9544 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 14:52:29.388  INFO 9544 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 14:52:29.487  INFO 9544 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 14:52:29.733  INFO 9544 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 14:52:29.855  INFO 9544 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 14:52:30.177  INFO 9544 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 14:52:30.188  INFO 9544 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 14:52:30.245  WARN 9544 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 14:52:30.436  WARN 9544 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 044959a4-7b23-4e2a-b525-13b122bcc217
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-11 14:52:30.546  INFO 9544 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@18c3f44, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7ed5286d, org.springframework.security.web.context.SecurityContextPersistenceFilter@10cea13e, org.springframework.security.web.header.HeaderWriterFilter@5df6081f, org.springframework.security.web.authentication.logout.LogoutFilter@13e1f0d7, com.example.javaproject.jwt.CustomAuthorizationFilter@424e3b89, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5753f1f8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5058f412, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1910e0eb, org.springframework.security.web.session.SessionManagementFilter@1c5ec1ee, org.springframework.security.web.access.ExceptionTranslationFilter@1fb5767d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@31f04c7e]
-2022-12-11 14:52:30.981  INFO 9544 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 14:52:31.034  INFO 9544 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 14:52:31.050  INFO 9544 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 5.015 seconds (JVM running for 6.443)
-2022-12-11 14:52:36.418  INFO 9544 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-11 14:52:36.419  INFO 9544 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-11 14:52:36.423  INFO 9544 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2022-12-11 14:53:47.293  INFO 9544 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 14:53:47.298  INFO 9544 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 14:53:47.351  INFO 9544 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 14:53:51.495  INFO 13152 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 13152 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 14:53:51.497  INFO 13152 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 14:53:51.557  INFO 13152 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 14:53:51.557  INFO 13152 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 14:53:51.558  INFO 13152 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 14:53:51.558  INFO 13152 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 14:53:52.460  INFO 13152 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 14:53:52.481  INFO 13152 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
-2022-12-11 14:53:53.110  INFO 13152 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 14:53:53.119  INFO 13152 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 14:53:53.119  INFO 13152 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 14:53:53.206  INFO 13152 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 14:53:53.206  INFO 13152 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1647 ms
-2022-12-11 14:53:53.406  INFO 13152 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 14:53:53.592  INFO 13152 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 14:53:53.633  INFO 13152 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 14:53:53.681  INFO 13152 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 14:53:53.829  INFO 13152 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 14:53:53.946  INFO 13152 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 14:53:54.201  INFO 13152 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 14:53:54.211  INFO 13152 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 14:53:54.265  WARN 13152 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 14:53:54.425  WARN 13152 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: e68b4fa1-1aac-4453-b96c-98da06b3eaa2
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-11 14:53:54.526  INFO 13152 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@592786ba, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@392d25b1, org.springframework.security.web.context.SecurityContextPersistenceFilter@699637c7, org.springframework.security.web.header.HeaderWriterFilter@432ee6d4, org.springframework.security.web.authentication.logout.LogoutFilter@3550dfd4, com.example.javaproject.jwt.CustomAuthorizationFilter@4b30de90, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@ef5d2ed, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4e272394, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6180ee4d, org.springframework.security.web.session.SessionManagementFilter@70a01854, org.springframework.security.web.access.ExceptionTranslationFilter@3419e832, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@278ef34b]
-2022-12-11 14:53:54.957  INFO 13152 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 14:53:55.022  INFO 13152 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 14:53:55.040  INFO 13152 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 4.011 seconds (JVM running for 5.18)
-2022-12-11 14:53:59.587  INFO 13152 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-11 14:53:59.588  INFO 13152 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-11 14:53:59.590  INFO 13152 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2022-12-11 14:55:06.134  INFO 13152 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 14:55:06.139  INFO 13152 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 14:55:06.187  INFO 13152 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-11 14:55:10.329  INFO 8960 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Starting JavaprojectApplication using Java 17.0.2 on DESKTOP-6BQAJ6M with PID 8960 (D:\University\javaproject\target\classes started by Lenovo in D:\University\javaproject)
-2022-12-11 14:55:10.330  INFO 8960 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : No active profile set, falling back to 1 default profile: "default"
-2022-12-11 14:55:10.380  INFO 8960 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.7.0.0\ojdbc8-21.7.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.7.0.0/oraclepki.jar
-2022-12-11 14:55:10.380  INFO 8960 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\Lenovo\.m2\repository\com\oracle\ojdbc\orai18n\19.3.0.0\orai18n-19.3.0.0.jar referenced one or more files that do not exist: file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-mapping.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-utility.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-collation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-translation.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-net.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-servlet.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-lcsd.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/orai18n-tools.jar,file:/C:/Users/Lenovo/.m2/repository/com/oracle/ojdbc/orai18n/19.3.0.0/gdk_custom.jar
-2022-12-11 14:55:10.380  INFO 8960 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-11 14:55:10.380  INFO 8960 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-11 14:55:11.164  INFO 8960 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-11 14:55:11.188  INFO 8960 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 JPA repository interfaces.
-2022-12-11 14:55:11.783  INFO 8960 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-11 14:55:11.792  INFO 8960 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-11 14:55:11.792  INFO 8960 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-11 14:55:11.913  INFO 8960 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-11 14:55:11.913  INFO 8960 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1532 ms
-2022-12-11 14:55:12.110  INFO 8960 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-11 14:55:12.289  INFO 8960 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-11 14:55:12.330  INFO 8960 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-11 14:55:12.375  INFO 8960 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-11 14:55:12.532  INFO 8960 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-11 14:55:12.646  INFO 8960 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.Oracle12cDialect
-2022-12-11 14:55:12.908  INFO 8960 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-11 14:55:12.918  INFO 8960 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 14:55:12.963  WARN 8960 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-11 14:55:13.126  WARN 8960 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 2528a66d-ebb7-4493-bb5c-f20d2d5d7527
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2022-12-11 14:55:13.222  INFO 8960 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7b7cb206, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b46f8be, org.springframework.security.web.context.SecurityContextPersistenceFilter@6eb81cf7, org.springframework.security.web.header.HeaderWriterFilter@67e2f8f2, org.springframework.security.web.authentication.logout.LogoutFilter@7007fc9a, com.example.javaproject.jwt.CustomAuthorizationFilter@51548cba, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@28518c50, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2587433d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@24055af2, org.springframework.security.web.session.SessionManagementFilter@349a8159, org.springframework.security.web.access.ExceptionTranslationFilter@3bbc1b18, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6efcf0b3]
-2022-12-11 14:55:13.592  INFO 8960 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-11 14:55:13.632  INFO 8960 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-11 14:55:13.645  INFO 8960 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 3.738 seconds (JVM running for 5.047)
-2022-12-11 14:55:17.299  INFO 8960 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-11 14:55:17.299  INFO 8960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-11 14:55:17.303  INFO 8960 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2022-12-11 14:55:31.958  INFO 8960 --- [http-nio-8080-exec-9] c.e.j.repository.UserRepository          : collection coll1 deleted successfully
-2022-12-11 14:57:43.425  INFO 8960 --- [http-nio-8080-exec-8] c.e.j.repository.UserRepository          : user email1 deleted successfully
-2022-12-11 14:57:57.531 ERROR 8960 --- [http-nio-8080-exec-10] c.e.j.repository.UserRepository          : SQL error delete user: ORA-20005: user doesnt exist
-ORA-06512: на  "LERA.DELETE_USER", line 10
-ORA-06512: на  line 1
-
-2022-12-11 14:57:57.531  INFO 8960 --- [http-nio-8080-exec-10] c.e.j.repository.UserRepository          : user email1 deleted successfully
-2022-12-11 16:35:25.303  WARN 8960 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=47m42s822ms181µs800ns).
-2022-12-11 17:27:09.817  WARN 8960 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=36m44s492ms754µs600ns).
-2022-12-11 17:40:25.873  INFO 8960 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-11 17:40:25.985  INFO 8960 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-11 17:40:26.007  INFO 8960 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-19 15:00:35.512  INFO 1404 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4c516263, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@395a1ff2, org.springframework.security.web.context.SecurityContextPersistenceFilter@11593aeb, org.springframework.security.web.header.HeaderWriterFilter@5e007aef, org.springframework.security.web.authentication.logout.LogoutFilter@661a9fd9, com.example.javaproject.jwt.CustomAuthorizationFilter@694ca38b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2935ccf5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@72ff4637, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3d37ce02, org.springframework.security.web.session.SessionManagementFilter@de85774, org.springframework.security.web.access.ExceptionTranslationFilter@324f9658, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@9e11456]
+2022-12-19 15:00:35.956  INFO 1404 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-12-19 15:00:36.002  INFO 1404 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-12-19 15:00:36.018  INFO 1404 --- [restartedMain] c.e.javaproject.JavaprojectApplication   : Started JavaprojectApplication in 4.655 seconds (JVM running for 5.808)
+2022-12-19 15:00:40.699  INFO 1404 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-19 15:00:40.699  INFO 1404 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-19 15:00:40.701  INFO 1404 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-12-19 15:04:12.597  INFO 1404 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-19 15:04:12.600  INFO 1404 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-19 15:04:17.617  INFO 1404 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

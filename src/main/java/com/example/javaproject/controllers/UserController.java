@@ -24,7 +24,6 @@ public class UserController {
 
     Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    private final PasswordEncoder passwordEncoder;
     private final JWTProvider jwtProvider;
 
     //    -------------LOGIN + REGISTRATION-------------
@@ -32,8 +31,7 @@ public class UserController {
     private final UserService userService;
 
     @Autowired
-    public UserController(PasswordEncoder passwordEncoder, JWTProvider jwtProvider, UserService userService) {
-        this.passwordEncoder = passwordEncoder;
+    public UserController(JWTProvider jwtProvider, UserService userService) {
         this.jwtProvider = jwtProvider;
         this.userService = userService;
     }

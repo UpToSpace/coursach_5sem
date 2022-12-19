@@ -54,30 +54,38 @@ async function addAuthor() {
     let token = localStorage.getItem("token");
     let authorName = document.getElementById("authorName").value;
     let authorInfo = document.getElementById("authorInfo").value;
-    await fetch("/admin/addauthor", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({name: authorName, info: authorInfo})
-    })
-        .then(res => res.status === 200 ? alert("author added successfully") : alert("smth went wrong"))
+    if (authorName.length != 0 && authorInfo.length != 0) {
+        await fetch("/admin/addauthor", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({name: authorName, info: authorInfo})
+        })
+            .then(res => res.status === 200 ? alert("author added successfully") : alert("smth went wrong"))
+    } else {
+        alert("Please, fill all inputs")
+    }
 }
 
 async function addCategory() {
     let token = localStorage.getItem("token");
     let categoryName = document.getElementById("categoryName").value;
     let categoryInfo = document.getElementById("categoryInfo").value;
-    await fetch("/admin/addcategory", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({name: categoryName, info: categoryInfo})
-    })
-        .then(res => res.status === 200 ? alert("category added successfully") : alert("smth went wrong"))
+    if (categoryName.length != 0 && categoryInfo.length != 0) {
+        await fetch("/admin/addcategory", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({name: categoryName, info: categoryInfo})
+        })
+            .then(res => res.status === 200 ? alert("category added successfully") : alert("smth went wrong"))
+    } else {
+        alert("Please, fill all inputs")
+    }
 }
 
 async function addPicture() {
@@ -90,13 +98,33 @@ async function addPicture() {
     let picturePicture =
         "D:\\University\\javaproject\\src\\main\\resources\\static\\images\\" + document.getElementById("picturePicture").value.split('\\')[2];
     console.log(picturePicture)
-    await fetch("/admin/addpicture", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({name: pictureName, authorName: pictureAuthorName, categoryName: pictureCategoryName, year: pictureYear, info: pictureInfo, picturePath: picturePicture})
-    })
-        .then(res => res.status === 200 ? alert("picture added successfully") : alert("smth went wrong"))
+    if (pictureName.length != 0 &&
+        pictureAuthorName.length != 0 &&
+        pictureCategoryName.length != 0 &&
+        pictureYear.length != 0 &&
+        pictureInfo.length != 0 &&
+        picturePicture.length != 0) {
+        if (!isNaN(pictureYear)) {
+            await fetch("/admin/addpicture", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    name: pictureName,
+                    authorName: pictureAuthorName,
+                    categoryName: pictureCategoryName,
+                    year: pictureYear,
+                    info: pictureInfo,
+                    picturePath: picturePicture
+                })
+            })
+                .then(res => res.status === 200 ? alert("picture added successfully") : alert("smth went wrong"))
+        } else {
+            alert("year must be a number")
+        }
+    } else {
+        alert("Please, fill all inputs")
+    }
 }

@@ -82,8 +82,6 @@ create table collection_pictures (
     constraint picture_fk foreign key (picture_id) references pictures(id) on delete cascade
 );
 
-commit;
-
 select
     *
 from
