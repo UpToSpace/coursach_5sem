@@ -1,0 +1,19 @@
+-----connect + archivelog from noarchivelog
+rman
+connect target /
+shutdown immediate;
+startup mount;
+alter database archivelog;
+alter database open;
+--LIST BACKUP SUMMARY; --show all backups
+--DELETE BACKUP; --delete all backups
+backup database;
+shutdown immediate;
+-----delete db files from oradata/orcl like .dbf .ctl manually
+startup nomount;
+restore controlfile from 'C:\app\l\fast_recovery_area\orcl\AUTOBACKUP\2022_12_01\O1_MF_S_1122300791_KRK6LR1O_.BKP';
+sql 'alter database mount';
+restore database;
+recover database; --if its not only ctl file
+sql 'alter database open resetlogs'; -- if there wasnt recover
+sql 'alter database open'; --if there was recover

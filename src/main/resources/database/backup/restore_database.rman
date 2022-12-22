@@ -1,0 +1,6 @@
+startup mount;
+run{
+restore database;
+recover database;
+}
+sql 'alter database open'; 
